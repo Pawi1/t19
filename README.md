@@ -1,1 +1,1 @@
-# Notatki ze szkoły
+# Notatki z przedmiotu "Podstawy programowania"
