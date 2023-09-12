@@ -1,1 +1,1 @@
-# Zmień branch by zobaczyć notatki z lekcji!
+# Notatki z przedmiotu "Informatyka"
