@@ -1,2 +1,1 @@
-# Programowanie-Obiektowe
-PO w C#
+# zmień branch by zobaczyć notatki z lekcji!
