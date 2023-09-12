@@ -1,0 +1,33 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap'); */
+body{
+    background-color: blueviolet;
+    background-image: url(obrazy/kraj.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+
+p{
+    color: rgb(255, 0, 0);
+    /* background-color: cornflowerblue; */
+        /* font-family: 'Rubik Microbe'; */
+        font-size: 30px;
+        font-style: italic;
+        font-weight: 500;
+        /* font-variant: small-caps; */                
+            text-transform: lowercase;
+            text-decoration: none;
+            text-align: center;
+            text-indent: 1cm;
+        }
+h1{
+    color: white;
+        text-shadow: 2px 4px 8px black; /*x,y,rozmazanie */
+}
+img{
+    border: 5px dashed;
+    border-color: aquamarine tomato lawngreen yellow;
+    border-radius: 25%;
+    
+}

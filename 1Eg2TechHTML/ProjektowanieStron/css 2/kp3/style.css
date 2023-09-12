@@ -1,0 +1,15 @@
+.lorem_list{
+display: flex;
+gap: 15px;
+flex-direction: column;
+}
+.item{
+    border: 1px solid black ;
+    text-align: center;
+    width: 400px;
+    padding: 15px;
+}
+img{
+    width: 200px;
+
+}

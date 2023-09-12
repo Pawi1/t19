@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekomis.pl - Dziękujemy</title>
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="col-fluid text-center m-2"><h1>Autokomis Ekomis.pl</h1></div>
+  <div class="container-fluid">
+    <div class="row mb-3">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary p-2">
+        <div class="form-group">
+          <label for="exampleSelect">Wróć do strony głównej</label><br>
+          <a href="index.html"><button type="button" class="btn btn-primary">Strona główna</button></a>
+        </div>
+      </nav>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <h3 class="text-center">Dziękujemy za zakup!</h3>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Podsumowanie zakupu:</h5>
+            <div id="cena" class="card-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var sumaCen = sessionStorage.getItem('sumaCen');
+
+      if (sumaCen) {
+        document.getElementById('cena').textContent = 'Cena: ' + sumaCen + 'zł';
+      } else {
+        // Jeśli brak sumy cen, przekieruj użytkownika na stronę główną
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+  <script src="bootstrap/jquery-3.6.0.min.js"></script>
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap/popper.min.js"></script>
+  <script src="bootstrap/bootstrap.min.js"></script>
+  <script src="bootstrap/motyw.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+[
+    {
+        "marka":"Volkswagen",
+        "model":"Golf",
+        "rok":"2005",
+        "przebieg":"340 000km",
+        "silnik":"1.6 MPI 102KM",
+        "paliwo":"Benzyna",
+        "cena":"15980",
+        "img":"obrazy/golf.jpg"
+    },
+    {
+        "marka":"Audi",
+        "model":"A4",
+        "rok":"2009",
+        "przebieg":"235 000km",
+        "silnik":"2.0 TDI 140KM",
+        "paliwo":"Diesel",
+        "cena":"30000",
+        "img":"obrazy/a4.jpg"
+    },
+    {
+        "marka":"Opel",
+        "model":"Astra",
+        "rok":"2008",
+        "przebieg":"200 000km",
+        "silnik":"1.7 CDTI 125KM",
+        "paliwo":"Diesel",
+        "cena":"14900",
+        "img":"obrazy/astra.jpg"
+    },
+    {
+        "marka":"Kia",
+        "model":"Ceed",
+        "rok":"2015",
+        "przebieg":"235 600km",
+        "silnik":"1.6 CRDI 115KM",
+        "paliwo":"Diesel",
+        "cena":"15980",
+        "img":"obrazy/ceed.jpg"
+    },
+    {
+        "marka":"Volkswagen",
+        "model":"Passat",
+        "rok":"2000",
+        "przebieg":"356 800km",
+        "silnik":"1.9 TDI 110KM",
+        "paliwo":"Diesel",
+        "cena":"5200",
+        "img":"obrazy/passat.jpg"
+    },    
+    {
+        "marka":"Audi",
+        "model":"A6",
+        "rok":"2012",
+        "przebieg":"172 560km",
+        "silnik":"3.0 TDI 204KM",
+        "paliwo":"Diesel",
+        "cena":"79980",
+        "img":"obrazy/a6.jpg"
+    },
+    {
+        "marka":"Opel",
+        "model":"Vivaro",
+        "rok":"2010",
+        "przebieg":"210 000km",
+        "silnik":"2.0 CDTI 150KM",
+        "paliwo":"Diesel",
+        "cena":"12900",
+        "img":"obrazy/vivaro.jpg"
+    },
+    {
+        "marka":"Kia",
+        "model":"Rio",
+        "rok":"2014",
+        "przebieg":"197 000km",
+        "silnik":"1.4 CRDI 90KM",
+        "paliwo":"Diesel",
+        "cena":"29990",
+        "img":"obrazy/rio.jpg"
+    }
+]

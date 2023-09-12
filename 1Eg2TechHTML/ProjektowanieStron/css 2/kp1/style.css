@@ -1,0 +1,15 @@
+body{
+    background-color: peru;
+    text-align: center;
+    
+}
+img{
+    width: 200px;
+}
+h1{
+    font-size: 50px;
+}
+p{
+    font-size: large;
+    /* color: whitesmoke; */
+}
