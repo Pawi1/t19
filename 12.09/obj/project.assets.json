@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\2EGr2\\.nuget\\packages\\": {}
+    "/home/pawil/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\2EGr2\\Desktop\\Repo\\Programowanie-Obiektowe\\12.09\\12.09.csproj",
+      "projectUniqueName": "/home/pawil/t19/12.09/12.09.csproj",
       "projectName": "12.09",
-      "projectPath": "C:\\Users\\2EGr2\\Desktop\\Repo\\Programowanie-Obiektowe\\12.09\\12.09.csproj",
-      "packagesPath": "C:\\Users\\2EGr2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\2EGr2\\Desktop\\Repo\\Programowanie-Obiektowe\\12.09\\obj\\",
+      "projectPath": "/home/pawil/t19/12.09/12.09.csproj",
+      "packagesPath": "/home/pawil/.nuget/packages/",
+      "outputPath": "/home/pawil/t19/12.09/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\2EGr2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/pawil/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }
