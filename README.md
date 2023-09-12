@@ -1,2 +1,1 @@
-# Programowanie-Obiektowe
-PO w C#
+# Notatki ze szkoły
