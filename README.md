@@ -1,1 +1,1 @@
-# Notatki z przedmiotu "Podstawy programowania"
+# Notatki z przedmiotu "Projektowanie oprogramowania"
