@@ -7,6 +7,13 @@ class Program
         Console.Clear();
         Console.Write("Pierwszy program");
         Console.Write("w języku C#: ");
-        Console.ReadKey();
+        byte i = 10;
+        Console.Write("\nZmianna \"i\" wynosi: {0}",i);
+        // Typy danych:
+        //  byte - int8 bez ujemnych
+        // sbyte - int8
+        // short - int16
+        //   int - int32
+        Console.Write("\n"); Console.ReadKey();
     }
 }
