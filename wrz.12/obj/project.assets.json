@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/pawil/t19/12.09/12.09.csproj",
+      "projectUniqueName": "/home/pawil/t19/wrz.12/12.09.csproj",
       "projectName": "12.09",
-      "projectPath": "/home/pawil/t19/12.09/12.09.csproj",
+      "projectPath": "/home/pawil/t19/wrz.12/12.09.csproj",
       "packagesPath": "/home/pawil/.nuget/packages/",
-      "outputPath": "/home/pawil/t19/12.09/obj/",
+      "outputPath": "/home/pawil/t19/wrz.12/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/pawil/.nuget/NuGet/NuGet.Config"
