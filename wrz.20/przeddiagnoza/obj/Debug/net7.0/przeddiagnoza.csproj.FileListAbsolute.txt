@@ -1,0 +1,15 @@
+/home/pawil/t19/wrz.20/przeddiagnoza/bin/Debug/net7.0/przeddiagnoza
+/home/pawil/t19/wrz.20/przeddiagnoza/bin/Debug/net7.0/przeddiagnoza.deps.json
+/home/pawil/t19/wrz.20/przeddiagnoza/bin/Debug/net7.0/przeddiagnoza.runtimeconfig.json
+/home/pawil/t19/wrz.20/przeddiagnoza/bin/Debug/net7.0/przeddiagnoza.dll
+/home/pawil/t19/wrz.20/przeddiagnoza/bin/Debug/net7.0/przeddiagnoza.pdb
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.csproj.AssemblyReference.cache
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.GeneratedMSBuildEditorConfig.editorconfig
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.AssemblyInfoInputs.cache
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.AssemblyInfo.cs
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.csproj.CoreCompileInputs.cache
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.dll
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/refint/przeddiagnoza.dll
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.pdb
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/przeddiagnoza.genruntimeconfig.cache
+/home/pawil/t19/wrz.20/przeddiagnoza/obj/Debug/net7.0/ref/przeddiagnoza.dll
