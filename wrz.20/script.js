@@ -1,20 +1,48 @@
 function mnozenie(){
-    a = prompt("Podaj a:","");
-    b = prompt("Podaj b:","");
-    alert(`${a}*${b} = ${a*b}`);
+    while(true){
+        a = prompt("Podaj a:","");
+        b = prompt("Podaj b:","");
+        ab =a*b;
+        if(!isNaN(ab)){
+             alert(`${a}*${b} = ${ab}`);
+            break;
+        }
+        alert("Niepoprawne liczby, spróbuj ponownie")
+    }    
 }
 function dzielenie(){
-    a = prompt("Podaj a:","");
-    b = prompt("Podaj b:","");
-    alert(`${a}:${b} = ${a/b}`);
+    while(true){
+        a = prompt("Podaj a:","");
+        b = prompt("Podaj b:","");
+        ab = a/b;
+        if(!isNaN(ab)){
+            alert(`${a}:${b} = ${ab}`);
+            break;
+        }
+        alert("Niepoprawne liczby, spróbuj ponownie")
+    }
 }
 function dodawanie(){
-    a = prompt("Podaj a:","");
-    b = prompt("Podaj b:","");
-    alert(`${a}+${b} = ${a- -b}`);
+    while(true){
+        a = prompt("Podaj a:","");
+        b = prompt("Podaj b:","");
+        ab = a+b;
+        if(!isNaN(ab)){
+            alert(`${a}+${b} = ${ab}`);
+            break;
+        }
+        alert("Niepoprawne liczby, spróbuj ponownie")
+    }
 }
 function odejmanie(){
-    a = prompt("Podaj a:","");
-    b = prompt("Podaj b:","");
-    alert(`${a}-${b} = ${a-b}`);
+    while(true){
+        a = prompt("Podaj a:","");
+        b = prompt("Podaj b:","");
+        ab = a-b;
+        if(!isNaN(ab)){
+            alert(`${a}-${b} = ${ab}`);
+            break;
+        }
+        alert("Niepoprawne liczby, spróbuj ponownie")
+    }
 }
