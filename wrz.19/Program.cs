@@ -1,5 +1,4 @@
-﻿using System;
-namespace wrz._19;
+﻿namespace wrz._19;
 class Program
 {
     static void Main(string[] args)
