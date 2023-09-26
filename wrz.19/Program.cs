@@ -67,8 +67,16 @@ class Program
     //  Console.WriteLine(string.MinValue); // string nie zawiera instrukcji .MaxValue i .MinValue
 
         // Unicode
-        // ╟
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-        Console.WriteLine("╟");
+        Console.WriteLine("♥");
+        Console.WriteLine("\x2665");
+        Console.OutputEncoding = System.Text.Encoding.Default;
+
+     // char c1 = Convert.ToChar(97); // C#
+        char c1 = (char)97;           // java
+        Console.WriteLine(c1);
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("\x03C0"+"r"+"\x00B2");
+        Console.OutputEncoding = System.Text.Encoding.Default;
     }
 }
