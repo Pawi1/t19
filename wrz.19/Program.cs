@@ -50,9 +50,10 @@ class Program
         
         Console.WriteLine(long.MinValue);  //-9223372036854775808
         Console.WriteLine(long.MaxValue);  // 9223372036854775807
+    
+    //  Console.WriteLine(Int128.MinValue);//-170141183460469231731687303715884105728 (Brak w dotnet 8)
+    //  Console.WriteLine(Int128.MaxValue);// 170141183460469231731687303715884105727 (Brak w dotnet 8)
         
-      //Console.WriteLine(Int128.MaxValue);// 170141183460469231731687303715884105727 (Brak w dotnet 8)
-
         Console.WriteLine(float.MinValue); //-3.4028235E+38
         Console.WriteLine(float.MaxValue); // 3.4028235E+38
 
@@ -61,5 +62,13 @@ class Program
 
         Console.WriteLine(decimal.MinValue); //-79228162514264337593543950335
         Console.WriteLine(decimal.MaxValue); // 79228162514264337593543950335
+
+    //  Console.WriteLine(string.MaxValue); // 
+    //  Console.WriteLine(string.MinValue); // string nie zawiera instrukcji .MaxValue i .MinValue
+
+        // Unicode
+        // ╟
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("╟");
     }
 }
