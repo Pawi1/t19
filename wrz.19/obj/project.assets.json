@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/pawil/.nuget/packages/": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/pawil/t19/wrz.19/wrz.19.csproj",
+      "projectUniqueName": "/workspaces/t19/wrz.19/wrz.19.csproj",
       "projectName": "wrz.19",
-      "projectPath": "/home/pawil/t19/wrz.19/wrz.19.csproj",
-      "packagesPath": "/home/pawil/.nuget/packages/",
-      "outputPath": "/home/pawil/t19/wrz.19/obj/",
+      "projectPath": "/workspaces/t19/wrz.19/wrz.19.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/t19/wrz.19/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/pawil/.nuget/NuGet/NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.111/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.306/sdk/7.0.306/RuntimeIdentifierGraph.json"
       }
     }
   }

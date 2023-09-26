@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2+w5CxB3M4SRGBNv0cGpWTqNGijjo3zeAgXc+I2ckqv+QaiENB92V9JhgAtX7UG5o3Sx1Jai8iMWOSGfyC4uJw==",
+  "dgSpecHash": "LW+HCCu46yGYqKolo79zR3/1ar8I408ekjVj4FifFnITDb2ZeWMViK8tQjO9IdsfuZlCqZdpMFQQNWoH292Ntg==",
   "success": true,
-  "projectFilePath": "/home/pawil/t19/wrz.19/wrz.19.csproj",
+  "projectFilePath": "/workspaces/t19/wrz.19/wrz.19.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
