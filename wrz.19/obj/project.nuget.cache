@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LW+HCCu46yGYqKolo79zR3/1ar8I408ekjVj4FifFnITDb2ZeWMViK8tQjO9IdsfuZlCqZdpMFQQNWoH292Ntg==",
+  "dgSpecHash": "CX37l5R0VRlLcgBhvFGXis8vgY9UySl+QvELtQ4IBFanc/T3KAET3K71RTauBEFPg115rLvNgufTPl7J8DXvlQ==",
   "success": true,
-  "projectFilePath": "/workspaces/t19/wrz.19/wrz.19.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/pawil/t19/wrz.19/wrz.19.csproj",
+  "expectedPackageFiles": [
+    "/home/pawil/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.11/microsoft.aspnetcore.app.ref.7.0.11.nupkg.sha512",
+    "/home/pawil/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.11/microsoft.netcore.app.host.linux-x64.7.0.11.nupkg.sha512"
+  ],
   "logs": []
 }
