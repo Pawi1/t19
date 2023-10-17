@@ -3,7 +3,6 @@
 /home/pawil/t19/wrz.19/bin/Debug/net7.0/wrz.19.runtimeconfig.json
 /home/pawil/t19/wrz.19/bin/Debug/net7.0/wrz.19.dll
 /home/pawil/t19/wrz.19/bin/Debug/net7.0/wrz.19.pdb
-/home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.csproj.AssemblyReference.cache
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.GeneratedMSBuildEditorConfig.editorconfig
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.AssemblyInfoInputs.cache
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.AssemblyInfo.cs
@@ -13,3 +12,19 @@
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.pdb
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.genruntimeconfig.cache
 /home/pawil/t19/wrz.19/obj/Debug/net7.0/ref/wrz.19.dll
+/workspaces/t19/wrz.19/bin/Debug/net7.0/wrz.19
+/workspaces/t19/wrz.19/bin/Debug/net7.0/wrz.19.deps.json
+/workspaces/t19/wrz.19/bin/Debug/net7.0/wrz.19.runtimeconfig.json
+/workspaces/t19/wrz.19/bin/Debug/net7.0/wrz.19.dll
+/workspaces/t19/wrz.19/bin/Debug/net7.0/wrz.19.pdb
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.csproj.AssemblyReference.cache
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.AssemblyInfoInputs.cache
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.AssemblyInfo.cs
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.csproj.CoreCompileInputs.cache
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.dll
+/workspaces/t19/wrz.19/obj/Debug/net7.0/refint/wrz.19.dll
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.pdb
+/workspaces/t19/wrz.19/obj/Debug/net7.0/wrz.19.genruntimeconfig.cache
+/workspaces/t19/wrz.19/obj/Debug/net7.0/ref/wrz.19.dll
+/home/pawil/t19/wrz.19/obj/Debug/net7.0/wrz.19.sourcelink.json
