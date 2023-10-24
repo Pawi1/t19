@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paz.24", "paz.24.csproj", "{44670F46-7D9A-4467-A9B6-51B0C6934279}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44670F46-7D9A-4467-A9B6-51B0C6934279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44670F46-7D9A-4467-A9B6-51B0C6934279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44670F46-7D9A-4467-A9B6-51B0C6934279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44670F46-7D9A-4467-A9B6-51B0C6934279}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
