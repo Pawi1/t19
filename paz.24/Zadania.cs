@@ -3,40 +3,46 @@ public class Zadania
 {
     public static void Zadanie1()
     {
-        Start:
-        try
+        while (true)
         {
-            Console.Clear();
-            Console.Write("Podaj dwie liczby\nPodaj a: ");
-            double a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Podaj b: ");
-            double b = Convert.ToDouble(Console.ReadLine());
-            if (b == 0) throw new DivideByZeroException("Próbujesz podzielić przez 0");
-            Console.WriteLine($"Wynik dzielenia {a}/{b} to {a / b:F3}");
+            try
+            {
+                Console.Clear();
+                Console.Write("Podaj dwie liczby które chcesz podzielić\nPodaj a: ");
+                double a = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Podaj b: ");
+                double b = Convert.ToInt32(Console.ReadLine());
+                if (b == 0) throw new DivideByZeroException("Próbujesz podzielić przez 0");
+                Console.Write($"\nWynik dzielenia {a}/{b} to: ");
+                ChangeConsoleColor($"{a / b:F3}",ConsoleColor.Green);
+                break;
+            }
+            catch (FormatException)
+            {
+                ChangeConsoleColor("\nBłąd: Podaj liczbe zmiennoprzecinkową lub całkowitą ...",ConsoleColor.Red);
+                Thread.Sleep(1500);
+            }
+            catch (DivideByZeroException)
+            {
+                ChangeConsoleColor("\nBłąd: Próbujesz dzielić przez 0 ...",ConsoleColor.Red);
+                Thread.Sleep(1500);
+            }
+            catch (OverflowException)
+            {
+                ChangeConsoleColor("\nBłąd: Błędny zakres liczby ...",ConsoleColor.Red);
+                Thread.Sleep(1500);
+            }
+            catch (Exception ex)
+            {
+                ChangeConsoleColor($"\nBłąd: {ex.Message} ...",ConsoleColor.Red);
+                Thread.Sleep(1500);
+            }
         }
-        catch (FormatException)
-        {
-            Console.Write("Błąd: Podaj liczbe zmiennoprzecinkową lub całkowitą ...");
-            Thread.Sleep(1500);
-            goto Start;
-        }
-        catch (DivideByZeroException)
-        {
-            Console.Write("Błąd: Próbujesz dzielić przez 0 ...");
-            Thread.Sleep(1500);
-            goto Start;
-        }
-        catch (OverflowException)
-        {
-            Console.Write("Błąd: Błędny zakres liczby ...");
-            Thread.Sleep(1500);
-            goto Start;
-        }
-        catch (Exception ex)
-        {
-            Console.Write($"Błąd: {ex.Message} ...");
-            Thread.Sleep(1500);
-            goto Start;
-        }
+    }
+    public static void ChangeConsoleColor(string write,ConsoleColor consolecolor)
+    {
+        Console.ForegroundColor = consolecolor;
+        Console.Write(write);
+        Console.ResetColor();
     }
 }
