@@ -11,24 +11,25 @@ public class Zadania
         {
             try
             {
-                Console.Write("Podaj liczbę do spierwiastkowania: ");
+                Console.Write("Podaj liczbę do spierwiastkowania (albo q aby wyjść): ");
                 string rawNumber = Console.ReadLine()??"";
+                if(rawNumber.ToLower() == "q"){Console.WriteLine("Program zostanie wyłączony ..."); break;}
                 if (!int.TryParse(rawNumber, out int number)) throw new FormatException();
                 if (number < 0) throw new ArgumentOutOfRangeException();
                 Console.WriteLine($"Pierwiastek {number} to {Math.Sqrt(number)}");
-                break;
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("Liczba jest ujemna, spróbuj ponownie ...\n");
+                Console.WriteLine("Liczba jest ujemna, spróbuj ponownie ...");
             }
             catch (FormatException)
             {
-                Console.WriteLine("Podany zapis jest niepoprawny, spróbuj ponownie ...\n");
+                Console.WriteLine("Podany zapis jest niepoprawny, spróbuj ponownie ...");
             }
             finally
             {
-                Thread.Sleep(1500);
+                Thread.Sleep(1000);
+                Console.WriteLine();
             }
         }
     }
