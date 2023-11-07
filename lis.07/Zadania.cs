@@ -46,18 +46,35 @@ namespace lis._07
 
     public class DuzeZadanie
     {
-        public static void Main()
+        public static void Zadanie()
         {
             int[] Numbers = new int[5];
-            for (int i = 0; i < 5;)
+            for (int i = 0; i<5;i++)
             {
-                Console.Write($"Podaj {i+1} liczbę: ");
-                GetIntegerFromUser();
+               Numbers[i] = GetIntegerFromUser();
+            }
+            Console.WriteLine($"Suma wynosi: {CalculateSum(Numbers)}");
+        }
+
+        static int GetIntegerFromUser()
+        {
+            while (true)
+            {
+                Console.Write($"Podaj liczbę: ");
+                string input = Console.ReadLine() ?? "";
+                if (int.TryParse(input, out int number))
+                {
+                    return number;
+                }
+                else Console.WriteLine("Spróbuj ponownie...");
             }
         }
-        static void GetIntegerFromUser()
+
+        static int CalculateSum(int[] Numbers)
         {
-            
+            int sum = 0;
+            foreach (int v in Numbers)sum += v;
+            return sum;
         }
     }
 }
