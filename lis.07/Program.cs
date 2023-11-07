@@ -1,2 +1,3 @@
 ﻿using lis._07;
-Zadania.Pre();
+Zadania.Zadanie1();
+DuzeZadanie.Main();
