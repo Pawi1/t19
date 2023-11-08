@@ -19,3 +19,10 @@ function funkcja2()
     if(v=="") alert("Nic nie wybrano");
     else alert(`Masz ochote na: ${v}`);
 }
+function funkcja3() 
+{
+    var s = document.getElementById("ssaki");
+    alert(`Value jest równy: ${s.value}`);
+    alert(`selectedIndex zwraca wartość: ${s.selectedIndex}`);
+    alert(`lenght zwraca wartość ${s.length}`);
+}
