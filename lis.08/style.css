@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#lewyBlok{
+    background-color: #a9f16d;
+    width: 50%;
+    text-align: center;
+}
+#prawyBlok{
+    background-color: #274b70;
+    width: 50%;
+    text-align: center;
+}
+#container{ 
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;   
+    height: 100%;
+}
+form{
+    margin-top: 15%;
+}
+h1{
+    color: #a9f16d;
+    font-size: 100px;
+    margin-top: 15%;
+}
