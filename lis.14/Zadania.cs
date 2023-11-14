@@ -15,9 +15,9 @@ public class Zadanie1
         while (true)
         {
             Console.Write($"Podaj rozmiar tablicy {arrayName}: ");
-            if (!int.TryParse(Console.ReadLine(), out size))
+            if (!int.TryParse(Console.ReadLine(), out size) || size<1)
             {
-                Console.WriteLine("Podano złą wartość");
+                Console.WriteLine("Podano złą wartość! Wartość musi być liczbą większą od 0 ...");
                 continue;
             }
             break;
@@ -32,7 +32,7 @@ public class Zadanie1
             Console.Write($"Podaj wartość [{i+1}/{Array.Table.Length}]: ");
             if (!int.TryParse(Console.ReadLine(), out int temp))
             {
-                Console.WriteLine("Podano złą wartość");
+                Console.WriteLine("Podano złą wartość! Wartość musi być liczbą ...");
                 i--;
                 continue;
             }
