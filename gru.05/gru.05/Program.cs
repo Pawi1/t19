@@ -1,2 +1,2 @@
 ﻿using gru._05;
-Zadania.z1();
+Zadania.z2();
