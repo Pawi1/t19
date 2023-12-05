@@ -1,3 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-Console.WriteLine("Hello, World!");
+﻿using gru._05;
+Zadania.z1();
