@@ -1,0 +1,15 @@
+/home/pawil/t19/gru.13/bin/Debug/net8.0/gru.13
+/home/pawil/t19/gru.13/bin/Debug/net8.0/gru.13.deps.json
+/home/pawil/t19/gru.13/bin/Debug/net8.0/gru.13.runtimeconfig.json
+/home/pawil/t19/gru.13/bin/Debug/net8.0/gru.13.dll
+/home/pawil/t19/gru.13/bin/Debug/net8.0/gru.13.pdb
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.GeneratedMSBuildEditorConfig.editorconfig
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.AssemblyInfoInputs.cache
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.AssemblyInfo.cs
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.csproj.CoreCompileInputs.cache
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.sourcelink.json
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.dll
+/home/pawil/t19/gru.13/obj/Debug/net8.0/refint/gru.13.dll
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.pdb
+/home/pawil/t19/gru.13/obj/Debug/net8.0/gru.13.genruntimeconfig.cache
+/home/pawil/t19/gru.13/obj/Debug/net8.0/ref/gru.13.dll

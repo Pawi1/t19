@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "u4+l5FLNPc6kOHurXl5/cvX1TIWgkz9OVKwlYK7UJJpK4kG+ceB0EdKMlbBD/ecro/uWnBEqAK2ygb9hSU22Dg==",
+  "success": true,
+  "projectFilePath": "/home/pawil/t19/gru.13/gru.13.csproj",
+  "expectedPackageFiles": [
+    "/home/pawil/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.0/microsoft.aspnetcore.app.ref.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

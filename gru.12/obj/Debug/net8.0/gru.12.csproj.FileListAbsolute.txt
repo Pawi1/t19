@@ -1,0 +1,15 @@
+/home/pawil/t19/gru.12/bin/Debug/net8.0/gru.12
+/home/pawil/t19/gru.12/bin/Debug/net8.0/gru.12.deps.json
+/home/pawil/t19/gru.12/bin/Debug/net8.0/gru.12.runtimeconfig.json
+/home/pawil/t19/gru.12/bin/Debug/net8.0/gru.12.dll
+/home/pawil/t19/gru.12/bin/Debug/net8.0/gru.12.pdb
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.GeneratedMSBuildEditorConfig.editorconfig
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.AssemblyInfoInputs.cache
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.AssemblyInfo.cs
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.csproj.CoreCompileInputs.cache
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.sourcelink.json
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.dll
+/home/pawil/t19/gru.12/obj/Debug/net8.0/refint/gru.12.dll
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.pdb
+/home/pawil/t19/gru.12/obj/Debug/net8.0/gru.12.genruntimeconfig.cache
+/home/pawil/t19/gru.12/obj/Debug/net8.0/ref/gru.12.dll
