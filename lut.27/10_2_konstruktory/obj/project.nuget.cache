@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SI6wA0ao1+oYc4wj8K37Hf0ZThJYvQ/HRYyN3SbN3M+caYsjiwbYhLajpKZMfnDVcoO4H+OoqbNf1QwrU27FEg==",
+  "success": true,
+  "projectFilePath": "/home/pawil/Desktop/t19/lut.27/10_2_konstruktory/10_2_konstruktory.csproj",
+  "expectedPackageFiles": [
+    "/home/pawil/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
