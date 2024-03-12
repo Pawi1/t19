@@ -126,7 +126,19 @@ class Program
             {
                 Console.Clear();
                 Console.WriteLine("--- Usuwanie Zwierzęcia ---");
-                Console.Write("\nNacisnij dowolny przycisk by kontynuować…");
+                Console.Write("1. Podaj numer zwierzęcia którego chcesz usunąć: ");
+                int choice = int.Parse(Console.ReadLine()??"");
+                Console.Write("\nCzy jesteś pewien że chcesz dodać to zwierze? (TAK/nie): ");
+                string choice2 = (Console.ReadLine()??"").ToLower();
+                if(choice2 == "tak" || choice2 == "t" || choice2 == "")
+                    {
+                        animals.RemoveAt(choice);
+                        Console.Write("\nPomyślnie usunięto zwierze, naciśnij dowolny przycisk by kontynuować…");
+                    }
+                else
+                    {
+                        Console.Write("\nPorzucono usuwanie zwierzęcia, naciśnij dowolny przycisk by kontynuować…");
+                    }
                 Console.ReadLine();
             }
 }
