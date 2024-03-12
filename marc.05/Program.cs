@@ -49,12 +49,12 @@ class Program
                 Console.Write("\t2. Podaj date urodzenia zwierzęcia (RRRR-MM-DD): ");
                 DateTime birthDate = DateTime.Parse(Console.ReadLine()??"");
                 Console.Write("\t3. Czy jest ssakiem? (tak/nie): ");
-                bool isMamal = Console.ReadLine().ToLower() == "tak";
+                bool isMamal = (Console.ReadLine()??"").ToLower() == "tak";
                 Console.Write("\t4. Podaj rodzaj zwierzęcia (Ptak,Ryba,Gad,Płaz,Ssak): ");
                 Kind kind = (Kind)Enum.Parse(typeof(Kind),Console.ReadLine()??"");
                 Animal animal = new(name,birthDate,isMamal,kind);
                 Console.Write("\nCzy jesteś pewien że chcesz dodać to zwierze? (tak/nie): ");
-                if(Console.ReadLine().ToLower() == "tak")
+                if((Console.ReadLine()??"").ToLower() == "tak")
                     {
                         animals.Add(animal);
                         Console.Write("\nPomyślnie dodano nowe zwierze, naciśnij dowolny przycisk by kontynuować…");
