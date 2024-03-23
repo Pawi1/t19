@@ -16,18 +16,14 @@ class Program
         
                 for (int i = 0;i<k;i++)
                     {
-                        Console.Write("Podaj połączenie (x-y): ");
-                        string[] j = (Console.ReadLine()??"").Split("-");
+                        Console.Write("Podaj połączenie (x y): ");
+                        string[] j = (Console.ReadLine()??"").Split(" ");
                         G[int.Parse(j[0])].Add(int.Parse(j[1]));
                     }
+                
                 foreach (var item in G)
                     {
-                        Console.Write(item.Key + " - ");
-                        foreach (var item1 in item.Value)
-                            {
-                                Console.Write(item1 + " ");
-                            }
-                        Console.WriteLine();
+                        Console.WriteLine(item.Key + " - "+ string.Join(" ",item.Value));
                     }
             // obliczenie sumy wierzcholków grafu
                 
