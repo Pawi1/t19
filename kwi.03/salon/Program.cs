@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace salon;
+﻿namespace salon;
 class Lokal 
 {
     public string? Adres { get;set; }
@@ -25,13 +23,13 @@ class SalonUrody
     {
         Lokal = lokal;
     }
-    public void DodajPracownika( List<Pracownik> pracownicy)
+    public void DodajPracownika(Pracownik pracownicy)
     {
-        Pracownicy = pracownicy;
+       Pracownicy?.Add(pracownicy);
     }
-    public void DodajWyposzarzenie(List<Sprzet> wyposarzenie)
+    public void DodajWyposzarzenie(Sprzet wyposarzenie)
     {
-        Wyposarzenie = wyposarzenie;
+        Wyposarzenie?.Add(wyposarzenie);
     }
 }
 class Program
@@ -44,24 +42,22 @@ class Program
             NumerTelefonu = "*48 123-123-213",
             Stawka = 2138.40
         };
-        Kosmetyczka kosmetyczka = new ();
-        Fryzjerka fryzjerka = new();
-        Manikjurzystka manikjurzystka = new();
-        List<Pracownik> pracownicy = new()
-        {
-            kosmetyczka,
-            fryzjerka,
-            manikjurzystka
-        };
-        List<Sprzet> wyposarzenie = new()
-        {
-            new Plyn(),
-            new Suszarka(),
-            new Grzebien()
-        };
-        SalonUrody salonUrody = new();
+        var salonUrody = new SalonUrody();
         salonUrody.SetLokal(lokal);
-        salonUrody.DodajWyposzarzenie(wyposarzenie);
-        salonUrody.DodajPracownika(pracownicy);
+        
+        var kosmetyczka = new Kosmetyczka();
+        salonUrody.DodajPracownika(kosmetyczka);
+        var fryzjerka = new Fryzjerka();
+        salonUrody.DodajPracownika(fryzjerka);
+        var manikjurzystka = new Manikjurzystka();
+        salonUrody.DodajPracownika(manikjurzystka);
+        
+        var plyn = new Plyn();
+        salonUrody.DodajWyposzarzenie(plyn);
+        var suszarka = new Suszarka();
+        salonUrody.DodajWyposzarzenie(suszarka);
+        var grzebien = new Grzebien();
+        salonUrody.DodajWyposzarzenie(grzebien);
+       
     }
 }
