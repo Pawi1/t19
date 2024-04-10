@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gameAi", "gameAi.csproj", "{C6AC49C6-695F-49AA-B764-4F221E680CDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6AC49C6-695F-49AA-B764-4F221E680CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AC49C6-695F-49AA-B764-4F221E680CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AC49C6-695F-49AA-B764-4F221E680CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AC49C6-695F-49AA-B764-4F221E680CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65540C24-BD88-44F8-94CD-BC0BF1E53A2A}
+	EndGlobalSection
+EndGlobal
