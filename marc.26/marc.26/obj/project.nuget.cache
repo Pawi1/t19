@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lPlwJEcaOwKCPpH6jP8RKnqLcrT31g74aPNH0VdXl199KFX2qZqrXFD/HdPU9Bt0x+lqQYP2eVpx/gVZd2Y5Lg==",
+  "dgSpecHash": "/ASXVnSEIx4Ai9GqRVTq0lP09OQOLYsxm/w1VQ+MBZMMaudwWi6PIHUpg7Z9CC5uXeczB1dNhHLcvqbkntJmhA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\marc.26\\marc.26\\marc.26.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/pawil/programowanie-obiektowe/marc.26/marc.26/marc.26.csproj",
+  "expectedPackageFiles": [
+    "/home/pawil/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.4/microsoft.aspnetcore.app.ref.8.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

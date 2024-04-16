@@ -1,7 +1,4 @@
-﻿using System.Data;
-using System.Dynamic;
-
-namespace marc._26;
+﻿namespace marc._26;
 public enum FuelType
 {
     Benzyna,
