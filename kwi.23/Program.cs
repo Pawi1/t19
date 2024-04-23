@@ -6,12 +6,30 @@ class Program
     {
         public string Brand { get; set; } = "???";
         public string Model { get; set; } = "???";
+        public double Fuel { get; private set; }
         public virtual void StartEngine()
         {
-            Console.WriteLine($"Silnik od pojazdu: {Brand} {Model} został uruchomiony…");
+            Console.WriteLine($"Silnik pojazdu: {Brand} {Model} został uruchomiony…");
+        }
+        public virtual void StopEngine()
+        {
+            Console.WriteLine($"Silnik pojazdu: {Brand} {Model} został zatrzymany…");
         }
     }
-    public class Car : Vehicle { }
+    public class Car : Vehicle
+    {
+        public sbyte NumberOfDoors { get; set; }
+        public override void StartEngine()
+        {
+            //base.StartEngine();
+            Console.WriteLine($"Silnik samochodu: {Brand} {Model} został uruchomiony…");
+        }
+        public override void StopEngine()
+        {
+            //base.StopEngine();
+            Console.WriteLine($"Silnik samochodu: {Brand} {Model} został zatrzymany…");
+        }
+    }
     static void Main(string[] args)
     {
         Vehicle vehicle = new();
@@ -22,5 +40,5 @@ class Program
         car.Brand = "Fiat";
         Console.WriteLine(car.Brand);
         car.StartEngine();
-        }
+    }
 }
