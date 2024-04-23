@@ -4,8 +4,8 @@ class Program
 {
     public class Vehicle
     {
-        public string? Brand { get; set; }
-        public string? Model { get; set; }
+        public string Brand { get; set; } = "???";
+        public string Model { get; set; } = "???";
         public virtual void StartEngine()
         {
             Console.WriteLine($"Silnik od pojazdu: {Brand} {Model} został uruchomiony…");
@@ -22,6 +22,5 @@ class Program
         car.Brand = "Fiat";
         Console.WriteLine(car.Brand);
         car.StartEngine();
-        Console.ReadKey();
-    }
+        }
 }
