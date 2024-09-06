@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figury SVG</title>
+</head>
+<body bgcolor="gray">
+    <form>
+        Podaj kolor:<input type="color" id="kolor"><br>
+        Podaj kształt: 
+        <select id="ksztalt" >
+            <option value="Koło">Koło</option>
+            <option value="Trójkąt">Trójkąt</option>
+            <option value="Kwadrat">Kwadrat</option>
+        </select><br>
+        Podaj ilość: <input type="number" id="ilosc" min="1" max="99" value="1"><br>
+        <input type="button" value="Wyślij" onclick="rysuj()">
+    </form>
+    <div id="rysunek">
+
+    </div>
+    <script>
+        function rysuj()
+        {
+            var kolor = document.getElementById("kolor").value;
+            var ilosc = document.getElementById("ilosc").value;
+            var ksztalt = document.getElementById("ksztalt").value;
+            console.log(kolor,ksztalt,ilosc);
+            switch(ksztalt)
+            {
+                case "Koło": document.getElementById("rysunek").innerHTML = '<svg width="600" height="220" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="'+kolor+'"/></svg>';
+                break;
+                case "Trójkąt": document.getElementById("rysunek").innerHTML = '<svg width="600" height="220" xmlns="http://www.w3.org/2000/svg"><polygon points="50,10 0,190 100,190" fill="'+kolor+'"/></svg>';
+                break;
+                case "Kwadrat": document.getElementById("rysunek").innerHTML = '<svg width="600" height="220" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="'+kolor+'"/></svg>';
+                break;
+            }
+                // document.getElementById("rysunek").innerHTML = "";
+
+        }
+    </script>
+</body>
+</html>
