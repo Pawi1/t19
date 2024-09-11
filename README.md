@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Notatki z przedmiotu "Programowanie obiektowe"
 ## Wybierz branch aby przeglądać notatki z danego przedmiotu
 
