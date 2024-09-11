@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Notatki z przedmiotu "Projektowanie aplikacji internetowych"
 ## Wybierz branch aby przeglądać notatki z danego przedmiotu
 
