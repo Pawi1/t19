@@ -1,3 +1,4 @@
+# Notatki z lekcji z lat 2022/2023, 2023/2024, 2024/2025
 ## Wybierz branch aby przeglądać notatki z danego przedmiotu
 
 ## [Informatyka](https://github.com/Pawi1/t19/tree/informatyka)
