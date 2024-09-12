@@ -1,3 +1,4 @@
+'''Lekcja dzielniki'''
 '''Napisz program, który sprawdzi, czy liczba całkowita dodatnia n podana przez użytkownika dzieli się
 przez 2 i wyświetli jeden z komunikatów „Tak”, „Nie”.'''
 
@@ -69,7 +70,15 @@ Program wyświetli jeden z komunikatów „tak” lub „nie”. Przykładowe li
 6 = 1+2+3
 28 = 1+2+4+7+14
 '''
-
+n = int(input('6. Podaj n: '))
+suma = 0
+for i in range(1,n):
+    if n % i == 0
+        suma += i
+if suma == n:
+    print('Tak')
+else:
+    print('Nie')
 '''Napisz program, który sprawdzi, czy liczby całkowite dodatnie a i b podane przez użytkownika są liczbami zaprzyjaźnionymi. 
 Liczby całkowite dodatnie a i b są liczbami zaprzyjaźnionymi,  jeżeli są różne oraz suma dzielników właściwych liczby a jest równa liczbie b 
 oraz suma dzielników właściwych liczby b jest równa liczbie a. Program wyświetli jeden z komunikatów „tak” lub „nie”. Przykłady liczb zaprzyjaźnionych:

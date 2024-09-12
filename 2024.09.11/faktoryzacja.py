@@ -75,10 +75,26 @@ print(czyPierwsza(suma))
 Zadanie 4
 Napisz program, który wyświetli liczbę różnych czynników pierwszych liczby n podanej przez użytkownika.
 Np. liczba 100 = 2*2*5*5, czyli ma cztery czynniki pierwsze ale tylko dwa różne 2 i 5. Czyli dla liczby n=100 program powinien wyświetlić 2.
+'''
+n = int(input('4. Podaj n: '))
+czynnik = 2
+lista = []
+while n > 1:
+    while n % czynnik == 0:
+        flag = True
+        for j in lista: 
+            if j == czynnik:
+               flag = False 
+        if flag:
+            lista.append(czynnik)
+        n = n // czynnik
+    czynnik += 1
+print(len(lista))
+'''
 Zadanie 5
 Napisz program, który sprawdzi, czy liczba naturalna n>1 podana przez użytkownika jest liczbą Smitha.
-https://pl.wikipedia.org/wiki/Liczba_Smitha
 Wskazówka:
+https://pl.wikipedia.org/wiki/Liczba_Smitha
 Przykład: cyfry liczby 123
 123 mod 10 = 3
 123 div 10 = 12
@@ -93,5 +109,23 @@ n - liczba całkowita dodatnia
 Wyniki:
 suma cyfr liczby n w systemie dziesiętnym
 '''
-
-
+n = int(input('5. Podaj n: '))
+czynnik = 2
+lista = []
+while n > 1:
+    while n % czynnik == 0:
+        flag = True
+        for j in lista: 
+            if j == czynnik:
+               flag = False 
+        if flag:
+            lista.append(czynnik)
+        n = n // czynnik
+    czynnik += 1
+suma = 0
+for i in str(n):
+    suma += i
+if suma == len(lista):
+    print('Tak')
+else:
+    print('Nie')
