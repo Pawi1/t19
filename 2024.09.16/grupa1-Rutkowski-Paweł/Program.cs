@@ -1,4 +1,4 @@
-﻿namespace _2024._09._16;
+﻿namespace grupa1_Rutkowski_Paweł;
 
 class Program
 {
