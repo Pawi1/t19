@@ -109,23 +109,31 @@ n - liczba całkowita dodatnia
 Wyniki:
 suma cyfr liczby n w systemie dziesiętnym
 '''
+def czyZlozona(n):
+    if n<2:
+        return False
+    for i in range(2,n//2):
+        if n % i == 0:
+            return True
+    return False
+
+def sumaCyfy(n):
+    suma = 0
+    while n > 0:
+        suma += n % 10
+        n //= 10
+    return n
+def sumaCyfrCzynnikow(n):
+    suma = 0
+    czynnik = 2
+    while n>1:
+        while n % czynnik == 0:
+            suma += sumaCyfy(czynnik)
+            n //= czynnik
+        czynnik += 1
+    return suma
 n = int(input('5. Podaj n: '))
-czynnik = 2
-lista = []
-while n > 1:
-    while n % czynnik == 0:
-        flag = True
-        for j in lista: 
-            if j == czynnik:
-               flag = False 
-        if flag:
-            lista.append(czynnik)
-        n = n // czynnik
-    czynnik += 1
-suma = 0
-for i in str(n):
-    suma += i
-if suma == len(lista):
+if czyZlozona(n) and sumaCyfy(n) == sumaCyfrCzynnikow(n):
     print('Tak')
 else:
     print('Nie')
