@@ -1,0 +1,11 @@
+td{
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.3vw; /* Dynamiczny rozmiar fontu */
+}
+button{
+    cursor: pointer;
+}
+body{
+    background-color: bisque;
+}
