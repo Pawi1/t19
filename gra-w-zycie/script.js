@@ -19,3 +19,7 @@ $('#board').append(generateBoard(cols, rows));
 $("td").on("click", function() {$(this).html($(this).html() == "■"?"□":"■");});
 // Funkcja do obsługi przycisku czyszczenia (bez przywrócenia tego co było przed odpaleniem symulacji)
 $("#bt-clear").on("click", function() {$("td").html("□");});
+// function find()
+// {
+
+// }
