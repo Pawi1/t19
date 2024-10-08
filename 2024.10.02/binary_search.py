@@ -53,12 +53,48 @@ def giveFromUserInts() -> list:
     return ints
 
 
-a = int(input("Zadanie 1: Podaj a:"))
-if binarySearch(giveFromUserInts(), a):
-    print("tak")
-else:
-    print("nie")
+# a = int(input("Zadanie 1: Podaj a:"))
+# if binarySearch(giveFromUserInts(), a):
+#    print("tak")
+# else:
+#    print("nie")
 """
 Zadanie 2.
 Wykonaj zadanie 1 wykorzystując wyszukiwanie binarne w wersji rekurencyjnej.
 """
+
+
+def binarySearchreku(T: list, a: int, left: int = 0, right: int = -1) -> bool:
+    if right == -1:
+        right = len(T) - 1
+    if left > right:
+        return False
+    middle = (left + right) // 2
+
+    if T[middle] == a:
+        return True
+    elif T[middle] < a:
+        return binarySearchreku(T, a, middle + 1, right)
+    else:
+        return binarySearchreku(T, a, left, middle - 1)
+
+
+# a = int(input("Zadanie 2: Podaj a:"))
+# if binarySearchreku(giveFromUserInts(), a):
+#    print("tak")
+# else:
+#    print("nie")
+"""
+Zadanie 3.
+Napisz program, który wyświetli na standardowym wyjściu te ciągi liczbowe z pliku ciagi.txt, 
+które zawierają liczbę 10. Wykorzystaj wyszukiwanie binarne. 
+W pliku ciagi.txt każdy wiersz zawiera jeden ciąg liczb całkowitych rozdzielonych spacjami.
+"""
+file = open("ciagi.txt")
+sequences = map(str, file.read().split("\n"))
+file.close()
+
+for sequence in sequences:
+    if sequence == "":
+        break
+    print(map(list, sequence))
