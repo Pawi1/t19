@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace zadania
 {
-    internal class Sort
+    public class Sort
     {
-        List<int> BubbleSort(List<int> listToSort)
+        static public List<int> BubbleSort(List<int> listToSort)
         {
             bool swapped;
             do
@@ -28,7 +28,7 @@ namespace zadania
             } while (swapped);
             return listToSort;
         }
-        List<int> QuickSortLomuto(List<int> listToSort)
+        static public List<int> QuickSortLomuto(List<int> listToSort)
         {
             if (listToSort.Count <= 1)
             {
@@ -54,11 +54,11 @@ namespace zadania
 
             return sortedList;
         }
-        List<int> QuickSortHoare(List<int> listToSort)
+        static public List<int> QuickSortHoare(List<int> listToSort)
         {
             if (listToSort.Count <= 1)
             {
-                return listToSort; // Jeśli lista ma 0 lub 1 element, jest już posortowana
+                return listToSort;
             }
 
             int pivot = listToSort[0];
@@ -76,14 +76,20 @@ namespace zadania
                     greater.Add(listToSort[i]);
                 }
             }
-
-            // Rekurencyjne wywołanie QuickSort dla mniejszych i większych elementów
-            List<int> sortedList = new List<int>();
-            sortedList.AddRange(QuickSortHoare(less));
-            sortedList.Add(pivot);
-            sortedList.AddRange(QuickSortHoare(greater));
+            List<int> sortedList = [.. QuickSortHoare(less), pivot, .. QuickSortHoare(greater)];
 
             return sortedList;
+        }
+    }
+    public class Draw
+    {
+        static public List<int> RandomList(int numberOfNumbers = 5)
+        {
+            var random = new Random();
+            var randomList = new List<int>();
+            for (int i = 0; i < numberOfNumbers; i++)
+                randomList.Add(random.Next(10,99));
+            return randomList;
         }
     }
 }
