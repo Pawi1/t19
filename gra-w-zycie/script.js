@@ -41,11 +41,39 @@ function findNeighbour(id)
         ro = 3
         ce = 12
     */
-    let clu = Math.floor();
-    let cmu;
-    let cru;
-    let clm;
-    let crm;
-    let cld;
-    let crd;
+    let cr = Math.floor(id/rows); // w którym wierszu
+    let cc = Math.floor(id%cels); // w której kolumnie
+    let cmu = cr > 0;
+    let clm = cc > 0;
+    let crm = cc < cells;
+    let cmd = cr > rows;
+    
+    let clu = cmu && clm;
+    let cru = cmu && crm;
+    let cld = clm && cmd;
+    let crd = cmd && crm;
+    return clu?isLive(id-1-cols):0 + cmu?isLive(id-clos):0 + cru?isLive(id+1-cols):0 + clm?isLive(id-1):0 + crm?isLive(id+1):0 + cld?isLive(id-1+cols):0 + cmd?isLive(id+cols):0 + crd?isLive(id+1+cols):0
 }
+function isLive(id)
+{
+    return $(id).html() == "■"?1:0;
+}
+function lifeStatus(id)
+{
+    if($(id).html() == "■" && (findNeighbour(id) != 2    || findNeighbour(id) != 3))
+    {
+        $(id).html("□")
+    }
+    else if ($(id).html() == "□" && findNeighbour(id) == 3)
+    {
+        $(id).html("■")
+    }
+}
+function turn()
+{
+    for(let i = 0; i<cells; i++)
+    {
+        lifeStatus(i);
+    }
+}
+$("#bt-one").on("click",turn);
