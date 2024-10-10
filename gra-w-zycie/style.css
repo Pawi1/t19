@@ -1,3 +1,6 @@
+h2{
+    margin-top: 0px;
+}
 td{
     cursor: pointer;
     user-select: none;
