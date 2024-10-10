@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Zegar</title>
+<head>
+<body>
+  <svg width="300px" height="300px">
+  <!-- tarcza zegara - koło -->
+  <circle cx="150" cy="150" r="135" stroke-width="12" stroke="black" fill="white"></circle>
+  <!-- 3 punkty godzin: 0 - większy, 5 i 10 - mniejsze -->
+  <g id="trzy">
+    <rect x="145" y="15" width="10" height="25"></rect>
+    <rect x="145" y="15" width="10" height="15" transform="rotate(30,150,150)"></rect>
+    <rect x="145" y="15" width="10" height="15" transform="rotate(60,150,150)"></rect>
+  </g>
+  <!-- 12 punktów na tarczy -->
+  <use xlink:href="#trzy"></use>
+  <use xlink:href="#trzy" transform="rotate(90,150,150)"></use>
+  <use xlink:href="#trzy" transform="rotate(180,150,150)"></use>
+  <use xlink:href="#trzy" transform="rotate(270,150,150)"></use>
+  <!-- kropka na środku -->
+  <circle cx="150" cy="150" r="7" stroke-width="2" stroke="black" fill="white"></circle>
+  <circle cx="150" cy="150" r="6" stroke-width="2" stroke="white" fill="black"></circle>
+
+<defs>
+  <g id="WSKsek">
+    <rect x="148" y="30" height="145" width="4" fill="red"></rect>
+    <circle cx="150" cy="15" r="3" fill="red"></circle>
+  </g>
+  <g id="WSKmin">
+    <rect x="146" y="35" height="140" width="8" fill="black"></rect>
+    <circle cx="150" cy="15" r="5" stroke-width="2" stroke="black" fill="white"></circle>
+  </g>
+  <g id="WSKgod">
+    <rect x="145" y="65" height="110" width="10" fill="black"></rect>
+    <circle cx="150" cy="15" r="8" stroke-width="2" stroke="black" fill="white"></circle>
+  </g>
+</defs>
+  
+  <use xlink:href="#WSKgod" transform="rotate(251,150,150)" id="GOD"></use>
+<use xlink:href="#WSKmin" transform="rotate(133.1,150,150)" id="MIN"></use>
+<use xlink:href="#WSKsek" id="SEK" transform="rotate(69.19200000000001,150,150)"></use>
+
+</svg>
+
+<script>
+  //zmienne do obiektów wskazówek
+  var Wsek=SEK;
+  var Wmin=MIN;
+  var Wgod=GOD;
+  //zmienne sterujące animacją
+  var skok = 10;
+  var czas;
+function animacja() {
+  //zmienne przechowujące czas
+  var date = new Date();
+  var Dsek = date.getSeconds();
+  var Dmin = date.getMinutes();
+  var Dgod = date.getHours() % 12;
+  //obracanie obiektów wskazówek
+//  Wsek.setAttribute('transform','rotate('+(Dsek * 6)+',150,150)');
+//  Wmin.setAttribute('transform','rotate('+(Dmin * 6)+',150,150)');
+//  Wgod.setAttribute('transform','rotate('+(Dgod * 30)+',150,150)');
+
+var Dmil = date.getMilliseconds();
+//sekundowa zmienia się co 10 milisekund
+Wsek.setAttribute('transform','rotate('+(Dsek * 6 + Dmil * 6/1000)+',150,150)');
+//minutowa zmienia się co 1 sekundę
+Wmin.setAttribute('transform','rotate('+(Dmin * 6 + Dsek * 6/60)+',150,150)');
+//godzinowa zmienia się co 1 minutę
+Wgod.setAttribute('transform','rotate('+(Dgod * 30 + Dmin * 6/12)+',150,150)');
+
+  //rekurencyjne wywołanie kolejnych animacji  
+  clearTimeout(czas);
+  czas = setTimeout(animacja, skok); 
+}
+animacja();
+</script>
+</body>
+</html>
