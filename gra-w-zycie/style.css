@@ -1,7 +1,7 @@
 td{
     cursor: pointer;
     user-select: none;
-    font-size: 1vw;
+    font-size: 1.3vw;
     color: #45475a;
 }
 td:hover
@@ -42,8 +42,6 @@ button:disabled
 button:disabled:hover
 {
     background-color: #1e1e2e;
-    border: #313244 1px solid;
-    cursor: no-drop;
 }
 button:hover
 {
@@ -54,6 +52,10 @@ button:hover
     background-color: #f38ba8;
     color: #4c4f69;
     border: #313244 1px solid;
+}
+#bt-clear:hover:disabled{
+    background-color: #1e1e2e;
+    color: #cdd6f4;
 }
 .running{
     background-color: #a6e3a1;
