@@ -4,7 +4,7 @@ const cells = cols * rows; // Liczba komórek (x*y)
 const live = "■";
 const dead = "□";
 let isOn = false; // Czy symulacja jest uruchomiona
-let speed = $("#input-speed").val()
+let speed = $("#input-speed").html($(this).val());
 
 // Funkcja do stworzenia tabeli z planszą
 function generateBoard(cols, rows) {
