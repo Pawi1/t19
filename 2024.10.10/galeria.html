@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        img {
+            border: 1px black solid;
+            border-radius: 5%;
+            width: 400px;
+            height: 200px;
+            transition: opacity 0.3s;
+        }
+        img:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Galeria</h2>
+    <div id="zdjecie"><img id="photo" src="./photos/0.jpg"></div>
+    <button type="button" id="previous">Poprzednie</button>
+    <button type="button" id="next">Następne</button>
+    <script>
+        let id = 0;
+        const numberOfPhotos = 7;
+        let big = false;
+
+        document.getElementById("next").addEventListener("click", displayNextPhoto);
+        document.getElementById("previous").addEventListener("click", displayPreviousPhoto);
+        document.getElementById("photo").addEventListener("click", bigPhoto);
+
+        function displayNextPhoto() {
+            if (id < numberOfPhotos - 1) {
+                id++;
+            } else {
+                id = 0;
+            }
+            updatePhoto();
+        }
+
+        function displayPreviousPhoto() {
+            if (id > 0) {
+                id--;
+            } else {
+                id = numberOfPhotos - 1;
+            }
+            updatePhoto();
+        }
+
+        function updatePhoto() {
+            const photoElement = document.getElementById("photo");
+            photoElement.src = "./photos/" + id + ".jpg";
+            photoElement.style.width = big ? "800px" : "400px";
+            photoElement.style.height = big ? "400px" : "200px";
+        }
+
+        function bigPhoto() {
+            big = !big;
+            updatePhoto();
+        }
+    </script>
+</body>
+</html>
