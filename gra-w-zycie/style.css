@@ -7,16 +7,10 @@ td{
     font-size: 1.3vw;
     color: #45475a;
 }
-td:hover
-{
-    color: #cdd6f4;
-}
 body{
     background-color: #1e1e2e;
     color: #cdd6f4;
     text-align: center;
-    width: 50%;
-    margin: 0 auto;
     font-family: sans-serif;
 }
 table{
@@ -42,34 +36,42 @@ button:disabled
     border: #313244 1px solid;
     cursor: no-drop;
 }
-button:disabled:hover
-{
-    background-color: #1e1e2e;
-}
-button:hover
-{
-    background-color: #585b70;
-    border: #313244 1px solid;
-}
-#bt-clear:hover{
-    background-color: #f38ba8;
-    color: #4c4f69;
-    border: #313244 1px solid;
-}
-#bt-clear:hover:disabled{
-    background-color: #1e1e2e;
-    color: #cdd6f4;
-}
+
 .running{
     background-color: #a6e3a1;
     color: #4c4f69;
     border: #313244 1px solid;
 }
-.running:hover{
-    background-color: #f38ba8;
-    color: #4c4f69;
-    border: #313244 1px solid;
-}
 .life{
     color: #89dceb;
+}
+@media (min-width: 768px) {
+    .running:hover{
+        background-color: #f38ba8;
+        color: #4c4f69;
+        border: #313244 1px solid;
+    }
+    button:hover
+    {
+        background-color: #585b70;
+        border: #313244 1px solid;
+    }
+    #bt-clear:hover{
+        background-color: #f38ba8;
+        color: #4c4f69;
+        border: #313244 1px solid;
+    }
+    #bt-clear:hover:disabled{
+        background-color: #1e1e2e;
+        color: #cdd6f4;
+    }
+    button:disabled:hover{
+        background-color: #1e1e2e;
+        border: #313244 1px solid;
+        cursor: no-drop;
+    }
+    td:hover
+    {
+        color: #cdd6f4;
+    }
 }
