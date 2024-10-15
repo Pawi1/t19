@@ -129,7 +129,16 @@ Wyniki:
 Wartość Prawda, gdy a należy do tablicy T, Fałsz w przeciwnym przypadku
 """
 """pseudocode
-
+funkcja wyszukiwanie_binarne(T,a,n):
+    lewy ← 1
+    prawy ← n
+    dopóki lewy < prawy wykonuj:
+        środek ← (lewy + prawy) div 2
+        jeżeli T[środek] < a to:
+            lewy ← środek + 1
+        w przeciwnym wypadku:
+            prawy ← środek
+    zwróć T[lewy] = a i zakończ
 """
 """
 Zadanie 6.
@@ -138,4 +147,28 @@ Wylosuj pierwszą liczbę z przedziału od 1 do 10, a każdą następną dodają
 Następnie sprawdź, czy wśród wylosowanych liczb jest liczba 1 500 000, zapisując w pliku zadanie4.txt jeden z komunikatów „tak” lub „nie” 
 w zależności od tego, czy ta liczba jest, czy nie jest wśród wylosowanych. Ponadto wyświetl w nowej linii liczbę porównań z liczbą 1 500 000.
 """
-# from random import randint
+from random import randint
+
+sequence = []
+sequence.append(randint(1, 10))
+for i in range(1, 1000000):
+    sequence.append(sequence[i - 1] + randint(1, 3))
+if binarySearch(sequence, 1500000):
+    print("tak")
+else:
+    print("nie")
+
+"""
+Zadanie 7.
+Egzamin
+"""
+n = 10
+A = [0,5,99,3,7,111,13,4,24,4,8]
+i = 1
+w = 0
+while i <= n:
+    if A[i] % 2 == 0:
+        w = A[i]
+        break
+    i = i + 1
+print(w)
