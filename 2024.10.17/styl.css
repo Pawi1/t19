@@ -2,6 +2,7 @@ body
 {
     background-color: #EEEEEE;
     font-family: Helvetica, sans-serif;
+    margin: 0px;
 }
 #kontener
 {
@@ -15,15 +16,21 @@ header
     height: 100px;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
 }
 #logo
 {
     width: 50%;
+    display: inline-block;
 }
 #baner
 {
     background-color: #DDDDDD;
     height: 200px;
+}
+#links
+{
+    display: inline-block;
 }
 article
 {
@@ -45,4 +52,17 @@ a
     text-decoration: none;
     margin: 10px;
     padding: 5px;
+}
+a:hover
+{
+    text-decoration: solid 1px navy;
+}
+button
+{
+    background-color: lightblue;
+    color: navy;
+}
+wynik
+{
+    color: navy;
 }
