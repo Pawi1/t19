@@ -89,3 +89,28 @@ with open("slowa.txt") as file:
     for line in file:
         if line[0] == "A":
             print(line)
+
+"""
+Zadanie 7.
+Napisz program, który:
+zapisze w pliku losowe_w_linii.txt 20 liczb losowych z zakresu od 1 do 10 w jednej linii rozdzielone spacją (po ostatniej liczbie powinien być znak nowej linii).
+wyświetli liczby, które występują najczęściej
+"""
+with open("losowe_w_linii.txt", "w") as file:
+    from random import randint
+
+    for i in range(20):
+        file.write(str(randint(1, 10)) + " ")
+with open("losowe_w_linii.txt") as file:
+    freq: list[int] = list(0 for _ in range(10))
+    for i in range(10):
+        for number in file:
+            if number == i:
+                freq[i] += 1
+    max: int = -1
+    max_number: int = -1
+    for i in range(10):
+        if freq[i] > max:
+            max_number = freq[i]
+    print(file.readlines())
+    print("Najczęstszą liczbą jest: " + str(max_number))
