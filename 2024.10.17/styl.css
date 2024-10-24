@@ -55,7 +55,7 @@ a
 }
 a:hover
 {
-    text-decoration: solid 1px navy;
+    border: solid 1px navy;
 }
 button
 {
