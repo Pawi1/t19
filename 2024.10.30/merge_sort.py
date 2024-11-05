@@ -8,7 +8,6 @@ Napisz program, który wczyta z klawiatury ciąg liczb rozdzielonych spacjami, a
 następnie posortuje ten ciąg za pomocą algorytmu przedstawionego w przykładzie i wyświetli po posortowaniu.
 """
 sequence: list[int] = [int(i) for i in input("Podaj ciąg liczb: ").split()]
-
 help_list: list[int] = [0] * len(sequence)
 
 
@@ -48,3 +47,34 @@ def sort(t_list: list[int], left: int, right: int):
 
 sort(sequence, 0, len(sequence) - 1)
 print(sequence)
+"""
+Zadanie 2.
+Napisz program w języku Python, który wczyta dwa uporządkowane niemalejąco ciągi liczb całkowitych, rozdzielonych spacją z pliku ciagi.txt.
+Następnie program wyświetli oraz zapisze do pliku winiki_2.txt ciąg liczb rozdzielonych spacjami, uporządkowany niemalejąco, składający się 
+z liczb obu wczytanych ciągów. Nie musisz wykorzystywać pseudokodu z przykładu.
+"""
+def merge2(list1:list[int],list2:list[int]) -> list[int]:
+    output_list:list[int] = []
+    i:int = 0
+    j:int = 0
+    len_list1:int = len(list1)
+    len_list2:int = len(list2)
+    while i < len_list1 and j < len_list2:
+        if list1[i] < list2[j]:
+            output_list.append(list1[i])
+            i += 1
+        else:
+            output_list.append(list2[j])
+            j += 1
+    output_list.extend(list1[i:])
+    output_list.extend(list2[j:])
+    return output_list
+def sort2(input_list:list[int]) -> list[int]:
+    len_list = len(input_list)
+    if len_list > 1:
+        middle:int = (len_list-1) // 2
+        left:list[int] = sort2(input_list[:middle+1])
+        right:list[int] = sort2(input_list[middle+1:])
+        return merge2(left,right)
+    return input_list
+
