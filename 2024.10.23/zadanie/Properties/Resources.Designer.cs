@@ -83,6 +83,16 @@ namespace zadanie.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1zl {
+            get {
+                object obj = ResourceManager.GetObject("1zl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _200zl {
             get {
                 object obj = ResourceManager.GetObject("200zl", resourceCulture);
@@ -103,9 +113,29 @@ namespace zadanie.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2zl {
+            get {
+                object obj = ResourceManager.GetObject("2zl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _50zl {
             get {
                 object obj = ResourceManager.GetObject("50zl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5zl {
+            get {
+                object obj = ResourceManager.GetObject("5zl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
