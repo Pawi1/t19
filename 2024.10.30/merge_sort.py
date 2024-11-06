@@ -78,3 +78,24 @@ def sort2(input_list:list[int]) -> list[int]:
         return merge2(left,right)
     return input_list
 
+lists:list[list[int]] = []
+with open('ciagi.txt', 'r') as file:
+    for line in file:
+        lists.append(list(map(int,line.rstrip().split())))
+with open('wyniki_2.txt','w') as file:
+    file.write(' '.join(map(str,merge2(lists[0],lists[1]))))
+"""
+Zadanie 3.
+Napisz program w języku Python, który wylosuje milion liczb
+z zakresu od 1 do miliona, a następnie program zapisze ten ciąg posortowany 
+metodą sortowania przez scalanie do pliku wyniki_3.txt (liczby w osobnych liniach).
+"""
+with open('wyniki_3.txt','w') as file: 
+    from random import randint
+    sequence:list[int] = [randint(1,1000000) for _ in range(1,1000000)]
+    help_list: list[int] = [0] * len(sequence)
+    sort(sequence,0,len(sequence)-1)
+    file.write('\n'.join(map(str,sequence)))
+"""
+Zadanie 4.
+"""
