@@ -1,0 +1,5 @@
+Metody numeryczne - prostokaty i trapezy (mozliwe inne figury np trojkaty i romby)
+Metoda bisekcji (stopowania ilością kroków lub przedziałem)
+alg newtona (stopowania ilością kroków lub przedziałem)
+wyszukiwanie lidera w liscie
+metoda monte carlo (wyszukiwanie wartosci pi)
