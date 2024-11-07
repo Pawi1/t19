@@ -11,6 +11,11 @@
         <input type="text" name="tekst" id="tekst">
         <button type="submit">Przetwórz</button>
     </form>
-    <p id="output"><?php echo $_GET["tekst"] ?></p>
+    <p id="output">
+        <?php 
+            $tekst = $_GET["tekst"];
+            echo $tekst
+        ?>
+    </p>
 </body>
 </html>
