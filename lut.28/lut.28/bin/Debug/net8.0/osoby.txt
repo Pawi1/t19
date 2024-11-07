@@ -1,5 +1,0 @@
-Bartosz;Nowak;43
-Radosław;Barski;45
-Andrzej;Szulta;56
-Joanna;Zakolska;42
-Mirek;Szyper;39
