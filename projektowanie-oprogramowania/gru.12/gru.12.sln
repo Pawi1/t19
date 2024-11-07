@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gru.12", "gru.12.csproj", "{777F800A-20BE-40FE-9D39-8D95DD418B6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{777F800A-20BE-40FE-9D39-8D95DD418B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777F800A-20BE-40FE-9D39-8D95DD418B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777F800A-20BE-40FE-9D39-8D95DD418B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777F800A-20BE-40FE-9D39-8D95DD418B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
