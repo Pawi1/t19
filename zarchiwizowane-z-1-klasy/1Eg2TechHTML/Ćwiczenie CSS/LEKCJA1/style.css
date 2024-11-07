@@ -1,0 +1,26 @@
+body{
+    background: #5D6D7E;
+    height: 200vh;
+}
+.contener{
+    background: #85929E;
+}
+.contener div {
+    margin: 5px;
+    width: 500px;
+}
+.jest{
+    background-color: #58D68D;
+    height: 100px;
+    position: absolute;
+
+    bottom: 10px;
+}
+.prze{
+    background: #E75239;
+    height: 200px;
+}
+.gwizdane{
+    background: #3498DB;
+    height: 200px;
+}

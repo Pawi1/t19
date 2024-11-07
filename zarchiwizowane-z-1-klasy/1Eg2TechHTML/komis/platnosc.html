@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekomis.pl - Płatność</title>
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="col-fluid text-center m-2"><h1>Autokomis Ekomis.pl</h1></div>
+    <div class="container-fluid">
+        <div class="row mb-3">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary p-2">
+            <div class="form-group">
+                <label for="exampleSelect">Wróć do strony głównej</label><br>
+                <a class="btn btn-primary" href="index.html" role="button">Powrót</a>
+              </div>
+          </nav>
+        </div>
+    </div> 
+    <div class="container">
+        <div class="row gy-4">
+        <div class="col-6">
+            
+            <div class="col-8 p-3 border border-bottom-0"><img src="" alt="null" id="img" class="rounded img-fluid"></div>
+            <div class="col-8 border border-top-0 p-3 m-u-3">            
+                <br>
+                <h4 id="marka"></h4>
+                <h4 id="model"></h4>
+                <h4 id="rok"></h4>
+                <h4 id="przebieg"></h4>
+                <h4 id="silnik"></h4>
+                <h4 id="paliwo"></h4>
+                <br>
+                <h3 id="cena"></h3>
+            </div>
+        </div>
+            <div class="col-6 p-3">
+                <form id="platnoscForm">
+                    <div class="form-group">
+                      <label for="imie">Imię:</label>
+                      <input type="text" class="form-control" id="imie" required placeholder="Wpisz twoje imie...">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="nazwisko">Nazwisko:</label>
+                      <input type="text" class="form-control" id="nazwisko" required placeholder="Wpisz twoje nazwisko...">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="miasto">Odbiór:</label>
+                        <input type="text" class="form-control" id="miasto" required placeholder="Wpisz miejsce odbioru wpisz twój adres lub Komis...">
+                      </div>
+                      <br>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcje" id="opcja1" value="leasing" checked>
+                        <label class="form-check-label" for="opcja1">
+                          Leasing
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="opcje" id="opcja2" value="gotowka">
+                        <label class="form-check-label" for="opcja2">
+                          Gotówka
+                        </label>
+                      </div>
+                      <br>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox1" data-koszt="2000">
+                        <label class="form-check-label" for="checkbox1">
+                          Pakiet opon markowych na lato/zima +2000zł
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox2" data-koszt="1500">
+                        <label class="form-check-label" for="checkbox2">
+                          Gwarancja na 3 lata +1500zł
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox3" data-koszt="500">
+                        <label class="form-check-label" for="checkbox3">
+                          Przegląd + drobne naprawy +500zł
+                        </label>
+                      </div>
+                      <br>
+                    <button type="submit" class="btn btn-primary" id="kup">Kup</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="bootstrap/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/bootstrap.bundle.min.js"></script>
+<script src="bootstrap/popper.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script src="bootstrap/motyw.js"></script>
+<script src="platnosc.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var sumaCen = sessionStorage.getItem('sumaCen');
+
+  if (sumaCen) {
+    document.getElementById('cena').textContent = 'Cena: ' + sumaCen + 'zł';
+  } else {
+    // Jeśli brak sumy cen, przekieruj użytkownika na stronę główną
+    window.location.href = 'index.html';
+  }
+
+  var platnoscForm = document.getElementById('platnoscForm');
+  platnoscForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var imie = document.getElementById('imie').value;
+    var nazwisko = document.getElementById('nazwisko').value;
+    var miasto = document.getElementById('miasto').value;
+    var opcja = document.querySelector('input[name="opcje"]:checked').value;
+    var checkbox1 = document.getElementById('checkbox1').checked;
+    var checkbox2 = document.getElementById('checkbox2').checked;
+    var checkbox3 = document.getElementById('checkbox3').checked;
+
+    // Tutaj możesz wykonać żądanie AJAX, wysłać dane na serwer itp.
+
+    // Przekieruj użytkownika na stronę "dziekujemy.html"
+    window.location.href = 'dziekujemy.html';
+
+    // Wyczyść zawartość pól formularza
+    document.getElementById('imie').value = '';
+    document.getElementById('nazwisko').value = '';
+    document.getElementById('miasto').value = '';
+  });
+});
+
+</script>
+</body>
+</html>
