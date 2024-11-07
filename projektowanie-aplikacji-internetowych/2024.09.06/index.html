@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figury SVG</title>
+</head>
+<body style="color: white; background-color: #7D7D7D;">
+    <form>
+        Podaj kolor:<input type="color" id="kolor"><br>
+        Podaj kształt: 
+        <select id="ksztalt" >
+            <option value="Koło">Koło</option>
+            <option value="Trójkąt">Trójkąt</option>
+            <option value="Kwadrat">Kwadrat</option>
+        </select><br>
+        Podaj ilość: <input type="number" id="ilosc" min="1" max="99" value="1"><br>
+        Podaj obrót: <input type="number" id="obrot" min="1" max="360" value="0">°<br>
+        <input type="button" value="Wyślij" onclick="rysuj()">
+        <input type="button" value="Wyczyść" onclick="wyczusc()">
+        <input type="button" value="Enter" onclick="enter()">
+    </form>
+    <div id="rysunek">
+
+    </div>
+    <script>
+        function rysuj()
+        {
+            var kolor = document.getElementById("kolor").value;
+            var ilosc = document.getElementById("ilosc").value;
+            var ksztalt = document.getElementById("ksztalt").value;
+            var obrot = document.getElementById("obrot").value;
+            console.log(kolor,ksztalt,ilosc,obrot);
+            for (let i = 0;i<ilosc;i++)
+            {
+                switch(ksztalt)
+                {
+                  case "Koło": 
+                        document.getElementById("rysunek").innerHTML += '<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="'+kolor+'"/></svg>';
+                  break;
+                  case "Trójkąt": 
+                        document.getElementById("rysunek").innerHTML += '<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,0 0,100 100,100" fill="'+kolor+'" transform="rotate('+obrot+',50,50)" /></svg>';
+                  break;
+                  case "Kwadrat": 
+                        document.getElementById("rysunek").innerHTML += '<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"> <rect width="100" height="100" x="0" y="0" fill="'+kolor+'" transform="rotate('+obrot+',50,50)" /></svg>';
+                  break;
+                  
+                }
+            }    
+        }
+        function wyczusc()
+        {
+            document.getElementById("rysunek").innerHTML = '';
+        }
+        function enter()
+        {
+            document.getElementById("rysunek").innerHTML += '<br>';
+        }
+    </script>
+</body>
+</html>

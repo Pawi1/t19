@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma IT</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="shortcut icon" href="it.png" type="image/x-icon">
+</head>
+<body>
+    <div id="kontener">
+        <header>
+            <div id="logo">
+                <img src="it.png" alt="firma it"> 
+            </div>
+            <div id="links">
+                <a href="index.html">Strona główna</a>
+                <a href="uslugi.html">Usługi</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+        </header>
+    <div id="baner">
+        <img src="animacja.gif" alt="Usługi informatyczne">
+    </div>
+    <article>
+        <table>
+            <tr>
+                <td>Imię: </td>
+                <td><input type="text" id="imie"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko: </td>
+                <td><input type="text" id="nazwisko"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>Zgłoszenie </td>
+                <td><textarea name="zgloszenia" id="zgloszenia" cols="40" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" name="regulamin" id="regulamin"><label for="regulamin">Zapoznałam/em się z regulaminem</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="botton" type="button" id="resetuj">Resetuj</button><button class="botton" type="button" id="przeslij">Prześlij</button></td>
+            </tr>
+        </table>
+        <hr>
+        <div id="wynik">
+        </div>
+        <script>
+        document.getElementById("przeslij").addEventListener("click", function()
+        {
+            if(document.getElementById("regulamin").checked)
+            {
+                document.getElementById("wynik").innerHTML = 
+                     document.getElementById("imie").value.toUpperCase() +" "+ document.getElementById("imie").value.toUpperCase()
+                     +"<br>Treść twojej sprawy: " +document.getElementById("zgloszenia").value;
+            }
+            else
+            {
+                document.getElementById("wynik").innerHTML = '<p style="color: red;">Musisz zapoznać się z regulaminem</p>';
+
+            }
+        })
+        document.getElementById("resetuj").addEventListener("click",function(){
+            document.getElementById("imie").value = "";
+            document.getElementById("nazwisko").value = "";
+            document.getElementById("zgloszenia").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("regulamin").checked = false;
+            document.getElementById("wynik").innerHTML = "";
+        })
+        </script>
+    </article>
+    <footer>Autor strony: <strong>Ja</strong></footer>
+</div>
+</body>
+</html>

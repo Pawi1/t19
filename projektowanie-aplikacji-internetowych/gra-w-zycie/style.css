@@ -1,0 +1,77 @@
+h2{
+    margin-top: 0px;
+}
+td{
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.3vw;
+    color: #45475a;
+}
+body{
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    text-align: center;
+    font-family: sans-serif;
+}
+table{
+    width: 50%;
+    margin: 0 auto;
+    background-color: #313244;
+    border: 2px #45475a solid;
+    
+}
+
+button{
+    margin: 3px;
+    color: #cdd6f4;
+    background-color: #313244;
+    border-radius: 6%;
+    border: #45475a 1px solid;
+    cursor: pointer;
+}
+
+button:disabled
+{
+    background-color: #1e1e2e;
+    border: #313244 1px solid;
+    cursor: no-drop;
+}
+
+.running{
+    background-color: #a6e3a1;
+    color: #4c4f69;
+    border: #313244 1px solid;
+}
+.life{
+    color: #89dceb;
+}
+@media (min-width: 768px) {
+    .running:hover{
+        background-color: #f38ba8;
+        color: #4c4f69;
+        border: #313244 1px solid;
+    }
+    button:hover
+    {
+        background-color: #585b70;
+        border: #313244 1px solid;
+    }
+    #bt-clear:hover{
+        background-color: #f38ba8;
+        color: #4c4f69;
+        border: #313244 1px solid;
+    }
+    #bt-clear:hover:disabled{
+        background-color: #1e1e2e;
+        color: #cdd6f4;
+    }
+    button:disabled:hover{
+        background-color: #1e1e2e;
+        border: #313244 1px solid;
+        cursor: no-drop;
+    }
+    td:hover
+    {
+        color: #cdd6f4;
+    }
+}
