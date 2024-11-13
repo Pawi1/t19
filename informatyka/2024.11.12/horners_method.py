@@ -38,7 +38,7 @@ print(horner(user_list,user_x))
 Zadanie 3
 Napisz program w języku Python, który obliczy wartość wielomianu podanego przez użytkownika, wykorzystując schemat Hornera
 w wersji rekurencyjnej. Użytkownik podaje współczynniki wielomianu jako liczby rozdzielone spacjami, przy czym pierwsza liczba
-oznacza wyraz wolny a0, a ostatnia współczynnik przy najwyższej potędze.
+oznacza` wyraz wolny a0, a ostatnia współczynnik przy najwyższej potędze.
 """
 def horner_recursive(l:list[int],x:float)->float:
     n = len(l) - 1
@@ -49,8 +49,3 @@ def horner_recursive(l:list[int],x:float)->float:
 user_list:list[int] = list(map(int,input('Podaj współczynniki rozdzielone spacjami: ').split()))
 user_x = float(input('Podaj x: '))
 print(horner_recursive(user_list,user_x))
-
-
-
-
-
