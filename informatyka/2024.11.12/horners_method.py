@@ -40,13 +40,15 @@ Napisz program w języku Python, który obliczy wartość wielomianu podanego pr
 w wersji rekurencyjnej. Użytkownik podaje współczynniki wielomianu jako liczby rozdzielone spacjami, przy czym pierwsza liczba
 oznacza wyraz wolny a0, a ostatnia współczynnik przy najwyższej potędze.
 """
-def horner_recursive(l:list[int],x:float,n:int = None)->float:
-    if n is None:
-        n = len(l) - 1
+def horner_recursive(l:list[int],x:float)->float:
+    n = len(l) - 1
     if n == 0:
         return l[0]
-    return l[n] + x * horner_recursive(l, x, n - 1)
+    return x * horner_recursive(l[1:], x) + l[0]
 
+user_list:list[int] = list(map(int,input('Podaj współczynniki rozdzielone spacjami: ').split()))
+user_x = float(input('Podaj x: '))
+print(horner_recursive(user_list,user_x))
 
 
 
