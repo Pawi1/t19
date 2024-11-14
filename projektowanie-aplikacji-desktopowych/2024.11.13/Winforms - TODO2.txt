@@ -1,0 +1,10 @@
+Napisz program, w którym podajesz dane o osobie:
+1 - textbox imie
+2 - radio płeć
+3 - textarea o sobie  
+
+Po kliknięciu w button zapisz -> całość danych zapisać do pliku.
+Inny button zamyka program. 
+Jeszcze inny button wyświetla listę osób z pliku w nowym oknie gridzie. 
+
+Użyj List i tablic do pracy z danymi.
