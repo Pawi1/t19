@@ -1,14 +1,13 @@
-﻿using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 namespace todo
 {
     public partial class Main : Form
     {
         public enum Gender
         {
-            men,
-            women,
-            other
+            Men,
+            Women,
+            Other
         }
         public class Person
         {
@@ -49,15 +48,15 @@ namespace todo
             {
                 Gender? gender = null;
                 if (radiobutton_men.Checked)
-                    gender = Gender.men;
+                    gender = Gender.Men;
                 else if (radiobutton_women.Checked)
-                    gender = Gender.women;
+                    gender = Gender.Women;
                 else if (radiobutton_other.Checked)
-                    gender = Gender.other;
+                    gender = Gender.Other;
                 var aboutme = textarena_aboutMe.Text;
                 var name = textbox_name.Text;
 
-                if (name is "" || aboutme is "" || gender is null)
+                if (string.IsNullOrEmpty(name) || gender is null)
                     throw new ArgumentNullException();
                 
                 Person person = new()

@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:displaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|c:\\users\\pawil\\desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{139CC9CF-2FFF-4430-85DE-299EB73A9AE6}|todo.csproj|solutionrelative:main.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -51,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Main.Designer.cs",
               "DocumentMoniker": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\Main.Designer.cs",
               "RelativeDocumentMoniker": "Main.Designer.cs",
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Main.Designer.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAowH0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:44:27.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T18:44:27.722Z"
             },
             {
               "$type": "Document",
@@ -70,27 +69,27 @@
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAtwBkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAswDoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T12:02:57.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "DisplayList.cs",
               "DocumentMoniker": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\DisplayList.cs",
               "RelativeDocumentMoniker": "DisplayList.cs",
               "ToolTip": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\DisplayList.cs",
               "RelativeToolTip": "DisplayList.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA5wA8AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T18:38:10.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DisplayList.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\DisplayList.cs",
               "RelativeDocumentMoniker": "DisplayList.cs",
@@ -102,15 +101,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Main.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "C:\\Users\\pawil\\Desktop\\t19\\projektowanie-aplikacji-desktopowych\\2024.11.13\\todo\\Main.cs [Projekt]",
               "RelativeToolTip": "Main.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T12:07:31.083Z",
-              "EditorCaption": " [Projekt]"
+              "WhenOpened": "2024-11-13T12:07:31.083Z"
             }
           ]
         }
