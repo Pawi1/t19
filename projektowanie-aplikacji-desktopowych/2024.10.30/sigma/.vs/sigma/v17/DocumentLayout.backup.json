@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "Z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E7EFD595-E551-4DF2-95BE-DB7A6FA00654}|sigma.csproj|z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7EFD595-E551-4DF2-95BE-DB7A6FA00654}|sigma.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7EFD595-E551-4DF2-95BE-DB7A6FA00654}|sigma.csproj|z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E7EFD595-E551-4DF2-95BE-DB7A6FA00654}|sigma.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "Z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "Z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:57:09.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Projekt]",
+              "DocumentMoniker": "Z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "Z:\\t19\\projektowanie-aplikacji-desktopowych\\2024.10.30\\sigma\\Form1.cs [Projekt]",
+              "RelativeToolTip": "Form1.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:48:27.284Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
