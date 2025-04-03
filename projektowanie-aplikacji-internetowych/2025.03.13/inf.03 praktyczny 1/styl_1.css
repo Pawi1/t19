@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: Cambria;
+}
+header,footer{
+    background-color: #829EB9;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.sides{
+    background-color: #B3C6D9;
+    height: 400px;
+    width: 25vw;
+    padding-top: 100px;
+}
+.center{
+    background-color: #E0E9F1;
+    height: 400px;
+    width: 50vw;
+    text-align: center;
+    margin-top: 100px;
+
+}
+table{
+    border: DimGray 1px solid;
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+td{
+    border: DimGray 1px solid;
+}
+td:hover{
+    background-color: SteelBlue;
+    color: white;
+}
+img{
+    width: 100%;
+    border-radius: 20px;
+}
+main{
+    display: inline-flex;
+    background-color: #E0E9F1;
+}

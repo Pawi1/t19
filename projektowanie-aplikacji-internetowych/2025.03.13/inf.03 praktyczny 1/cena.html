@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>malarz</title>
+    <link rel="stylesheet" href="styl_1.css">
+</head>
+<body>
+    <header><h1>Malowanie pokoi i biur</h1></header>
+    <main>
+        <div class="sides">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="mieszamy.html">Mieszaniny</a></li>
+                <li><a href="cena.html">Wyceniamy</a></li>
+            </ul>
+        </div>
+        <div class="center">
+            <h2>Zapotrzebowanie na farbę</h2>
+            <p><label for="textbox"></label>Powierzchnia malowania (m<sup>2</sup>):</label><input id="textbox" type="text"><input type="button" value="Policz" onclick="onClickTextBox()"></p>
+            <p id="result"></p>
+        </div>
+        <div class="sides"><img src="obraz.png" alt="Próbki farb"></div>
+    </main>
+    <footer>
+        <h3>MALARZ</h3>
+        <p>Strone opracował: xxxxxxxxxxxxxx</p>
+    </footer>
+    <script>
+        function onClickTextBox()
+        {
+            let val = document.getElementById("textbox").value;
+            let res = Math.ceil(val/4)
+            document.getElementById("result").innerHTML = 'Liczba potrzebnych puszek: '+res;
+        }
+        
+    </script>
+</body>
+</html>
