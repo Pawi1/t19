@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon kosmetyczny</title>
+    <link rel="stylesheet" href="styl7.css">
+</head>
+<body>
+    <section>
+    <aside>
+        <nav>    
+        <h2>Nasza oferta</h2>
+            <ol>
+                <li>
+                    <a href="twarz.html">Oczyszczanie twarzy</a>
+                    <ul>
+                        <li>Peeling</li>
+                        <li>Maska</li>
+                    </ul>
+                </li>
+                <li>Masaż</li>
+                <li>Makijaż</li>
+            </ol>
+            <a href="index.html" id="index">Strona główna</a>
+            </nav>
+            <picture>
+                <img src="obraz1.jpg" alt="Personel">
+            </picture>
+    </aside>
+    <main>
+        <header>
+            <h1>Usługi kosmetyczne</h1>
+        </header>
+        <article>
+            <h3>Kalkulator ceny wizyty</h3>
+            <input type="checkbox" name="Peeling" id="Peeling">
+            <label for="Peeling">Peeling</label><br>
+            <input type="checkbox" name="Maska" id="Maska">
+            <label for="Maska">Maska</label><br>
+            <input type="checkbox" name="Masaz_twarzy" id="Masaz_twarzy">
+            <label for="Masaz_twarzy">Masaż twarzy</label><br>
+            <input type="checkbox" name="Makijaz" id="Makijaz">
+            <label for="Makijaz">Makijaż</label><br>
+            <input type="button" value="Oblicz cene" onclick="calulatePrice()"><br>
+            <span id="price_value"></span>
+            <script>
+                function calulatePrice()
+                {
+                    let struct =
+                    {
+                        peeling : [document.getElementById("Peeling").checked, 45],
+                        maska : [document.getElementById("Maska").checked, 30],
+                        masaz : [document.getElementById("Masaz_twarzy").checked, 20],
+                        makijaz : [document.getElementById("Makijaz").checked, 50]
+                    };
+                    let sum = 0;
+                    Object.values(struct).forEach(element => {
+                        if(element[0])
+                        {
+                            sum = sum + element[1];
+                        }
+                    });
+                    document.getElementById("price_value").innerHTML = `Cena zabiegów: ${sum}`;
+                }
+            </script>
+            
+        </article>
+    </main>
+</section>
+    <footer>
+        <p>Autor: xxxxxxxxxxxxxxxx</p>
+    </footer>
+</body>
+</html>
