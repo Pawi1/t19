@@ -24,7 +24,7 @@ for num,rom in roman_dict.items():
 print(roman_out)
 
 """ Zadanie 5 """
-arab_dict = {
+arab_dict:dict = {
     "M":   1000,
     "CM":   900,
     "D":    500,
