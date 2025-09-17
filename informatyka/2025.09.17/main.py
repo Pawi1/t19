@@ -1,5 +1,5 @@
 """ Zadanie 4 """
-roman_dict = {
+roman_dict:dict = {
     1000: "M",
     900:  "CM",
     500:  "D",
