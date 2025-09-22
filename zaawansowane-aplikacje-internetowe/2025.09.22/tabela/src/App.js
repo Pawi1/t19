@@ -1,34 +1,44 @@
 import './App.css';
-const list = [
-{"imie":"adam","nazwisko":"KOWALSKI","wiek":"33"},
-{"imie":"ALA", "nazwisko":"nowak","wiek":"32"},
-{"imie":"Ola","nazwisko":"SteFAnowska","wiek":"4"}
+
+const LIST = [
+  { imie: 'adam', nazwisko: 'KOWALSKI', wiek: '33' },
+  { imie: 'ALA', nazwisko: 'nowak', wiek: '32' },
+  { imie: 'Ola', nazwisko: 'SteFAnowska', wiek: '4' },
 ];
+
+function isMature(age) {
+  return age >= 18;
+}
+
+function formatText(text) {
+  return text[0].toUpperCase() + text.substring(1).toLowerCase();
+}
 
 function App() {
   return (
     <div className="App">
-      <table cellpadding="0" cellspacing="0">
-        <tr>
-          <th>IMIE</th>
-          <th>NAZWISKO</th>
-          <th>WIEK</th>
-        </tr>
-        <tr>
-          <td>{list[0].imie}</td>
-          <td>{list[0].nazwisko}</td>
-          <td>{list[0].wiek}</td>
-        </tr>
-        <tr>
-          <td>{list[1].imie}</td>
-          <td>{list[1].nazwisko}</td>
-          <td>{list[1].wiek}</td>
-        </tr>
-        <tr>
-          <td>{list[2].imie}</td>
-          <td>{list[2].nazwisko}</td>
-          <td>{list[2].wiek}</td>
-        </tr>
+      <table cellPadding="0" cellSpacing="0">
+        <thead>
+          <tr>
+            <th>IMIE</th>
+            <th>NAZWISKO</th>
+            <th>WIEK</th>
+            <th>CZY PEŁNOLETNI</th>
+          </tr>
+        </thead>
+        <tbody>
+          {LIST.map((person) => {
+            const age = Number(person.wiek);
+            return (
+              <tr key={person.imie + person.nazwisko}>
+                <td>{formatText(person.imie)}</td>
+                <td>{formatText(person.nazwisko)}</td>
+                <td>{person.wiek}</td>
+                <td>{isMature(age) ? 'Tak' : 'Nie'}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
