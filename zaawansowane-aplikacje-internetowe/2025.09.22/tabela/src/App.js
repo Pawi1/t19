@@ -27,17 +27,15 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {LIST.map((person) => {
-            const age = Number(person.wiek);
-            return (
-              <tr key={person.imie + person.nazwisko}>
+          {LIST.map((person,index) => (
+              <tr key={index}>
                 <td>{formatText(person.imie)}</td>
                 <td>{formatText(person.nazwisko)}</td>
                 <td>{person.wiek}</td>
-                <td>{isMature(age) ? 'Tak' : 'Nie'}</td>
+                <td>{isMature(person.wiek) ? 'Tak' : 'Nie'}</td>
               </tr>
-            );
-          })}
+            
+          ))};
         </tbody>
       </table>
     </div>
