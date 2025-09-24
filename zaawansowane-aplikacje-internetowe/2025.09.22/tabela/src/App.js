@@ -34,7 +34,7 @@ function App() {
                 <td>{person.wiek}</td>
                 <td>{isMature(person.wiek) ? 'Tak' : 'Nie'}</td>
               </tr>
-          ))};
+          ))};-
         </tbody>
       </table>
     </div>
