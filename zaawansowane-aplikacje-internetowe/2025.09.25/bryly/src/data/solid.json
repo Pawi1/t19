@@ -14,7 +14,7 @@
         "type": "cuboid",
         "image": "img/cuboid.svg",
         "formula": {
-            "surfaceArea":"P=2·a·b+2·a·h+2·b·h",
+            "surfaceArea":"P=2·(ab + ah + bh)",
             "volume":"V=a·b·h"
         },
         "exampleDimension":[3,4,5]
