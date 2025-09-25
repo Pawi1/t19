@@ -21,7 +21,7 @@ function App() {
             SOLID.map((solid)=>(
               <tr key ={solid.name}>
                 <td><h2>{solid.name}</h2></td>
-                <td><img src={solid.image} alt='figura'></img></td>
+                <td><img src={solid.image} alt='ilustracja bryły'></img></td>
                 <td>
                   <h3>pole: <span>{solid.formula.surfaceArea}</span></h3>
                   <h3>objętość: <span>{solid.formula.volume}</span></h3>
