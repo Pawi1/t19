@@ -25,7 +25,7 @@ function GatunekLiter(pisarz){
 }
 
 
-const pisarze = [
+const PISARZE = [
 {"id":0,"imie":"adam","nazwisko":"mickiewicz","kraj":"polska",
   "utwory":[
     {"id":0,"tytul":"Pan Tadeusz","rodzaj":"epika"},
@@ -67,17 +67,17 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {pisarze.map((item,index)=>(
-          <tr key ={item.id}>
-            <td><b><i>{FormatNapisu(pisarze[index].imie)} {FormatNapisu(item.nazwisko)}</i></b></td>
-            <td>{item.kraj.toUpperCase()}</td>
+          {PISARZE.map((pisarz,index)=>(
+          <tr key ={pisarz.id}>
+            <td><b><i>{FormatNapisu(pisarz.imie)} {FormatNapisu(pisarz.nazwisko)}</i></b></td>
+            <td>{pisarz.kraj.toUpperCase()}</td>
             <td>
               <ol>
-              {item.utwory.map((itemW,indexW)=>(
-                  <li key={itemW.id}><b>{pisarze[index].utwory[indexW].tytul}</b> to {pisarze[index].utwory[indexW].rodzaj}</li>
+              {pisarz.utwory.map((utwor)=>(
+                  <li key={utwor.id}><b>{utwor.tytul}</b> to {utwor.rodzaj}</li>
               ))}
               </ol>
-              FUNKCJA UtworyDruk: {UtworyDruk(item)} FUNKCJA GatunekLiter: {GatunekLiter(item)}
+              FUNKCJA UtworyDruk: {UtworyDruk(pisarz)} FUNKCJA GatunekLiter: {GatunekLiter(pisarz)}
             </td>
           </tr>
           ))}
