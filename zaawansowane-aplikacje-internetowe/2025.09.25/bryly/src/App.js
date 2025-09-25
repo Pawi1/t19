@@ -18,22 +18,22 @@ function App() {
         </thead>
         <tbody>
           {
-            SOLID.map((figure)=>(
-              <tr key ={figure.name}>
-                <td><h2>{figure.name}</h2></td>
-                <td><img src={figure.image} alt='figura'></img></td>
+            SOLID.map((solid)=>(
+              <tr key ={solid.name}>
+                <td><h2>{solid.name}</h2></td>
+                <td><img src={solid.image} alt='figura'></img></td>
                 <td>
-                  <h3>pole: <span>{figure.formula.surfaceArea}</span></h3>
-                  <h3>objętość: <span>{figure.formula.volume}</span></h3>
+                  <h3>pole: <span>{solid.formula.surfaceArea}</span></h3>
+                  <h3>objętość: <span>{solid.formula.volume}</span></h3>
                 </td>
                 <td>
                   <div className='dimensions'>{
-                  figure.exampleDimensions.map((dimension, index)=>(
+                  solid.exampleDimensions.map((dimension, index)=>(
                     <p>{index+1}. wymiar: {dimension} j</p>
                   ))
                   }</div>
-                  <h3>pole: {calc.calc(figure.type,"surfaceArea",...figure.exampleDimensions)?.toFixed(0)} j²</h3>
-                  <h3>objętość: {calc.calc(figure.type,"volume",...figure.exampleDimensions)?.toFixed(0)} j³</h3>
+                  <h3>pole: {calc.calc(solid.type,"surfaceArea",...solid.exampleDimensions)?.toFixed(0)} j²</h3>
+                  <h3>objętość: {calc.calc(solid.type,"volume",...solid.exampleDimensions)?.toFixed(0)} j³</h3>
                 </td>
               </tr>
             ))
