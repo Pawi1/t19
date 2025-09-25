@@ -4,7 +4,7 @@
         "type": "cube",
         "image": "img/cube.svg",
         "formula": {
-            "surfaceArea":"P=6a²",
+            "surfaceArea":"P=6·a²",
             "volume":"V=a³"
         },
         "exampleDimension":[2]
@@ -14,8 +14,8 @@
         "type": "cuboid",
         "image": "img/cuboid.svg",
         "formula": {
-            "surfaceArea":"P=2ab+2ah+2bh",
-            "volume":"V=abh"
+            "surfaceArea":"P=2·a·b+2·a·h+2·b·h",
+            "volume":"V=a·b·h"
         },
         "exampleDimension":[3,4,5]
     },
@@ -24,8 +24,8 @@
         "type": "sphere",
         "image": "img/sphere.svg",
         "formula": {
-            "surfaceArea":"P=4πr²",
-            "volume":"V=4/3πr³"
+            "surfaceArea":"P=4·π·r²",
+            "volume":"V=4/3·π·r³"
         },
         "exampleDimension":[4]
     }
