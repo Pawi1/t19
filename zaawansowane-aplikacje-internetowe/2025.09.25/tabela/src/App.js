@@ -1,46 +1,76 @@
-//@ts-check
 import './App.css';
 
-const LIST = [
-  { imie: 'adam', nazwisko: 'KOWALSKI', wiek: 33 },
-  { imie: 'ALA', nazwisko: 'nowak', wiek: 32 },
-  { imie: 'Ola', nazwisko: 'SteFAnowska', wiek: 4 },
-];
+function FormatNapisu(text){
+  return text.toLowerCase().charAt(0).toUpperCase()+text.slice(1).toLowerCase();
+}
 
-/**
- * @param {number} age
- */
-function isMature(age) {
-  return age >= 18;
+
+function UtworyDruk(dzielo){
+  return dzielo.utwory[0].tytul
 }
-/**
- * @param {string} text
- */
-function formatText(text) {
-  return text[0].toUpperCase() + text.substring(1).toLowerCase();
+
+
+function GatunekLiter(gatunek){
+  return gatunek.utwory[0].rodzaj
 }
+
+
+const pisarze = [
+{"id":0,"imie":"adam","nazwisko":"mickiewicz","kraj":"polska",
+  "utwory":[
+    {"id":0,"tytul":"Pan Tadeusz","rodzaj":"epika"},
+    {"id":1,"tytul":"Ballady i romanse","rodzaj":"liryka"},
+    {"id":2,"tytul":"Dziady","rodzaj":"dramat"}
+  ]
+},
+{"id":1,"imie":"jan", "nazwisko":"kochanowski","kraj":"polska",
+ "utwory":[
+  {"id":0,"tytul":"Odprawa poslow greckich","rodzaj":"dramat"},
+  {"id":1,"tytul":"Fraszki","rodzaj":"liryka"}
+ ]
+},
+{"id":2,"imie":"wiliam","nazwisko":"shakespeare","kraj":"anglia",
+ "utwory":[
+  {"id":0,"tytul":"Hamlet","rodzaj":"dramat"},
+  {"id":1,"tytul":"Romeo i Julia","rodzaj":"dramat"},
+  {"id":2,"tytul":"Juliusz Cezar","rodzaj":"dramat"}
+ ]
+},
+{"id":3,"imie":"isaak","nazwisko":"asimow","kraj":"stany zjednoczone",
+ "utwory":[
+  {"id":0,"tytul":"Ja, robot", "rodzaj":"epika"},
+  {"id":1,"tytul":"Koniec wiecznosci","rodzaj":"epika"}
+ ]
+
+}
+];
 
 function App() {
   return (
     <div className="App">
-      <table cellPadding="0" cellSpacing="0">
+      <table cellpadding="0" cellspacing="0">
         <thead>
           <tr>
-            <th>IMIE</th>
-            <th>NAZWISKO</th>
-            <th>WIEK</th>
-            <th>CZY PEŁNOLETNI</th>
+            <th>AUTOR</th>
+            <th>KRAJ</th>
+            <th>UTWORY</th>
           </tr>
         </thead>
         <tbody>
-          {LIST.map((person,index) => (
-              <tr key={index}>
-                <td>{formatText(person.imie)}</td>
-                <td>{formatText(person.nazwisko)}</td>
-                <td>{person.wiek}</td>
-                <td>{isMature(person.wiek) ? 'Tak' : 'Nie'}</td>
-              </tr>
-          ))};-
+          {pisarze.map((item,index)=>(
+          <tr key ={item.id}>
+            <td><b><i>{FormatNapisu(pisarze[index].imie)} {FormatNapisu(item.nazwisko)}</i></b></td>
+            <td>{item.kraj.toUpperCase()}</td>
+            <td>
+              <ol>
+              {item.utwory.map((itemW,indexW)=>(
+                  <li key={itemW.id}><b>{pisarze[index].utwory[indexW].tytul}</b> to {pisarze[index].utwory[indexW].rodzaj}</li>
+              ))}
+              </ol>
+              FUNKCJA UtworyDruk: {UtworyDruk(item)} FUNKCJA GatunekLiter: {GatunekLiter(item)}
+            </td>
+          </tr>
+          ))}
         </tbody>
       </table>
     </div>
