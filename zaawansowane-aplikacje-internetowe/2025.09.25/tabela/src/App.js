@@ -1,17 +1,27 @@
+//@ts-check
 import './App.css';
 
+/**
+ * @param {string} text
+ */
 function FormatNapisu(text){
   return text.toLowerCase().charAt(0).toUpperCase()+text.slice(1).toLowerCase();
 }
 
 
-function UtworyDruk(dzielo){
-  return dzielo.utwory[0].tytul
+/**
+ * @param {{id: number; imie: string; nazwisko: string; kraj: string; utwory: { id: number; tytul: string; rodzaj: string; }[];}} pisarz
+ */
+function UtworyDruk(pisarz){
+  return pisarz.utwory[0].tytul
 }
 
 
-function GatunekLiter(gatunek){
-  return gatunek.utwory[0].rodzaj
+/**
+ * @param {{id: number; imie: string; nazwisko: string; kraj: string; utwory: { id: number; tytul: string; rodzaj: string; }[];}} pisarz
+ */
+function GatunekLiter(pisarz){
+  return pisarz.utwory[0].rodzaj
 }
 
 
@@ -48,7 +58,7 @@ const pisarze = [
 function App() {
   return (
     <div className="App">
-      <table cellpadding="0" cellspacing="0">
+      <table cellPadding="0" cellSpacing="0">
         <thead>
           <tr>
             <th>AUTOR</th>
