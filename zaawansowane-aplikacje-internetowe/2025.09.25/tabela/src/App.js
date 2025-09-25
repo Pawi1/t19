@@ -67,7 +67,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {PISARZE.map((pisarz,index)=>(
+          {PISARZE.map((pisarz)=>(
           <tr key ={pisarz.id}>
             <td><b><i>{FormatNapisu(pisarz.imie)} {FormatNapisu(pisarz.nazwisko)}</i></b></td>
             <td>{pisarz.kraj.toUpperCase()}</td>

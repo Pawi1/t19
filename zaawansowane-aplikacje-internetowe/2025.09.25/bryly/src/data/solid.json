@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Sześcian",
+        "type": "cube",
+        "image": "img/cube.svg",
+        "formula": {
+            "surfaceArea":"P=6a²",
+            "volume":"V=a³"
+        },
+        "exampleDimension":[2]
+    },
+    {
+        "name": "Prostopadłoscian",
+        "type": "cuboid",
+        "image": "img/cuboid.svg",
+        "formula": {
+            "surfaceArea":"P=2ab+2ah+2bh",
+            "volume":"V=abh"
+        },
+        "exampleDimension":[3,4,5]
+    },
+    {
+        "name": "Kula",
+        "type": "sphere",
+        "image": "img/sphere.svg",
+        "formula": {
+            "surfaceArea":"P=4πr²",
+            "volume":"V=4/3πr³"
+        },
+        "exampleDimension":[4]
+    }
+]
