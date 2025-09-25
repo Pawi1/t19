@@ -1,15 +1,21 @@
+//@ts-check
 import './App.css';
 
 const LIST = [
-  { imie: 'adam', nazwisko: 'KOWALSKI', wiek: '33' },
-  { imie: 'ALA', nazwisko: 'nowak', wiek: '32' },
-  { imie: 'Ola', nazwisko: 'SteFAnowska', wiek: '4' },
+  { imie: 'adam', nazwisko: 'KOWALSKI', wiek: 33 },
+  { imie: 'ALA', nazwisko: 'nowak', wiek: 32 },
+  { imie: 'Ola', nazwisko: 'SteFAnowska', wiek: 4 },
 ];
 
+/**
+ * @param {number} age
+ */
 function isMature(age) {
   return age >= 18;
 }
-
+/**
+ * @param {string} text
+ */
 function formatText(text) {
   return text[0].toUpperCase() + text.substring(1).toLowerCase();
 }
