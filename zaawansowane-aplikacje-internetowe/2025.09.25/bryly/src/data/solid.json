@@ -7,7 +7,7 @@
             "surfaceArea":"P=6·a²",
             "volume":"V=a³"
         },
-        "exampleDimension":[2]
+        "exampleDimensions":[2]
     },
     {
         "name": "Prostopadłoscian",
@@ -17,7 +17,7 @@
             "surfaceArea":"P=2·(ab + ah + bh)",
             "volume":"V=a·b·h"
         },
-        "exampleDimension":[3,4,5]
+        "exampleDimensions":[3,4,5]
     },
     {
         "name": "Kula",
@@ -27,6 +27,6 @@
             "surfaceArea":"P=4·π·r²",
             "volume":"V=4/3·π·r³"
         },
-        "exampleDimension":[4]
+        "exampleDimensions":[4]
     }
 ]
