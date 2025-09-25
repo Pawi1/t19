@@ -27,8 +27,8 @@ function App() {
                 </td>
                 <td>
                   <p>wartosci: {figure.exampleDimension.toString()}</p>
-                  <p>pole: {calc.calc(figure.type,"surfaceArea",...figure.exampleDimension)}</p>
-                  <p>objętość: {calc.calc(figure.type,"volume",...figure.exampleDimension)}</p>
+                  <p>pole: {calc.calc(figure.type,"surfaceArea",...figure.exampleDimension)?.toFixed(0)} j²</p>
+                  <p>objętość: {calc.calc(figure.type,"volume",...figure.exampleDimension)?.toFixed(0)} j³</p>
                 </td>
               </tr>
             ))

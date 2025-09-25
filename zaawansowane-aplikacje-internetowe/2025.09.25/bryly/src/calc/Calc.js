@@ -4,10 +4,10 @@ import { Cuboid } from './Cuboid.js';
 import { Sphere } from './Sphere.js';
 export class Calc {
     /**
-       * @param {string} type
-        * @param {string} operation
-        * @param {number[]} dimensions
-        */
+      * @param {string} type
+      * @param {string} operation
+      * @param {number[]} dimensions
+     **/
     calc(type, operation, ...dimensions) {
         let shape;
         switch (type) {
