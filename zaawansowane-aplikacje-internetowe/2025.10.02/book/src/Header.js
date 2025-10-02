@@ -8,7 +8,7 @@ class Header extends Component{
         };
     }
     render(){
-      return(<h1>Witamy w biblotece {this.state.nazwa} w {this.state.miasto}</h1>);
+      return(<h1>Bibloteka {this.state.nazwa} w {this.state.miasto}</h1>);
     };
 }
 export default Header;
