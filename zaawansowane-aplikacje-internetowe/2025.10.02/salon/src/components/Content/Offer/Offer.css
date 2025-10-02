@@ -1,0 +1,13 @@
+.Offer{
+    border: 1px solid #00000015;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 50px;
+    padding: 50px;
+}
+.Offer img{
+    width: 400px;
+}
+.Offer h3{
+    margin: 0 auto 0 auto;
+}

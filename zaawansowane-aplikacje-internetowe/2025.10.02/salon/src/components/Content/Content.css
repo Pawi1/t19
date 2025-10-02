@@ -1,0 +1,11 @@
+.Content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 15px;
+    padding-inline: 200px;
+}
+.Content *{
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
