@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer.js';
 function App() {
   return (
     <div className="App">
-      <Header companyName='BuyAuto'/>
+      <Header companyName='AutoCar'/>
       <Content />
       <Footer openingHours='8:00' closingHours='22:00'/>
     </div>

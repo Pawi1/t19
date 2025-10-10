@@ -5,7 +5,9 @@ function Offer(props) {
     <div className="Offer">
       <h3>Marka: {props.brand}</h3>
       <h5>Zdjęcie:</h5>
-      <img src={props.img} />
+      <div className="image">
+        <img src={props.img} alt={props.img}/>
+      </div>
     </div>
   );
 }
