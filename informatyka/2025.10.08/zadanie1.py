@@ -8,11 +8,10 @@ with open("dane.txt") as dane:
     kwoty = list(map(int,dane.read().rsplit()))
 
 def zachlanne(kwota: int) -> int | None:
-    amount = 0
-    remaining = kwota
+    amount:int = 0
+    remaining:int = kwota
     for nominal in nominaly:
-        cnt = remaining // nominal
-        amount += cnt
+        amount += remaining // nominal
         remaining %= nominal
     if remaining != 0:
         return None
