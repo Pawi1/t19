@@ -22,8 +22,8 @@ while not (r == rows - 1 and c == cols - 1):
         path += "D"
         m_sum += matrix[r][c]
     else:
-        right = matrix[r][c+1]
-        down = matrix[r+1][c]
+        right:int = matrix[r][c+1]
+        down:int = matrix[r+1][c]
         if down >= right:
             r += 1
             path += "D"
