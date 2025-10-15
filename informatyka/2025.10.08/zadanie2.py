@@ -7,12 +7,11 @@ with open("macierz.txt") as file:
         matrix.append(list(map(int,line.rsplit(" "))))
 
 path:str = ""
-rows = len(matrix)
-cols = len(matrix[0])
-r = 0
-c = 0
-path = ""
-m_sum = matrix[0][0]
+rows:int = len(matrix)
+cols:int = len(matrix[0])
+r:int = 0
+c:int = 0
+m_sum:int = matrix[0][0]
 while not (r == rows - 1 and c == cols - 1):
     if r == rows - 1:
         c += 1
