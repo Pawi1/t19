@@ -5,12 +5,22 @@ public interface IPayment {
     string DownloadDesc();
 }
 
-public class CreditCard : IPayment
-{
-    public string Authorize() => "";
+public class CreditCard : IPayment {
+    public string Authorize() => "KartaPłatnicza: Łączę się z systemem VISA/Mastercard.";
+    public string DownloadDesc() => "KartaPłatnicza: Łączę się z systemem VISA/Mastercard.";
 }
 
 public class PayPal : IPayment {
+    public string Authorize() => "PayPal: Łączę się z systemem .";
+    public string DownloadDesc() => "PayPal: Łączę się z systemem .";
+}
+
+public abstract class PaymentFabric {
+    protected abstract IPayment CreatePayment();
+    public string RealizeTransaction(decimal money){
+        IPayment payment = CreatePayment();
+        return $"";
+    }
 
 }
 
