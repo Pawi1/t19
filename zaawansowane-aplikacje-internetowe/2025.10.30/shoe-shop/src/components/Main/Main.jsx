@@ -37,7 +37,7 @@ export default function Main() {
   
 
   return (
-    <div>
+    <div className="Main">
       <div className="filters">
         <button onClick={() => setFilterType('letnie')}>Przyjmij obuwie letnie</button>
         <button onClick={() => setFilterType('zimowe')}>Przyjmij obuwie zimowe</button>
