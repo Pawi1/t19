@@ -1,0 +1,109 @@
+﻿<Window x:Class="_2026102.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2026102"
+        mc:Ignorable="d"
+        Title="Todo (MVVM)" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" Padding="10" CornerRadius="6" BorderBrush="#DDD" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="Tytuł:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+
+                <TextBox Grid.Row="0" Grid.Column="1"
+                         Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}"
+                         Height="26" VerticalContentAlignment="Center"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="3"
+                           Text="Opis:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+
+                <TextBox Grid.Row="0" Grid.Column="4"
+                         Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}"
+                         Height="26" VerticalContentAlignment="Center"/>
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="7"
+                            Orientation="Horizontal" HorizontalAlignment="Left">
+
+                    <Button Content="Dodaj"
+                            Command="{Binding AddTodoCommand}"
+                            Padding="14,6" Margin="0,0,10,0"/>
+
+                    <Button Content="Usuń zaznaczone"
+                            Command="{Binding RemoveSelectedCommand}"
+                            Padding="14,6" Margin="0,0,10,0"/>
+
+                    <Button Content="Wyczyść"
+                            Command="{Binding ClearAllCommand}"
+                            Padding="14,6"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Padding="10" CornerRadius="6" BorderBrush="#DDD" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Lista zadań" FontSize="16" FontWeight="SemiBold"/>
+
+                <ListView Grid.Row="2"
+                          ItemsSource="{Binding Todos}"
+                          SelectedItem="{Binding SelectedTodo}"
+                          Margin="0">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel LastChildFill="True" Margin="0,2">
+
+                                <CheckBox DockPanel.Dock="Left"
+                                          IsChecked="{Binding IsDone}"
+                                          VerticalAlignment="Center"
+                                          Margin="0,0,10,0"/>
+
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Description}" Opacity="0.75"/>
+                                </StackPanel>
+
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
