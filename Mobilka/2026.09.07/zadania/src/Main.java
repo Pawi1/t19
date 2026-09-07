@@ -63,8 +63,51 @@ int zad6(int a)
 }
 /*
 7. Napisz program sprawdzający, czy podana liczba jest palindromem (czytana tak samo od przodu i od tyłu).
+*/
+boolean zad7(int a)
+{
+    int rev = 0;
+    int temp = a;
+    while (temp > 0)
+    {
+        int dig = temp % 10;
+        rev = rev * 10 + dig;
+        temp /= 10;
+    }
+
+    return rev == a;
+}
+/*
 8. Napisz program sprawdzający, czy podana liczba jest liczbą pierwszą.
+*/
+boolean zad8(int a)
+{
+    if (a<2) return false;
+    for(int i = 2; i*i <= a;i++)
+        if(a % i == 0) return false;
+    return true;
+}
+/*
 9. Napisz program wypisujący wszystkie liczby pierwsze z podanego zakresu.
+*/
+void zad9()
+{
+    var sc = new Scanner(System.in);
+    int a,b;
+    var arrayList = new ArrayList<Integer>();
+    System.out.print("Podaj zakres:");
+    a = sc.nextInt();
+    b = sc.nextInt();
+    if(a>b)
+    {
+        int t = a; a = b; b = t;
+    }
+    for (;a<=b;a++)
+        if(zad8(a))
+            arrayList.add(a);
+    System.out.println(arrayList);
+}
+/*
 10. Napisz program obliczający silnię podanej liczby.
 11. Napisz program generujący n początkowych wyrazów ciągu Fibonacciego.
 12. Napisz program zamieniający wszystkie litery w podanym tekście na wielkie oraz na małe.
@@ -73,5 +116,5 @@ int zad6(int a)
 15. Napisz program odwracający kolejność słów w podanym zdaniu.
 */
 void main() {
-    zad3();
+    zad9();
 }
