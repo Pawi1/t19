@@ -1,0 +1,28 @@
+.App{
+  width: 100vw;
+  height: 100vh;
+  background-color: brown;
+  display: grid;
+}
+header{
+  text-align: center;
+  padding: 50px;
+}
+footer{
+  padding-left: 50px;
+}
+h1{
+  color: yellow;
+  font-size: 40px;
+}
+h3{
+  color: blue;
+  font-size: 30px;
+}
+p{
+  color: white;
+  font-size: 20px;
+}
+img{
+  width: 300px;
+}
