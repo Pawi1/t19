@@ -102,7 +102,7 @@ void zad3() {
         }
         if (!guess) {
             badAnswers++;
-            std::cout << "W szukanym słowie nie ma wspólnych liter…";
+            std::cout << "W szukanym słowie nie ma wspólnych liter…"<<std::endl;
         }
         else if (guess && (word != chosenWord)) {
             badAnswers++;
