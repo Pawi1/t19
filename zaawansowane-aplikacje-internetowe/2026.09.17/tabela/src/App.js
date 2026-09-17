@@ -15,7 +15,7 @@ function formatText(text) {
   return text[0].toUpperCase() + text.substring(1).toLowerCase();
 }
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <table cellPadding="0" cellSpacing="0">
@@ -41,5 +41,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
