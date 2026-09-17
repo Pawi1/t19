@@ -1,5 +1,3 @@
-namespace _2026._09._10;
-
 public abstract class Figura
 {
     public abstract double Pole();
@@ -45,14 +43,14 @@ public class Kolo : Figura
         return Math.PI * (r*r);
     }
 }
-class  Program
-{
-    static void Main(string[] args)
-    {
-        List<Figura> figury = new List<Figura> { new Kwadrat(5), new Prostokat(10, 8), new Kolo(10) };
-        foreach (var fig in figury)
-        {
-            Console.WriteLine(fig.Pole());
-        }
-    }
-}
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         List<Figura> figury = new List<Figura> { new Kwadrat(5), new Prostokat(10, 8), new Kolo(10) };
+//         foreach (var fig in figury)
+//         {
+//             Console.WriteLine(fig.Pole());
+//         }
+//     }
+// }
