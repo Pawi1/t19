@@ -1,4 +1,5 @@
 //@ts-check
+// @ts-ignore
 import './App.css';
 
 const LIST = [
@@ -40,7 +41,8 @@ function App() {
                 <td>{person.wiek}</td>
                 <td>{isMature(person.wiek) ? 'Tak' : 'Nie'}</td>
               </tr>
-          ))};-        </tbody>
+          ))}
+        </tbody>
       </table>
     </div>
   );
