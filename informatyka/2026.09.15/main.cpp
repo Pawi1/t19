@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <cstdlib>
+#include <random>
 int zad1() {
     std::vector<std::string> knowWords = {"arbuz","lokomotywa","wiatrak","krowa","mleko","ananas","osada","krab", "auto",
         "but", "cukier", "dom", "echo", "farba", "góra", "hasło", "igła", "jabłko", "kot",
@@ -44,13 +44,16 @@ int zad2() {
     }
     return 1;
 }
-std::string displayLetters(auto letters) {
-    std::string letters_s = "[";
-    for (const auto letter: letters) {
-        letters_s += std::string(1,letter) + " ";
+std::string displayKnow(std::string chosenWord, std::unordered_set<char> knowLetters) {
+    std::string output = "";
+    for (auto letter: chosenWord) {
+        if (knowLetters.contains(letter)) {
+            output += letter;
+        }
+        else
+            output += '_';
     }
-    letters_s.replace(letters_s.length(),1,"]");
-    return letters_s;
+    return output;
 }
 
 std::string uniqueLetters(std::string word) {
@@ -78,19 +81,21 @@ void zad3() {
         "las", "łóżko", "miasto", "noc", "okno", "pies", "ryba", "stół", "śnieg", "telefon",
         "ucho", "woda", "zamek", "źrebię", "żaba"};
     std::unordered_set<char> knowLetters;
-    auto chosenWord = words[std::rand() % words.size()];
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_int_distribution<std::size_t> dist(0, words.size() - 1);
+
+    const auto& chosenWord = words[dist(gen)];
     auto chosenWord_letters = uniqueLetters(chosenWord);
     auto badAnswers= 0;
     while (badAnswers < chosenWord_letters.length()) {
         auto guess = false;
         std::string newLetters;
+        std::string word;
 
         std::cout << "\tWisielec:"<<std::endl;
-        std::cout << board[badAnswers] << std::endl;
-        std::cout << std::endl;
-        std::cout << "Znane litery: " << displayLetters(knowLetters) << " (" << knowLetters.size() << "/" << chosenWord_letters.length() << ")" << std::endl;
+        std::cout << board[badAnswers] << std::endl << std::endl;
+        std::cout << "\tSłowo:\n" << "\t" << displayKnow(chosenWord,knowLetters) << std::endl << std::endl;
         std::cout << "Podaj słowo: ";
-        std::string word = "";
         std::cin >> word;
         for (auto letter: word) {
             if (chosenWord_letters.contains(letter)) {
@@ -100,13 +105,13 @@ void zad3() {
                 }
             }
         }
+
         if (!guess) {
             badAnswers++;
             std::cout << "W szukanym słowie nie ma wspólnych liter…"<<std::endl;
         }
         else if (guess && (word != chosenWord)) {
-            badAnswers++;
-            std::cout << "Znalazłeś nowe litery: "<< displayLetters(newLetters) << std::endl;
+            std::cout << "Znalazłeś nowe litery!" << std::endl;
         }
         else {
             std::cout << "Brawo odgadłeś słowo!" << std::endl;
