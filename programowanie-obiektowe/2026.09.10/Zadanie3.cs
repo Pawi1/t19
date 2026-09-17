@@ -33,14 +33,14 @@ class Tester : Pracownik
     }
 }
 
-class Program
-{
-    public static void Main(string[] args)
-    {
-        List<Pracownik> pracownicy = new List<Pracownik> {new Programista("Adam","Nowak"), new Tester("Ania","Kowal")};
-        foreach (var pracownik in pracownicy)
-        {
-            pracownik.Opis();
-        }
-    }
-}
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
+//         List<Pracownik> pracownicy = new List<Pracownik> {new Programista("Adam","Nowak"), new Tester("Ania","Kowal")};
+//         foreach (var pracownik in pracownicy)
+//         {
+//             pracownik.Opis();
+//         }
+//     }
+// }
