@@ -1,9 +1,6 @@
 public class AmericaTeapot implements ITeapot {
     private double fahrTemp;
 
-    public AmericaTeapot() {
-    }
-
     public AmericaTeapot(double fahrTemp) {
         this.fahrTemp = fahrTemp;
     }

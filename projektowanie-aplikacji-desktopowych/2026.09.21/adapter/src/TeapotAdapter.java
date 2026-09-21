@@ -1,4 +1,4 @@
-public class TeapotAdapter extends AmericaTeapot {
+public class TeapotAdapter implements ITeapot {
     private EuroTeapot teapot;
 
     public TeapotAdapter(EuroTeapot teapot) {
