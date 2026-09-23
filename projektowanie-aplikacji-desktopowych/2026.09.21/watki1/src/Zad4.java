@@ -5,12 +5,13 @@
 class Zad4 implements Runnable {
     @Override
     public void run() {
-        IO.println(Thread.currentThread().getName() + "Startuje…");
+        IO.println(Thread.currentThread().getName() + " Startuje…");
         try {
             Thread.sleep(new Random().nextInt(500,2000));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        IO.println(Thread.currentThread().getName() + " Skończył…");
     }
 }
 void main() throws InterruptedException {
