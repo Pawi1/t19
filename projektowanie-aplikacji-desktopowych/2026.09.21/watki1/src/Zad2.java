@@ -3,6 +3,7 @@
 // Metoda wyplac nie powinna pozwolić na spadek salda poniżej zera — jeśli brakuje środków, ma wypisać komunikat i nic nie zmieniać.
 // Utwórz trzy wątki reprezentujące trzech klientów, którzy w pętli losowo wpłacają i wypłacają różne kwoty z tego samego konta.
 // Uruchom je równolegle i sprawdź, czy saldo końcowe jest zawsze poprawne (zgodne z sumą operacji).
+public int sumExpected = 0;
 class KontoBankowe
 {
     int saldo;
@@ -20,7 +21,6 @@ class KontoBankowe
 }
 class ThrZad2 implements Runnable
 {
-    int sumExpected = 0;
     KontoBankowe konto;
     public ThrZad2(KontoBankowe konto) {
         this.konto = konto;
@@ -39,7 +39,8 @@ class ThrZad2 implements Runnable
             else
             {
                 konto.wyplac(change);
-                sumExpected -= change;
+                if(sumExpected - change >= 0)
+                    sumExpected -= change;
             }
         }
     }
@@ -51,5 +52,6 @@ void main() throws InterruptedException {
         th.start();
     for (var th : ths)
         th.join();
-
+    IO.println(konto.saldo);
+    IO.println(sumExpected);
 }
