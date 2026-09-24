@@ -1,0 +1,12 @@
+.App{
+    background-color: rgb(59, 66, 196);
+    margin: 0;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+    color: yellow;
+}
+.numbers{
+    color: lime;
+}
