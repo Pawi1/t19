@@ -39,5 +39,9 @@ class Program
         {
             device.Polacz();
         }
+        foreach (var device in devices)
+        {
+            device.Rozlacz();
+        }
     }
 }

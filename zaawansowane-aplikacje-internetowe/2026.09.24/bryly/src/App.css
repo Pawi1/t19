@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  background-color: #fffbf5;
+  color: #3b2f2a;
+}
+
+.App {
+  text-align: center;
+}
+
+table {
+  width: 80vw;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(120, 70, 30, 0.12);
+}
+
+td, th {
+  border: 1px solid #f0dcc4;
+  padding: 10px;
+}
+
+tr {
+  background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #fff4e6;
+}
+
+img {
+  width: 250px;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 50px;
+  color: #c2410c;
+}
+
+h2 {
+  color: #b45309;
+}
+
+h3 span {
+  color: #9f1239;
+}
+
+th {
+  font-size: 26px;
+  font-style: italic;
+  color: #9a3412;
+  background-color: #ffedd5;
+}
+
+.dimensions {
+  background-color: #fde68a;
+  border: 1px solid #f59e0b;
+  padding-inline: 15px;
+  padding-block: 8px;
+  font-size: 18px;
+  border-radius: 15px;
+  text-align: left;
+}

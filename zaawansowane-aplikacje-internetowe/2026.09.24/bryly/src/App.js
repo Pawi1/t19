@@ -1,6 +1,6 @@
 import './App.css';
-import {Calc} from './calc/Calc.js';
-import SOLID from './data/solid.json';
+import {Calc} from './Calc.js';
+import data from './data.json'
 let calc = new Calc()
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </thead>
         <tbody>
           {
-            SOLID.map((solid)=>(
+            data.map((solid)=>(
               <tr key ={solid.name}>
                 <td><h2>{solid.name}</h2></td>
                 <td><img src={solid.image} alt='ilustracja bryły'></img></td>
