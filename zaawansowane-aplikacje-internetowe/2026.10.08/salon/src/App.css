@@ -1,3 +1,11 @@
-.App {
+.App{
   text-align: center;
+ 
+}
+img.logo{
+  width: 10vw;
+}
+main {
+  display: grid;
+  grid-template-columns: auto auto;
 }
