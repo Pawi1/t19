@@ -1,0 +1,21 @@
+﻿<Window x:Class="zadanie1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="10">
+                <CheckBox x:Name="malowanie" Checked="malowanie_Checked_1">Malowanie</CheckBox>
+                <CheckBox x:Name="podloze" Checked="podloze_Checked">Przygotowanie podłoża</CheckBox>
+                <CheckBox x:Name="instalacja" Checked="instalacja_Checked">Wykonanie instalacji elektrycznej</CheckBox>
+                <CheckBox x:Name="gniazdka" Checked="gniazdka_Checked">Montaż gniazdek</CheckBox>
+                <CheckBox x:Name="podlaczenie" Checked="podlaczenie_Checked">Podłączenie urządzeń</CheckBox>
+            </StackPanel>
+            <TextBlock x:Name="podsumowanie" Margin="10" Foreground="Red" TextDecorations="Underline">Musisz wybrać co najmniej jedną usługę</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,37 @@
+﻿<Window x:Class="zadanie2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie2"
+        mc:Ignorable="d"
+        Title="Konfigurator stylów" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <Label>Treść tekstu</Label>
+            <TextBox x:Name="text" Margin="10" TextChanged="text_TextChanged" Text="example"/>
+            <Label>Rozmiar czcionki</Label>
+            <DockPanel>
+                <TextBlock x:Name="czciaka_val" DockPanel.Dock="Right" Width="46" TextAlignment="Center" Text="26"/>
+                <Slider ValueChanged="czciaka_ValueChanged" x:Name="czciaka" Value="26" Minimum="8" Maximum="40" TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Stretch"/>
+            </DockPanel>
+            <Label>Grubość ramki</Label>
+            <DockPanel>
+                <TextBlock x:Name="ramka_val" DockPanel.Dock="Right" Width="46" TextAlignment="Center" Text="1"/>
+                <Slider ValueChanged="czciaka_ValueChanged" x:Name="ramka" Value="1" Minimum="1" Maximum="8" TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Stretch"/>
+            </DockPanel>
+            <Label>Promień zaokrąglenia</Label>
+            <DockPanel>
+                <TextBlock x:Name="zaokroglenie_val" DockPanel.Dock="Right" Width="46" TextAlignment="Center" Text="1"/>
+                <Slider ValueChanged="czciaka_ValueChanged" x:Name="zaokroglenie" Value="1" Minimum="1" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Stretch"/>
+            </DockPanel>
+        </StackPanel>
+        <Border x:Name="border" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+            <TextBlock x:Name="border_text" Text="example" FontSize="26" Margin="10"/>
+        </Border>
+    </Grid>
+</Window>
