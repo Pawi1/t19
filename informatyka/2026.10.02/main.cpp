@@ -59,9 +59,96 @@ void zad2() {
 
     std::cout << rpn << '\n';
 }
+int zad3() {
+    std::string rpn;
+    std::cout << "Podaj wyrazenie: ";
+    std::cin >> rpn;
+    std::stack<int> stk;
+    for (auto chr : rpn) {
+        if (chr >= '0' && chr <= '9') {
+            stk.push(chr - '0');
+        }
+        else {
+            int a,b;
+            b = stk.top(); stk.pop();
+            a = stk.top(); stk.pop();
+            switch (chr) {
+                case '+':
+                    stk.push(a+b);
+                    break;
+                case '-':
+                    stk.push(a-b);
+                    break;
+                case '*':
+                    stk.push(a*b);
+                    break;
+                case '/':
+                    stk.push(a/b);
+                    break;
+                case '%':
+                    stk.push(a%b);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    std::cout << stk.top() << '\n';
+    return stk.top();
+}
 
-
+bool zad4() {
+    std::string brackets;
+    std::cout << "Podaj napis: ";
+    std::cin >> brackets;
+    std::stack<char> stk;
+    for (auto chr : brackets) {
+        if (chr == '(' || chr == '[' || chr == '{') {
+            stk.push(chr);
+        }
+        else {
+            if (stk.empty()) {
+                std::cout << "NIE" << '\n';
+                return false;
+            }
+            const auto bracket = stk.top();stk.pop();
+            // właściwość umiejscowienia nawiasów w tabeli ascii
+            if (bracket + 1 != chr && bracket + 2 != chr) {
+                std::cout << "NIE" << '\n';
+                return false;
+            }
+        }
+    }
+    if (stk.empty()) {
+        std::cout << "TAK" << '\n';
+        return true;
+    }
+    std::cout << "NIE" << '\n';
+    return false;
+}
+bool zad5() {
+    std::string rpn;
+    std::cout << "Podaj wyrazenie: ";
+    std::cin >> rpn;
+    std::stack<int> stk;
+    for (auto chr : rpn) {
+        if (chr >= '0' && chr <= '9') {
+            stk.push(chr - '0');
+        }
+        else if (chr == '+' || chr == '-' || chr == '*' || chr == '/') {
+            if (stk.size() < 2) {
+                std::cout << "NIE" << '\n';
+                return false;
+            }
+            int a,b;
+            b = stk.top(); stk.pop();
+            a = stk.top(); stk.pop();
+        }
+    }
+    std::cout << stk.top() << '\n';
+    return stk.top();
+}
 int main() {
-    zad1();
+
     return 0;
 }

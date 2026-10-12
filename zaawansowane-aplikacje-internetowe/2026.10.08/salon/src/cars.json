@@ -1,0 +1,38 @@
+[
+    {
+        "kind":"nowe",
+        "cars":
+        [
+            {
+                "carName": "Skoda Fabia",
+                "img": "img/cars/skoda-fabia.jpg"
+            },
+            {
+                "carName": "BMW M3",
+                "img": "img/cars/bmw-m3.jpg"
+            },
+            {
+                "carName": "Audi A8",
+                "img": "img/cars/audi-a8.jpg"
+            }
+        ]
+    },
+    {
+        "kind":"kultowe",
+        "cars":
+        [
+            {
+                "carName": "Skoda Favorit",
+                "img": "img/cars/skoda-favorit.jpg"
+            },
+            {
+                "carName": "BMW E32",
+                "img": "img/cars/bmw-e32.jpg"
+            },
+            {
+                "carName": "Audi 200",
+                "img": "img/cars/audi-200.jpg"
+            }
+        ]
+    }
+]
