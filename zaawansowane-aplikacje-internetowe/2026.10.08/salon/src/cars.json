@@ -4,7 +4,7 @@
         "cars":
         [
             {
-                "carName": "Skoda Fabia",
+                "carName": "Škoda Fabia",
                 "img": "img/cars/skoda-fabia.jpg"
             },
             {
@@ -22,7 +22,7 @@
         "cars":
         [
             {
-                "carName": "Skoda Favorit",
+                "carName": "Škoda Favorit",
                 "img": "img/cars/skoda-favorit.jpg"
             },
             {
