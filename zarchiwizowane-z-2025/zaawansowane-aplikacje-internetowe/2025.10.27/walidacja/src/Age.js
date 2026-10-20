@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types'
 
 export default function Age(props) {
   console.log('Age:', props.age, 'Months:', props.months); // Dodaj logowanie tutaj
