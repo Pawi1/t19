@@ -10,11 +10,11 @@ export default function App() {
   let [shoes, setShoes] = useState(init);
 
   window.changeQuantity = (shoe, delta) => {
-  setShoes(prev =>
-    prev.map(s =>
-      s === shoe ? { ...s, quantity: Math.max(0, (s.quantity || 0) + delta) }: s
-      )
-    );
+    setShoes(prev => prev.map(s => {
+      if (s !== shoe) return s;
+      const newQuantity = (s.quantity ?? 0) + delta;
+      return { ...s, quantity: Math.max(0, newQuantity) };
+    }));
   }
   window.onRetailSale = (shoe) => {
       window.changeQuantity(shoe,-1);
@@ -35,7 +35,10 @@ export default function App() {
       setShoes(prev => prev.filter(s => s.quantity !== 0))
     }
     else {
-      setShoes(db.filter(s => s.type === filterType || s.isReceivedIntoStock))
+      setShoes(prev => [
+        ...prev,
+        ...db.filter(s => s.type === filterType && !prev.some(p => p.name === s.name))
+      ])
     }
   }
   return (
