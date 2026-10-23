@@ -1,81 +1,81 @@
 abstract class PozycjaBiblioteczna(string title, string author)
 {
-    protected bool isBorrowed { get; set; }
+    protected bool IsBorrowed { get; set; }
     protected string title { get; } = title;
     public string Title => title;
-    protected string author { get; } = author;
-    protected uint numberOfPages { get; set; }
-    protected uint yearOfPublication { get; set; }
+    protected string Author { get; } = author;
+    protected uint NumberOfPages { get; set; }
+    protected uint YearOfPublication { get; set; }
 
     public PozycjaBiblioteczna(string title, string author, uint numberOfPages) : this(title, author)
     {
-        this.numberOfPages = numberOfPages;
+        this.NumberOfPages = numberOfPages;
     }
 
     public PozycjaBiblioteczna(string title, string author, uint numberOfPages, uint yearOfPublication) : this(title, author)
     {
-        this.numberOfPages = numberOfPages;
-        this.yearOfPublication = yearOfPublication;
+        this.NumberOfPages = numberOfPages;
+        this.YearOfPublication = yearOfPublication;
     }
 
     public virtual void Info()
     {
         Console.WriteLine(title);
-        Console.WriteLine(author);
-        Console.WriteLine(numberOfPages);
-        Console.WriteLine(yearOfPublication);
+        Console.WriteLine(Author);
+        Console.WriteLine(NumberOfPages);
+        Console.WriteLine(YearOfPublication);
     }
 }
 
 class Ksiazka(string title, string author) : PozycjaBiblioteczna(title, author)
 {
-    protected uint editionNumber { get; }
+    protected uint EditionNumber { get; }
 
     public Ksiazka(string title, string author, uint editionNumber) : this(title, author)
     {
-        this.editionNumber = editionNumber;
+        this.EditionNumber = editionNumber;
     }
 
     public Ksiazka(string title, string author, uint editionNumber, uint numberOfPages) : this(title, author, editionNumber)
     {
-        this.numberOfPages = numberOfPages;
+        this.NumberOfPages = numberOfPages;
     }
 
     public Ksiazka(string title, string author, uint editionNumber, uint numberOfPages, uint yearOfPublication) : this(title, author, editionNumber, numberOfPages)
     {
-        this.yearOfPublication = yearOfPublication;
+        YearOfPublication = yearOfPublication;
     }
 
     public override void Info()
     {
         base.Info();
-        Console.WriteLine(editionNumber);
+        Console.WriteLine(EditionNumber);
     }
 }
 
 class Czasopismo(string title, string author) : PozycjaBiblioteczna(title, author)
 {
-    protected uint issueNumber { get; }
+    protected uint IssueNumber { get; }
 
     public Czasopismo(string title, string author, uint issueNumber) : this(title, author)
     {
-        this.issueNumber = issueNumber;
+        IssueNumber = issueNumber;
     }
 
     public Czasopismo(string title, string author, uint issueNumber, uint numberOfPages) : this(title, author, issueNumber)
     {
-        this.numberOfPages = numberOfPages;
+        NumberOfPages = numberOfPages;
     }
 
     public Czasopismo(string title, string author, uint issueNumber, uint numberOfPages, uint yearOfPublication) : this(title, author, issueNumber, numberOfPages)
     {
-        this.yearOfPublication = yearOfPublication;
+        YearOfPublication = yearOfPublication;
     }
 
     public override void Info()
     {
         base.Info();
-        Console.WriteLine(issueNumber);
+        Console.WriteLine(IssueNumber);
     }
 }
 class Czytelnik(string name, string surname)
@@ -230,7 +230,7 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        // utworzenie biblioteki
+        
         var biblioteka = new Biblioteka(new List<Czytelnik>());
 
         biblioteka.AddPozycjaBiblioteczna(new Ksiazka("Mały Książę", "Antoine de Saint-Exupéry", 1));
@@ -240,7 +240,6 @@ internal class Program
         biblioteka.AddPozycjaBiblioteczna(new Czasopismo("National Geographic", "National Geographic Partners", 316, 50));
         biblioteka.AddPozycjaBiblioteczna(new Czasopismo("Wiedza i Życie", "Prószyński Media", 16, 20, 2016));
 
-        // dodanie czytelników
         biblioteka.AddCzytelnik(new Czytelnik("Adam", "Kowalski"));
         biblioteka.AddCzytelnik(new Czytelnik("Michał", "Nowak"));
         biblioteka.AddCzytelnik(new Czytelnik("Andrzej", "Stolarski"));
@@ -249,14 +248,10 @@ internal class Program
         Console.WriteLine("-- Stan biblioteki przed wypożyczeniami --");
         biblioteka.PrintAll();
 
-        // operacje:
-        // wypozyczenie harryego przez adama
         biblioteka.BorrowByTitle("Harry Potter i Kamień Filozoficzny", "Adam", "Kowalski");
 
-        // wypozyczenie drugiego harrego
         biblioteka.BorrowByTitle("Harry Potter i Kamień Filozoficzny", "Michał", "Nowak");
 
-        // próba wypożyczenia czegoś, czego nie ma w bibliotece
         Console.WriteLine();
         Console.WriteLine("próba wypożyczenia czegoś, czego nie ma w bibliotece");
         biblioteka.BorrowByTitle("Nieistniejąca Książka", "Andrzej", "Stolarski");
@@ -265,7 +260,6 @@ internal class Program
         Console.WriteLine("-- Stan biblioteki po wypożyczeniach --");
         biblioteka.PrintAll();
 
-        // zwrot Hobbita
         biblioteka.ReturnByTitle("Harry Potter i Kamień Filozoficzny",biblioteka.FindCzytelnik("Adam","Kowalski"));
 
         Console.WriteLine();
