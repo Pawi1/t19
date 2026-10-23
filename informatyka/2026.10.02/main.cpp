@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <vector>
 void zad1() {
     int input = 0;
     std::stack<int> stk;
@@ -140,15 +141,69 @@ bool zad5() {
                 std::cout << "NIE" << '\n';
                 return false;
             }
-            int a,b;
-            b = stk.top(); stk.pop();
-            a = stk.top(); stk.pop();
+            int b = stk.top(); stk.pop();
+            int a = stk.top(); stk.pop();
+            if (chr == '/' && b == 0) {
+                std::cout << "NIE" << '\n';
+                return false;
+            }
+            switch (chr) {
+                case '+': stk.push(a + b); break;
+                case '-': stk.push(a - b); break;
+                case '*': stk.push(a * b); break;
+                case '/': stk.push(a / b); break;
+                default: return false;
+            }
+        }
+        else {
+            std::cout << "NIE" << '\n';
+            return false;
         }
     }
-    std::cout << stk.top() << '\n';
-    return stk.top();
+    if (stk.size() != 1) {
+        std::cout << "NIE" << '\n';
+        return false;
+    }
+    std::cout << "TAK" << '\n';
+    return true;
+}
+void zad6() {
+    int n;
+    std::cin >> n;
+    std::vector<int> arr(n);
+    for (int& x : arr) std::cin >> x;
+    std::stack<int> stk;
+    if (n > 1) {
+        stk.push(0);
+        stk.push(n - 1);
+    }
+    while (!stk.empty()) {
+        int high = stk.top(); stk.pop();
+        int low = stk.top(); stk.pop();
+        int pivot = arr[low + (high - low) / 2];
+        int i = low - 1, j = high + 1;
+        while (true) {
+            do { ++i; } while (arr[i] < pivot);
+            do { --j; } while (arr[j] > pivot);
+            if (i >= j) break;
+            int tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+        if (low < j) {
+            stk.push(low);
+            stk.push(j);
+        }
+        if (j + 1 < high) {
+            stk.push(j + 1);
+            stk.push(high);
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        std::cout << arr[i] << (i + 1 < n ? ' ' : '\n');
+    }
 }
 int main() {
-
+    
     return 0;
 }
