@@ -30,8 +30,10 @@ public class Program {
             {
                 case "1":
                     var case1inp = IO.readln("\nNazwa produktu: ");
-                    if( case1inp.equals("") )
-                    zakupy.add();
+                    if( case1inp.isEmpty() || zakupy.contains(case1inp) )
+                        IO.println("Produkt już istnieje");
+                    else
+                        zakupy.add(case1inp);
                     break;
                 case "2":
                     var case2inp = IO.readln("\n Podaj nazwe lub numer: ");
