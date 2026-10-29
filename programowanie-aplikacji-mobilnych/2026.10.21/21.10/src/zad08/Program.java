@@ -41,6 +41,7 @@ public class Program {
         IO.println("\nImiona ale bez ty kończących się na 'a'");
         imiona.removeIf(im -> im.endsWith("a"));
         imiona.forEach(System.out::println);
-        // Usuwanie w pętli zmienia jej rozmiar i zrzuca wyjątek ConcurrentModificationException
+        // Pętla zachowuje kopie liczby wersji ArrayList, która zaczyna odbiegać od orginalnego jak usuwamy z niej elementy (każda zmiana nowa wersja) i to powoduje
+        // ConcurrentModificationException
     }
 }

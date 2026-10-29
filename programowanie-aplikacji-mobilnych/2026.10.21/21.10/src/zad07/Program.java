@@ -37,10 +37,10 @@ public class Program {
     void usunNajnizsza()
     {
         oceny.stream().min(Integer::compare).ifPresent(e -> oceny.remove(e));
-        //  oceny.remove(1) vs oceny.remove(Integer.valueOf(1))
-        // oceny.remove(Integer.valueOf(1)); wywołuje remove(Object o), usuwa pierwszy nadetkany
+        // oceny.remove(1) vs oceny.remove(Integer.valueOf(1))
+        // oceny.remove(Integer.valueOf(1)); wywołuje remove(Object o), usuwa pierwszy nadetkany element listy zgadzający się z argumentem
         // oceny.remove(1); wywołuje remove(int index), usuwa element o danym indexie
-        // W moim przypadku leci po Object o, bo mam <Integer> w array, które później jest w streamie itd, nie mapuje na int-a (mapToInt) to nie mam primitywu
+        // W moim przypadku leci po Object o, bo mam <Integer> w array, które później jest w streamie itd, nie mapuje na int-a (mapToInt) to nie mam primitywu i tego problemu z indexem
     }
 
     void main() {
