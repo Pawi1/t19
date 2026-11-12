@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import MyInput from "../../componenty/forms/MyInput";
 
-function Checkout() {
+export default function Checkout() {
     const [daneOsobowe, setDaneOsobowe] = React.useState({
         imie: "",
         nazwisko: ""
@@ -56,4 +56,3 @@ function Checkout() {
     );
 }
 
-export default Checkout;

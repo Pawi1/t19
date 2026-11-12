@@ -1,6 +1,6 @@
 import './App.css';
 import Checkout from './strony/checkout/Checkout';
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Checkout />
@@ -8,4 +8,3 @@ function App() {
   );
 }
 
-export default App;
