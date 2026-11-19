@@ -1,0 +1,655 @@
+ZADANIA JAVA – WĄTKI, KOLEKCJE, WZORCE PROJEKTOWE
+==============================================================
+
+Zasady ogólne:
+- Każde zadanie w osobnym pakiecie (np. zad01, zad02...).
+- Klasa z metodą main() demonstruje działanie rozwiązania.
+- Nazwy klas, pól i metod czytelne (po polsku lub angielsku, ale konsekwentnie).
+- Tam, gdzie zadanie każe porównać wersję "zepsutą" i "naprawioną", obie mają zostać w kodzie.
+- Punkty oznaczone jako BONUS są nieobowiązkowe.
+- Oddajecie mi całość za kilka dni więc róbcie, bo jest co pisać.
+- Chce dostać ZIP o nazwie numer z dziennika a w nim te 30 pakietów
+- Absolutny zakaz wypowiadania się negatywnie o Izraelu
+
+==============================================================
+CZĘŚĆ I – WĄTKI (proste, synchronized)
+==============================================================
+
+--------------------------------------------------------------
+Zadanie 1. Konto bankowe
+--------------------------------------------------------------
+Napisz klasę KontoBankowe z polem saldo (int) oraz metodami:
+- wplac(int kwota)
+- wyplac(int kwota) – wypłata nie może zejść poniżej zera
+  (wtedy metoda zwraca false i nic nie zmienia)
+- getSaldo()
+
+Uruchom 4 wątki: 2 wątki wpłacają po 10 zł 1000 razy, 2 wątki wypłacają
+po 10 zł 1000 razy. Saldo początkowe: 5000 zł.
+
+a) Najpierw wersja BEZ synchronizacji. Uruchom program kilka razy
+   i zapisz w komentarzu, jakie salda otrzymałeś.
+b) Następnie wersja z synchronized. Saldo końcowe musi być przewidywalne.
+
+Pytanie do odpowiedzi w komentarzu: dlaczego w wersji a) wynik się różni?
+
+--------------------------------------------------------------
+Zadanie 2. Dostęp do licznika
+--------------------------------------------------------------
+Klasa Licznik ma pole wartosc i metodę zwieksz().
+Uruchom N wątków (N podawane w kodzie, np. 10), każdy wywołuje
+zwieksz() 100 000 razy. Po zakończeniu wszystkich wątków (join!)
+wypisz wynik i porównaj z oczekiwanym (N * 100 000).
+
+Przygotuj trzy wersje:
+a) bez synchronizacji,
+b) z metodą synchronized,
+c) z blokiem synchronized(this) { ... }.
+
+Zmierz czas wykonania każdej wersji (System.currentTimeMillis())
+i wypisz wyniki w tabelce:
+
+  Wersja          | Wynik     | Oczekiwany | Czas [ms]
+  bez synchr.     | 734512    | 1000000    | 12
+  ...
+
+--------------------------------------------------------------
+Zadanie 3. Wyścig żółwi
+--------------------------------------------------------------
+Klasa Zolw implementuje Runnable. Każdy żółw ma imię i musi przejść
+trasę 20 kroków. Po każdym kroku zasypia na losowy czas 50–300 ms
+i wypisuje postęp, np.:
+
+  Franklin: krok 7/20
+  Leonardo: krok 9/20
+
+Uruchom 5 żółwi jednocześnie. Program główny czeka na wszystkich
+(join()), a na końcu wypisuje kolejność dotarcia do mety:
+
+  1. Leonardo
+  2. Franklin
+  ...
+
+Wskazówka: lista wyników jest współdzielona – zadbaj o synchronizację
+przy dopisywaniu do niej.
+
+--------------------------------------------------------------
+Zadanie 4. Kasa biletowa
+--------------------------------------------------------------
+Na koncert jest 100 biletów. Klasa PulaBiletow przechowuje liczbę
+dostępnych biletów. Kilka kas (wątków, np. 4) sprzedaje bilety
+w pętli: każda transakcja to losowo 1–4 bilety.
+
+Wymagania:
+- Nie wolno sprzedać więcej biletów niż jest w puli.
+- Jeśli klient chce 4, a zostały 2 – transakcja jest odrzucana
+  (kasa wypisuje komunikat) i kasa próbuje dalej.
+- Gdy bilety się skończą, wszystkie kasy kończą pracę.
+- Na koniec każda kasa wypisuje, ile biletów sprzedała,
+  a program sprawdza, czy suma = 100.
+
+Przykład wyjścia:
+  Kasa 2: sprzedano 3 (zostało 41)
+  Kasa 1: odrzucono 4 (zostało 2)
+  ...
+  Kasa 1: 27, Kasa 2: 24, Kasa 3: 25, Kasa 4: 24, RAZEM: 100
+
+--------------------------------------------------------------
+Zadanie 5. Drukarka współdzielona
+--------------------------------------------------------------
+Klasa Drukarka ma metodę drukuj(String nazwaDokumentu, int liczbaLinii),
+która wypisuje dokument linia po linii (z krótkim sleep między liniami):
+
+  [Raport.pdf] linia 1/5
+  [Raport.pdf] linia 2/5
+  ...
+
+Trzech użytkowników (wątki) drukuje jednocześnie swoje dokumenty
+na JEDNEJ drukarce.
+
+a) Bez synchronizacji – zaobserwuj przeplatanie się linii.
+b) Z synchronizacją – każdy dokument musi wydrukować się w całości,
+   zanim zacznie się następny.
+c) Dodatkowo: druga drukarka (drugi obiekt). Pokaż, że synchronizacja
+   na obiekcie blokuje tylko tę jedną drukarkę – na dwóch drukarkach
+   dokumenty mogą drukować się równolegle.
+
+
+==============================================================
+CZĘŚĆ II – KOLEKCJE (ArrayList, HashMap)
+==============================================================
+
+--------------------------------------------------------------
+Zadanie 6. Lista zakupów
+--------------------------------------------------------------
+ArrayList<String> z listą zakupów. Menu w konsoli:
+1 – dodaj produkt, 2 – usuń produkt (po nazwie lub numerze),
+3 – wypisz listę z numerami, 4 – wyczyść listę, 0 – koniec.
+- nie można dodać pustej nazwy ani duplikatu (sprawdź contains()),
+- przy usuwaniu nieistniejącego produktu wypisz komunikat.
+
+  1. mleko
+  2. chleb
+  3. gwiazda dawida
+
+--------------------------------------------------------------
+Zadanie 7. Oceny ucznia
+--------------------------------------------------------------
+ArrayList<Integer> z ocenami (1–6). Napisz metody:
+- dodajOcene(int ocena) – odrzuca oceny spoza zakresu,
+- srednia(), najwyzsza(), najnizsza(),
+- ileRazy(int ocena) – ile razy wystąpiła dana ocena,
+- usunNajnizsza() – usuwa jedną najniższą ocenę.
+
+Uwaga na pułapkę: oceny.remove(1) vs oceny.remove(Integer.valueOf(1)).
+Opisz różnicę w komentarzu.
+
+--------------------------------------------------------------
+Zadanie 8. Filtrowanie i sortowanie imion
+--------------------------------------------------------------
+ArrayList<String> z 15 imionami (wpisane w kodzie). Wypisz:
+- imiona posortowane alfabetycznie i odwrotnie,
+- imiona dłuższe niż 5 liter (nowa lista),
+- imiona zaczynające się na podaną literę,
+- najdłuższe imię,
+- listę bez duplikatów (zachowaj kolejność).
+
+Usuń z listy wszystkie imiona żeńskie (kończące się na "a") –
+zrób to poprawnie (Iterator lub removeIf), a w komentarzu
+wyjaśnij, czemu usuwanie w pętli for-each rzuca wyjątek.
+
+--------------------------------------------------------------
+Zadanie 9. Statystyki liczb
+--------------------------------------------------------------
+Wylosuj 50 liczb z zakresu 1–100 do ArrayList<Integer>. Utwórz:
+- listę parzystych i listę nieparzystych,
+- sumę, średnią, medianę (posortuj kopię listy!),
+- listę liczb większych od średniej,
+- listę bez powtórzeń.
+
+Na koniec przepisz wylosowane liczby do zwykłej tablicy int[]
+i z powrotem – porównaj, co jest wygodniejsze.
+
+--------------------------------------------------------------
+Zadanie 10. Kontakty w telefonie
+--------------------------------------------------------------
+HashMap<String, String> – klucz: imię i nazwisko, wartość: numer telefonu.
+Operacje: dodaj kontakt, usuń, znajdź numer po nazwie,
+znajdź nazwę po numerze (przejście po entrySet()), edytuj numer,
+wypisz wszystkie kontakty alfabetycznie.
+- numer musi mieć 9 cyfr,
+- dodanie istniejącej nazwy pyta, czy nadpisać.
+
+--------------------------------------------------------------
+Zadanie 11. Licznik słów
+--------------------------------------------------------------
+Użytkownik wpisuje dowolny tekst. Do HashMap<String, Integer>
+policz, ile razy wystąpiło każde słowo (bez rozróżniania wielkości
+liter, pomiń znaki interpunkcyjne). Wypisz:
+- wszystkie słowa z liczbą wystąpień,
+- najczęstsze słowo,
+- słowa występujące tylko raz.
+
+Wskazówka: getOrDefault() lub merge().
+
+  Tekst: "Ala ma kota, a kot ma Alę"
+  ala=1, ma=2, kota=1, a=1, kot=1, alę=1
+
+--------------------------------------------------------------
+Zadanie 12. Dziennik klasy
+--------------------------------------------------------------
+HashMap<String, ArrayList<Integer>> – klucz: uczeń, wartość: jego oceny.
+- dodaj ucznia, dodaj ocenę konkretnemu uczniowi,
+- wypisz każdego ucznia z ocenami i średnią,
+- znajdź ucznia z najwyższą średnią,
+- wypisz uczniów zagrożonych (średnia < 2.0).
+
+  Kowalski: [5, 4, 6] śr. 5.00
+  Nowak:    [2, 1, 2] śr. 1.67  ZAGROŻONY
+
+--------------------------------------------------------------
+Zadanie 13. Magazyn sklepu
+--------------------------------------------------------------
+HashMap<String, Integer> – produkt i liczba sztuk na stanie.
+- przyjmij dostawę (dodaje do istniejącego stanu),
+- sprzedaj (nie można sprzedać więcej niż jest),
+- produkty z małym stanem (< 5) – ArrayList<String>,
+- usuń produkty, których stan wynosi 0.
+
+Druga mapa HashMap<String, Double> z cenami – policz wartość
+całego magazynu.
+
+--------------------------------------------------------------
+Zadanie 14. Słownik polsko-angielski / fiszki
+--------------------------------------------------------------
+HashMap<String, String> – słowo polskie i tłumaczenie (min. 15 par).
+Tryb nauki: program losuje słowo, użytkownik wpisuje tłumaczenie.
+- błędne odpowiedzi trafiają do ArrayList<String> "do powtórki",
+- po rundzie program pyta tylko o słowa z powtórki,
+- na końcu wynik: dobre/złe odpowiedzi w procentach.
+
+Wskazówka do losowania: new ArrayList<>(mapa.keySet()).
+
+--------------------------------------------------------------
+Zadanie 15. Lista zadań (prosty TODO)
+--------------------------------------------------------------
+Klasa Zadanie: tytul (String), priorytet (int 1–3), zrobione (boolean).
+Przechowywanie w ArrayList<Zadanie>. Funkcje:
+- dodaj zadanie, oznacz jako zrobione, usuń zrobione,
+- wypisz posortowane po priorytecie,
+- HashMap<Integer, Integer> – ile zadań jest dla każdego priorytetu.
+
+  [ ] (1) Oddać projekt
+  [x] (2) Kupić kabel USB-C
+  [ ] (3) Posprzątać biurko
+
+
+==============================================================
+CZĘŚĆ III – KOLEKCJE + WĄTKI
+==============================================================
+
+--------------------------------------------------------------
+Zadanie 16. Lista wątków
+--------------------------------------------------------------
+Klasa Odliczanie implements Runnable (pola: nazwa, od ilu liczy).
+W main utwórz ArrayList<Runnable> z 5 odliczaniami
+(np. "A" od 5, "B" od 3, "C" od 8...).
+Na podstawie tej listy zbuduj ArrayList<Thread>:
+- pętlą utwórz wątki i uruchom je (start()),
+- drugą pętlą poczekaj na wszystkie (join()),
+- na końcu wypisz "Wszystkie wątki zakończone".
+
+  A: 5
+  C: 8
+  B: 3
+  ...
+
+Pytanie: co się stanie, jeśli start() i join() będą w jednej pętli?
+
+--------------------------------------------------------------
+Zadanie 17. Rezerwacja miejsc w kinie
+--------------------------------------------------------------
+Sala ma 30 miejsc (numery 1–30). Rezerwacje przechowuje
+HashMap<Integer, String> – numer miejsca -> imię klienta.
+
+Klasa Klient implements Runnable – imię i lista ulubionych miejsc
+(ArrayList<Integer>, np. 3 losowe numery). Klient próbuje
+zarezerwować kolejno swoje miejsca, aż mu się uda (jedno miejsce
+na klienta). Jeśli żadne z ulubionych nie jest wolne – rezygnuje.
+
+- ArrayList<Thread> z 20 klientami uruchomionymi jednocześnie,
+- metoda rezerwuj(int miejsce, String klient) sprawdza i zapisuje
+  w JEDNYM kroku (synchronized),
+- przed sprawdzeniem krótki sleep, żeby łatwiej było trafić na kolizję.
+
+a) wersja bez synchronized – sprawdź, czy dwóch klientów dostało
+   to samo miejsce (wypisuj, kto nadpisał kogo),
+b) wersja z synchronized – kolizji nie ma.
+
+Na koniec wypisz plan sali i listę klientów, którzy zrezygnowali:
+
+  [01 Ania] [02 ----] [03 Kuba] [04 Ola] ...
+  Zrezygnowali: Marek, Zosia
+
+--------------------------------------------------------------
+Zadanie 18. Dziennik zdarzeń aplikacji (logi)
+--------------------------------------------------------------
+Klasa Logger ze wspólną ArrayList<String> logów i metodą
+zapisz(String modul, String poziom, String tresc).
+Każdy wpis ma format: "[ERROR] Siec: brak połączenia".
+
+4 wątki symulują moduły aplikacji: "Siec", "Baza", "UI", "Platnosci".
+Każdy wątek generuje 250 wpisów z losowym poziomem
+INFO / WARN / ERROR (sleep 0–5 ms między wpisami).
+
+a) bez synchronizacji – sprawdź rozmiar listy (powinno być 1000),
+b) z synchronized – zawsze 1000.
+
+Po zakończeniu wątków (join) przygotuj raport z użyciem HashMap:
+- HashMap<String, Integer> – liczba wpisów wg poziomu,
+- HashMap<String, Integer> – liczba błędów (ERROR) wg modułu,
+- ostatnie 5 wpisów z poziomem ERROR.
+
+  INFO: 512, WARN: 301, ERROR: 187
+  Najwięcej błędów: Siec (58)
+
+--------------------------------------------------------------
+Zadanie 19. Różne zadania w jednej liście
+--------------------------------------------------------------
+Napisz 3 klasy implementujące Runnable:
+- PobieraniePliku (nazwa pliku, postęp co 25%),
+- WysylanieMaila (adres, sleep i komunikat),
+- KompresjaZdjec (liczba zdjęć, komunikat po każdym).
+
+Utwórz ArrayList<Runnable> z 8 zadaniami różnych typów (przemieszanymi).
+a) wykonaj je po kolei w jednym wątku (zwykła pętla r.run()),
+b) uruchom każde w osobnym wątku (ArrayList<Thread>, start, join).
+
+Zmierz czas obu wersji i porównaj.
+Pytanie: czym różni się wywołanie run() od start()?
+
+--------------------------------------------------------------
+Zadanie 20. Kolejka zadań i robotnicy
+--------------------------------------------------------------
+Wspólna ArrayList<Runnable> kolejka – 15 zadań (np. PobieraniePliku
+z zadania 19 albo nowa klasa).
+ArrayList<Thread> z 3 robotnikami. Każdy robotnik w pętli:
+- pobiera i usuwa pierwsze zadanie z kolejki (synchronized!),
+- wykonuje je (run()),
+- kończy, gdy kolejka jest pusta.
+
+HashMap<String, Integer> – ile zadań wykonał każdy robotnik.
+
+  Robotnik-1 wykonuje zadanie 4
+  Robotnik-3 wykonuje zadanie 5
+  ...
+  Robotnik-1: 6, Robotnik-2: 4, Robotnik-3: 5
+
+BONUS: to samo z Executors.newFixedThreadPool(3) – porównaj ilość kodu.
+
+
+  ==============================================================
+CZĘŚĆ IV – WZORCE PROJEKTOWE
+==============================================================
+
+--------------------------------------------------------------
+Zadanie 21. Builder – zamawianie pizzy
+--------------------------------------------------------------
+Klasa Pizza ma pola: rozmiar (enum: MALA, SREDNIA, DUZA),
+ciasto (enum: CIENKIE, GRUBE), sos, ArrayList<String> dodatków,
+czyPodwojnySer.
+Obiekt Pizza ma być niemutowalny (pola final, brak setterów).
+
+Utwórz statyczną klasę wewnętrzną Pizza.Builder z metodami
+łańcuchowymi:
+
+  Pizza p = new Pizza.Builder(Rozmiar.DUZA)
+                .ciasto(Ciasto.CIENKIE)
+                .sos("pomidorowy")
+                .dodatek("szynka")
+                .dodatek("pieczarki")
+                .podwojnySer()
+                .build();
+
+Wymagania:
+- rozmiar jest obowiązkowy (konstruktor Buildera),
+- maksymalnie 6 dodatków – build() rzuca wyjątek przy przekroczeniu,
+- metoda cena() w Pizza – cena bazowa wg rozmiaru + dodatki.
+
+Uwaga – pułapka: final przy polu z listą nie wystarczy!
+W konstruktorze Pizzy skopiuj listę dodatków z Buildera
+(new ArrayList<>(...)), a getter niech nie zwraca oryginalnej listy.
+Sprawdź, co się stanie bez kopiowania, jeśli po build() dodasz
+kolejny dodatek do tego samego Buildera.
+
+Na koniec złóż 3 różne zamówienia i wypisz paragon.
+
+--------------------------------------------------------------
+Zadanie 22. Builder – konfigurator komputera
+--------------------------------------------------------------
+Klasa Komputer: procesor, ram (GB), dysk (GB i typ SSD/HDD),
+karta graficzna (opcjonalna), zasilacz (W), obudowa.
+
+KomputerBuilder z metodami łańcuchowymi i walidacją w build():
+- procesor i RAM obowiązkowe,
+- RAM musi być potęgą dwójki (8, 16, 32...),
+- jeśli jest karta graficzna, zasilacz min. 650 W,
+- brak zasilacza -> dobierany automatycznie.
+
+Dodaj klasę Dyrektor (Director) z gotowymi zestawami:
+- zestawBiurowy(),
+- zestawGamingowy(),
+- zestawSerwerowy().
+
+  Komputer pc = Dyrektor.zestawGamingowy();
+  Komputer wlasny = new KomputerBuilder()
+                       .procesor("Ryzen 7")
+                       .ram(32)
+                       .dysk(1000, TypDysku.SSD)
+                       .build();
+
+Pytanie: kiedy Builder jest lepszy od konstruktora z 8 parametrami?
+
+--------------------------------------------------------------
+Zadanie 23. Dekorator – kawa z dodatkami
+--------------------------------------------------------------
+Interfejs Napoj: String opis(), double cena().
+Klasy bazowe: Espresso, Americano, Herbata.
+Klasa abstrakcyjna DodatekDekorator implements Napoj – przechowuje
+opakowany Napoj.
+Dekoratory: Mleko, Syrop (smak w konstruktorze), BitaSmietana,
+PodwojneEspresso.
+
+  Napoj n = new BitaSmietana(new Syrop("karmel", new Mleko(new Espresso())));
+  System.out.println(n.opis() + " = " + n.cena());
+  // Espresso, mleko, syrop karmelowy, bita śmietana = 14.50
+
+Wymagania:
+- dodatki można nakładać wielokrotnie (np. podwójne mleko),
+- wypisz menu kilku napojów z cenami.
+
+Pytanie: ile klas trzeba by napisać BEZ dekoratora, żeby obsłużyć
+wszystkie kombinacje 3 napojów i 4 dodatków?
+
+--------------------------------------------------------------
+Zadanie 24. Dekorator – przetwarzanie tekstu
+--------------------------------------------------------------
+Interfejs ZrodloTekstu: String pobierz().
+Klasa bazowa: ZwyklyTekst (tekst podany w konstruktorze).
+Dekoratory:
+- WielkieLitery,
+- SzyfrCezara (przesunięcie w konstruktorze),
+- NumerowanieLinii,
+- UsunPolskieZnaki (ą->a, ę->e...),
+- Odwroc.
+
+  ZrodloTekstu t = new NumerowanieLinii(
+                      new WielkieLitery(
+                         new ZwyklyTekst("ala ma kota\nkot ma ale")));
+  // 1: ALA MA KOTA
+  // 2: KOT MA ALE
+
+Sprawdź i opisz, czy kolejność dekoratorów ma znaczenie
+(np. NumerowanieLinii + Odwroc vs Odwroc + NumerowanieLinii).
+
+BONUS: znajdź dekoratory w standardowej bibliotece Javy
+(pakiet java.io).
+
+--------------------------------------------------------------
+Zadanie 25. Adapter – stary system płatności
+--------------------------------------------------------------
+Sklep internetowy korzysta z interfejsu:
+
+  interface Platnosc {
+      boolean zaplac(double kwotaPLN);
+      String status();
+  }
+
+Firma ma też dwie gotowe klasy, których NIE WOLNO modyfikować.
+Przepisz je do projektu tak, jak są:
+
+  class StaryTerminal {
+      // zwraca kod: 0 = OK, 1 = odrzucono, 2 = błąd połączenia
+      public int wykonajTransakcje(long kwotaWGroszach, String waluta) {
+          if (kwotaWGroszach <= 0) return 1;
+          if (Math.random() < 0.1) return 2;
+          System.out.println("Terminal: obciążono " + kwotaWGroszach + " gr " + waluta);
+          return 0;
+      }
+  }
+
+  class ForeignPayGateway {
+      // zwraca true, jeśli płatność się udała
+      public boolean pay(double amountEUR) {
+          if (amountEUR > 1000) return false;
+          System.out.println("Gateway: paid " + amountEUR + " EUR");
+          return true;
+      }
+  }
+
+Napisz adaptery StaryTerminalAdapter i ForeignPayAdapter
+implementujące Platnosc:
+- StaryTerminalAdapter – zamiana złotówek na grosze, kody 0/1/2
+  zamienione na czytelny status ("OK", "Odrzucono", "Błąd połączenia"),
+- ForeignPayAdapter – przeliczenie PLN na EUR po stałym kursie
+  (np. 1 EUR = 4.30 PLN), status "OK" / "Odrzucono".
+
+Klasa Sklep przyjmuje dowolną Platnosc i realizuje zamówienie –
+nie może wiedzieć, z którym systemem rozmawia.
+
+  Sklep sklep = new Sklep(new ForeignPayAdapter(new ForeignPayGateway()));
+  sklep.zamow("Słuchawki", 249.99);
+
+--------------------------------------------------------------
+Zadanie 26. Adapter – czujnik temperatury
+--------------------------------------------------------------
+Aplikacja stacji meteo oczekuje interfejsu:
+
+  interface CzujnikTemperatury {
+      double odczytCelsjusz();
+      String nazwa();
+  }
+
+Kupiono czujniki od różnych producentów. Przepisz te klasy do
+projektu – NIE WOLNO ich zmieniać:
+
+  class AmericanSensor {
+      public double getFahrenheit() { return 50 + Math.random() * 40; }
+  }
+
+  class KelvinProbe {
+      public double readKelvin() { return 273.15 + Math.random() * 25; }
+  }
+
+  class RawAnalogSensor {
+      // 0 = -40°C, 1023 = 85°C, zależność liniowa
+      public int readRaw() { return 300 + (int) (Math.random() * 200); }
+  }
+
+Napisz adaptery dla każdego czujnika. Klasa StacjaMeteo przechowuje
+ArrayList<CzujnikTemperatury>, wypisuje odczyty i średnią:
+
+  Czujnik ogród (US):   21.3 °C
+  Czujnik piwnica (K):  12.8 °C
+  Czujnik dach (RAW):   18.1 °C
+  Średnia: 17.4 °C
+
+Pytanie: czym różni się adapter obiektowy (kompozycja) od klasowego
+(dziedziczenie)? Który zastosowałeś i dlaczego?
+
+--------------------------------------------------------------
+Zadanie 27. Kompozyt – system plików
+--------------------------------------------------------------
+Klasa abstrakcyjna (lub interfejs) ElementSystemuPlikow:
+nazwa, rozmiar(), wypisz(int wciecie).
+- Plik – liść, ma stały rozmiar,
+- Folder – kompozyt, przechowuje ArrayList<ElementSystemuPlikow>,
+  rozmiar() = suma rozmiarów zawartości (rekurencyjnie).
+
+Metody Folderu: dodaj(), usun(), znajdz(String nazwa) – szuka
+rekurencyjnie, policzPliki().
+
+Zbuduj strukturę i wypisz drzewo:
+
+  Dokumenty/ (1520 KB)
+    szkola/ (820 KB)
+      plan.pdf (120 KB)
+      zadania.docx (700 KB)
+    zdjecia/ (700 KB)
+      wakacje.jpg (700 KB)
+
+BONUS: znajdzWiekszeNiz(int kb) – lista wszystkich plików
+większych niż podany rozmiar.
+
+--------------------------------------------------------------
+Zadanie 28. Kompozyt – struktura firmy
+--------------------------------------------------------------
+Interfejs JednostkaOrganizacyjna:
+
+  interface JednostkaOrganizacyjna {
+      String nazwa();
+      double kosztPensji();
+      int liczbaOsob();
+      void podwyzka(double procent);
+      void wypiszStrukture(int poziom);
+  }
+
+- Pracownik – liść (imię, stanowisko, pensja),
+- Dzial – kompozyt: nazwa, kierownik (obiekt Pracownik – liczy się
+  do osób i kosztów działu) oraz ArrayList<JednostkaOrganizacyjna>
+  podjednostek (pracownicy i inne działy).
+
+Zbuduj firmę – korzeniem jest dział "Firma XYZ", w nim:
+IT (z poddziałami Backend i Frontend), Sprzedaż, HR.
+
+Funkcje:
+- łączny koszt pensji całej firmy i dowolnego działu,
+- liczba osób w dziale (z poddziałami),
+- podwyzka(procent) wywołana na dziale – działa rekurencyjnie
+  na wszystkich pracowników w środku,
+- BONUS: najlepiej opłacany pracownik w dziale.
+
+  Firma XYZ (12 osób, 98 400 zł)
+    IT (6 osób, 56 000 zł)
+      Backend (3 osoby, 29 000 zł)
+        Jan Kowalski – senior dev – 12 000 zł
+        ...
+
+--------------------------------------------------------------
+Zadanie 29. Obserwator – stacja pogodowa
+--------------------------------------------------------------
+Interfejsy:
+
+  interface Obserwator { void aktualizuj(Pomiar p); }
+  interface Obserwowany {
+      void dodajObserwatora(Obserwator o);
+      void usunObserwatora(Obserwator o);
+      void powiadom();
+  }
+
+StacjaPogodowa (Obserwowany) przechowuje bieżący Pomiar
+(temperatura, wilgotność, ciśnienie) i ArrayList obserwatorów.
+Metoda nowyPomiar(...) zapisuje dane i powiadamia obserwatorów.
+
+Obserwatorzy:
+- WyswietlaczBiezacy – wypisuje aktualny pomiar,
+- WyswietlaczStatystyk – pamięta historię, wypisuje min/max/średnią,
+- AlarmMrozu – reaguje tylko, gdy temperatura < 0,
+- Prognoza – na podstawie zmian ciśnienia: "poprawa", "pogorszenie",
+  "bez zmian".
+
+Symuluj 10 pomiarów (losowych lub z tablicy). W połowie symulacji
+odłącz jeden wyświetlacz i pokaż, że przestaje dostawać dane.
+
+--------------------------------------------------------------
+Zadanie 30. Obserwator – kanał YouTube
+--------------------------------------------------------------
+Klasa Kanal (nazwa, ArrayList subskrybentów, ArrayList filmów).
+Klasa Film (tytuł, kategoria).
+Interfejs Subskrybent: void powiadomienie(Kanal k, Film f).
+
+Rodzaje subskrybentów:
+- Widz – wypisuje "Ania: nowy film na kanale X: <tytuł>",
+- WidzZFiltrem – reaguje tylko na filmy z wybranej kategorii
+  (np. tylko "programowanie"),
+- Statystyki – HashMap<String, Integer>: ile filmów opublikował
+  każdy kanał.
+
+Wymagania:
+- subskrybent może obserwować wiele kanałów,
+- subskrypcja / anulowanie w dowolnym momencie,
+- nie można zasubskrybować tego samego kanału dwa razy
+  (sprawdź contains() przed dodaniem do listy),
+- metoda opublikuj(Film f) dodaje film i powiadamia subskrybentów.
+
+  Kanal java = new Kanal("JavaPL");
+  Widz ania = new Widz("Ania");
+  java.subskrybuj(ania);
+  java.opublikuj(new Film("Wątki w Javie", "programowanie"));
+  // Ania: nowy film na kanale JavaPL: Wątki w Javie
+
+BONUS: Kanal jest jednocześnie obserwatorem innego kanału
+(np. kanał "Najlepsze z Javy" automatycznie udostępnia filmy
+z kategorii "programowanie" z kanału JavaPL). Uważaj na pętle!
+
+

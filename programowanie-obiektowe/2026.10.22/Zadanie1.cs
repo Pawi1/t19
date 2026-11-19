@@ -43,7 +43,7 @@ class Truck(string brand, string model, int productionYear) : Vehicle(brand, mod
         Console.WriteLine($"Capacity: {Capacity}");
     }
 }
-class Zadanie1
+class Program
 {
     static void Main(string[] args)
     {
