@@ -16,20 +16,22 @@ public class Program {
     ///   Tekst: "Ala ma kota, a kot ma Alę"
     ///   ala=1, ma=2, kota=1, a=1, kot=1, alę=1
     void main() {
-        var input = IO.readln("Wpisz tekst: ").strip().toLowerCase().replaceAll("[,.?!]","").split(" ");
+        var input = IO.readln("Wpisz tekst: ").strip().toLowerCase().replaceAll("\\p{Punct}","").split("\\s+");
         var dict = new HashMap<String, Integer>();
         for (var w : input) {
-            dict.put(w, dict.get(w) == null ? 1 : dict.get(w) + 1 );
+            if (w.isEmpty())
+                continue;
+            dict.merge(w, 1, Integer::sum);
         }
         dict.forEach((k,v)->{
-            IO.print(String.format("%s = %d ", k, v));
+            IO.print(String.format("%s=%d ", k, v));
         });
         var najczestsze = dict.entrySet().stream().max(Map.Entry.comparingByValue()).orElseThrow();
         IO.println(String.format("\nNajczestsze: %s, wystąpienia: %d", najczestsze.getKey(),najczestsze.getValue()));
         IO.println("Słowa występujące tylko raz:");
         dict.forEach((k,v)->{
            if(v.equals(1))
-               IO.print(String.format("%s = %d ", k, v));
+               IO.print(String.format("%s=%d ", k, v));
         });
     }
 }

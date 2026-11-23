@@ -26,7 +26,7 @@ public class Program {
     {
         return oceny.stream().min(Integer::compare).get();
     }
-    int najwieksza()
+    int najwyzsza()
     {
         return oceny.stream().max(Integer::compare).get();
     }
@@ -54,7 +54,7 @@ public class Program {
         oceny.forEach(System.out::println);
         IO.println(String.format("\nŚrednia ocen: %.2f", srednia()));
         IO.println(String.format("Najnisza ocena: %d", najnizsza()));
-        IO.println(String.format("Najwyższa ocena: %d", najwieksza()));
+        IO.println(String.format("Najwyższa ocena: %d", najwyzsza()));
         IO.println(String.format("Ile razy występuje ocena '3': %d", ileRazy(3)));
         IO.println("\nUsunięcie najniższej oceny:");
         usunNajnizsza();

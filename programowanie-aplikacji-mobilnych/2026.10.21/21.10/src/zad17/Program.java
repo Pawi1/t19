@@ -20,8 +20,12 @@ public class Program {
     ///    niż faktycznie zajętych miejsc (ktoś kogoś nadpisał),
     /// b) Sala2 (z synchronized) – te liczby są zawsze równe.
     void main() throws InterruptedException {
-        var sala = new Sala();
-        //var sala = new Sala2();
+        uruchom("bez synchronized", new Sala());
+        uruchom("z synchronized", new Sala2());
+    }
+
+    private void uruchom(String nazwa, Sala sala) throws InterruptedException {
+        IO.println(String.format("\n--- %s ---", nazwa));
         var zarezerwowani = new ArrayList<String>();
         var zrezygnowali = new ArrayList<String>();
         var watki = new ArrayList<Thread>();
@@ -37,7 +41,7 @@ public class Program {
 
         sala.wypiszPlan();
         IO.println("Zrezygnowali: " + String.join(", ", zrezygnowali));
-        IO.println(String.format("\nZgłoszonych sukcesów: %d", zarezerwowani.size()));
-        IO.println(String.format("Faktycznie zajętych miejsc: %d", sala.miejsca.size()));
+        IO.println(String.format("Zgłoszonych sukcesów: %d, faktycznie zajętych miejsc: %d",
+                zarezerwowani.size(), sala.miejsca.size()));
     }
 }

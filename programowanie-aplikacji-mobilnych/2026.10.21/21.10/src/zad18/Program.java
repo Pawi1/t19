@@ -15,13 +15,20 @@ public class Program {
     /// a) Logger (bez synchronized) – rozmiar listy bywa mniejszy niż 1000,
     /// b) Logger2 (z synchronized) – zawsze 1000.
     void main() throws InterruptedException {
-        var logger = new Logger();
-        //var logger = new Logger2();
-        var nazwy = new String[]{"Siec", "Baza", "UI", "Platnosci"};
+        uruchomModuly("bez synchronized", new Logger());
+        var logger2 = new Logger2();
+        uruchomModuly("z synchronized", logger2);
+
+        raport(logger2);
+    }
+
+    private void uruchomModuly(String nazwa, Logger logger) throws InterruptedException {
+        IO.println(String.format("\n--- %s ---", nazwa));
+        var nazwyModulow = new String[]{"Siec", "Baza", "UI", "Platnosci"};
         var watki = new ArrayList<Thread>();
 
-        for (var nazwa : nazwy) {
-            var w = new Thread(new Modul(nazwa, logger));
+        for (var modul : nazwyModulow) {
+            var w = new Thread(new Modul(modul, logger));
             watki.add(w);
             w.start();
         }
@@ -29,7 +36,9 @@ public class Program {
             w.join();
 
         IO.println(String.format("Rozmiar listy: %d", logger.logi.size()));
+    }
 
+    private void raport(Logger logger) {
         var liczbaWgPoziomu = new HashMap<String, Integer>();
         var bledyWgModulu = new HashMap<String, Integer>();
         var ostatnieBledy = new ArrayList<String>();

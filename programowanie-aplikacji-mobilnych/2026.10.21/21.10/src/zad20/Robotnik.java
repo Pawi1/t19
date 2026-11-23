@@ -26,7 +26,7 @@ public class Robotnik implements Runnable {
     public void run() {
         Runnable zadanie;
         while ((zadanie = pobierzZadanie()) != null) {
-            IO.println(String.format("%s wykonuje zadanie", nazwa));
+            IO.println(String.format("%s wykonuje %s", nazwa, zadanie));
             zadanie.run();
             synchronized (wykonane) {
                 wykonane.put(nazwa, wykonane.getOrDefault(nazwa, 0) + 1);

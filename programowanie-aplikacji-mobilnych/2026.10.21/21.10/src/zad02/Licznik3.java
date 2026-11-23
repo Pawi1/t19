@@ -1,15 +1,13 @@
 package zad02;
 
-public class Licznik3 {
-    private int wartosc = 0;
+/// c) z blokiem synchronized(this)
+public class Licznik3 extends Licznik {
+    @Override
     public void zwieksz()
     {
         synchronized (this)
         {
-            wartosc ++;
+            super.zwieksz();
         }
-    }
-    public int getWartosc() {
-        return wartosc;
     }
 }

@@ -1,10 +1,9 @@
 package zad05;
 
-public class Drukarka2 {
+/// b) z synchronizacją - dokument drukuje się w całości
+public class Drukarka2 extends Drukarka {
+    @Override
     public synchronized void drukuj(String nazwaDokumentu, int liczbaLinii) throws InterruptedException {
-        for (int i = 1; i <= liczbaLinii; i++) {
-            IO.println(String.format("[%s] linia %d/%d",nazwaDokumentu,i,liczbaLinii));
-            Thread.sleep(100);
-        }
+        super.drukuj(nazwaDokumentu, liczbaLinii);
     }
 }

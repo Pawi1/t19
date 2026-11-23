@@ -3,7 +3,7 @@ package zad01;
 import java.util.ArrayList;
 
 public class Program {
-    void main()
+    void main() throws InterruptedException
     {
         /// Wersja 1: 5010, 5000, 6560
         /// Wersja 2: 5000, 5000, 5000
@@ -16,7 +16,8 @@ public class Program {
         /// b) Następnie wersja z synchronized. Saldo końcowe musi być przewidywalne.
         ///
         /// Pytanie do odpowiedzi w komentarzu: dlaczego w wersji a) wynik się różni?
-        var kb = new KontoBankowe(5000);
+        var kb = new KontoBankowe(5000);    // a) bez synchronizacji
+        //var kb = new KontoBankowe2(5000); // b) z synchronized
 
         var run1 = new Runnable() {
             @Override
@@ -42,6 +43,10 @@ public class Program {
         for(var th : lth)
         {
             th.start();
+        }
+        for(var th : lth)
+        {
+            th.join();
         }
         IO.println(kb.getSaldo());
     }

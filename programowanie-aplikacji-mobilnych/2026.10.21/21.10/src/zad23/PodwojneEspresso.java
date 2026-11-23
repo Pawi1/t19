@@ -12,6 +12,6 @@ public class PodwojneEspresso extends DodatekDekorator {
 
     @Override
     public double cena() {
-        return napoj.cena() + 15.5;
+        return napoj.cena() + 4.00;
     }
 }

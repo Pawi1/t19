@@ -12,37 +12,59 @@ public class Program {
     ///   Kowalski: [5, 4, 6] śr. 5.00
     ///   Nowak:    [2, 1, 2] śr. 1.67  ZAGROŻONY
     void main() {
-        HashMap<String, ArrayList<Integer>> dziennik = new HashMap<>();
+        var dziennik = new HashMap<String, ArrayList<Integer>>();
         while (true) {
             IO.println("""
-                    1. dodaj ucznia, dodaj ocenę konkretnemu uczniowi,
-                    2. wypisz każdego ucznia z ocenami i średnią,
-                    3. znajdź ucznia z najwyższą średnią,
-                    4. wypisz uczniów zagrożonych (średnia < 2.0).
+                    1. dodaj ucznia
+                    2. dodaj ocenę konkretnemu uczniowi
+                    3. wypisz każdego ucznia z ocenami i średnią
+                    4. znajdź ucznia z najwyższą średnią
+                    5. wypisz uczniów zagrożonych (średnia < 2.0)
                     0. koniec
                     """);
             var in = IO.readln("\nPodaj opcje: ");
             switch (in)
             {
                 case "1":
-                    var c1_key = IO.readln("Wpisz imie i nazwisko ucznia: ");
+                    var c1_key = IO.readln("Wpisz imie i nazwisko ucznia: ").strip();
                     if (c1_key.isEmpty()) {
                         IO.println("Nie możesz pustego imienia.");
                         break;
                     }
-                    var c1_value = IO.readln("Podaj nową ocene ucznia (wpisz n, jak nie chcesz dodawac nowej oceny): ");
-                    var c1_list = dziennik.get(c1_key) == null ? new ArrayList<Integer>(): dziennik.get(c1_key);
-                    if (!c1_value.equals("n"))
-                        c1_list.add(Integer.parseInt(c1_value));
-                    dziennik.put(c1_key, c1_list);
+                    if (dziennik.containsKey(c1_key))
+                        IO.println("Taki uczeń już jest w dzienniku");
+                    else {
+                        dziennik.put(c1_key, new ArrayList<>());
+                        IO.println("Dodano ucznia " + c1_key);
+                    }
                     break;
                 case "2":
-                    dziennik.forEach((k, v) -> {
-                        IO.print(String.format("Uczeń %s:\n\tOceny: %s ",k,v.toString()));
-                        IO.println(String.format("\n\tŚrednia: %.2f",v.stream().mapToInt(Integer::intValue).average().orElse(0.0)));
-                    });
+                    var c2_key = IO.readln("Wpisz imie i nazwisko ucznia: ").strip();
+                    var c2_list = dziennik.get(c2_key);
+                    if (c2_list == null) {
+                        IO.println("Nie ma takiego ucznia w dzienniku");
+                        break;
+                    }
+                    try {
+                        var c2_ocena = Integer.parseInt(IO.readln("Podaj ocene (1-6): "));
+                        if (c2_ocena < 1 || c2_ocena > 6)
+                            IO.println("Ocena musi być z zakresu 1-6");
+                        else {
+                            c2_list.add(c2_ocena);
+                            IO.println("Dodano ocene " + c2_ocena + " dla " + c2_key);
+                        }
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba");
+                    }
                     break;
                 case "3":
+                    dziennik.forEach((k, v) -> {
+                        var avg = v.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+                        IO.println(String.format("%s: %s śr. %.2f%s", k, v, avg,
+                                !v.isEmpty() && avg < 2.0 ? "  ZAGROŻONY" : ""));
+                    });
+                    break;
+                case "4":
                     var best = "";
                     double bestAvg = -1;
                     for (var e : dziennik.entrySet()) {
@@ -57,7 +79,7 @@ public class Program {
                     else
                         IO.println(String.format("Najwyższa średnia: %s (%.2f)", best, bestAvg));
                     break;
-                case "4":
+                case "5":
                     dziennik.forEach((k, v) -> {
                         double avg = v.stream().mapToInt(Integer::intValue).average().orElse(0.0);
                         if (!v.isEmpty() && avg < 2.0)

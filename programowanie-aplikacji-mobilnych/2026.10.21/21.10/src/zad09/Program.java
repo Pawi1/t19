@@ -19,7 +19,7 @@ public class Program {
         var liczby = new ArrayList<Integer>();
         var r = new Random();
         for (int i = 0; i < 50; i++) {
-            liczby.add(r.nextInt(1,100));
+            liczby.add(r.nextInt(1,101));
         }
         IO.println("Lista losowych liczb: ");
         liczby.forEach(x -> IO.print(x+" "));
@@ -34,8 +34,12 @@ public class Program {
         var srednia =  liczby.stream().mapToInt(Integer::intValue).average().orElse(-1);
         IO.println(String.format("Średnia liczb: %.2f", srednia));
         var liczby_kopia = liczby.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
-        var mediana = liczby_kopia.get(liczby_kopia.size()/2);
-        IO.println(String.format("Mediana: %d", mediana));
+        var srodek = liczby_kopia.size()/2;
+        // przy parzystej liczbie elementów mediana to średnia dwóch środkowych
+        var mediana = liczby_kopia.size() % 2 == 0
+                ? (liczby_kopia.get(srodek - 1) + liczby_kopia.get(srodek)) / 2.0
+                : liczby_kopia.get(srodek);
+        IO.println(String.format("Mediana: %.1f", mediana));
         IO.println("Posortowana lista: ");
         liczby_kopia.forEach(e -> IO.print(e + " "));
         var liczby_ponadSred = liczby.stream().filter(e -> e > srednia).collect(Collectors.toCollection(ArrayList::new));

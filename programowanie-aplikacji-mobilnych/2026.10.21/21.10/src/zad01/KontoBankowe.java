@@ -1,17 +1,18 @@
 package zad01;
 
+/// wersja a) BEZ synchronizacji
 public class KontoBankowe {
     private int saldo;
     public KontoBankowe(int saldo) {
         this.saldo = saldo;
     }
-    public synchronized void wplac(int kwota)
+    public void wplac(int kwota)
     {
         // de iure powinno sprawdzac czy wplacamy liczbe dodatnia
         if(kwota > 0)
             saldo += kwota;
     }
-    public synchronized boolean wyplac(int kwota)
+    public boolean wyplac(int kwota)
     {
         if(saldo - kwota < 0 )
             return false;

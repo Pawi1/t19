@@ -16,4 +16,9 @@ public class ProsteZadanie implements Runnable {
         }
         IO.println(String.format("Zadanie %d wykonane", numer));
     }
+
+    @Override
+    public String toString() {
+        return "zadanie " + numer;
+    }
 }

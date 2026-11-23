@@ -20,7 +20,8 @@ public class Program {
                     2. sprzedaj,
                     3. wypisz produkty z małym stanem (< 5),
                     4. usuń produkty, których stan wynosi 0,
-                    5. policz wartość całego magazynu.
+                    5. policz wartość całego magazynu,
+                    6. pokaż / zmień cenę produktu.
                     0. koniec
                     """);
             var in = IO.readln("\nPodaj opcje: ");
@@ -32,12 +33,17 @@ public class Program {
                         IO.println("Nie możesz podać pustej nazwy.");
                         break;
                     }
-                    var c1_ilosc = Integer.parseInt(IO.readln("Podaj liczbę sztuk dostawy: "));
-                    var c1_stan = magazyn.getOrDefault(c1_key, 0);
-                    magazyn.put(c1_key, c1_stan + c1_ilosc);
-                    if (!ceny.containsKey(c1_key)) {
-                        var c1_cena = IO.readln("Podaj cenę produktu: ");
-                        ceny.put(c1_key, Double.parseDouble(c1_cena));
+                    try {
+                        var c1_ilosc = Integer.parseInt(IO.readln("Podaj liczbę sztuk dostawy: "));
+                        if (c1_ilosc <= 0) {
+                            IO.println("Dostawa musi być większa od zera.");
+                            break;
+                        }
+                        magazyn.merge(c1_key, c1_ilosc, Integer::sum);
+                        if (!ceny.containsKey(c1_key))
+                            ceny.put(c1_key, Double.parseDouble(IO.readln("Podaj cenę produktu: ")));
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba.");
                     }
                     break;
                 case "2":
@@ -46,13 +52,18 @@ public class Program {
                         IO.println("Nie ma takiego produktu w magazynie.");
                         break;
                     }
-                    var c2_ilosc = Integer.parseInt(IO.readln("Podaj liczbę sztuk do sprzedania: "));
-                    var c2_stan = magazyn.get(c2_key);
-                    if (c2_ilosc > c2_stan) {
-                        IO.println(String.format("Nie można sprzedać %d sztuk, dostępne: %d.", c2_ilosc, c2_stan));
-                        break;
+                    try {
+                        var c2_ilosc = Integer.parseInt(IO.readln("Podaj liczbę sztuk do sprzedania: "));
+                        var c2_stan = magazyn.get(c2_key);
+                        if (c2_ilosc <= 0)
+                            IO.println("Sprzedaż musi być większa od zera.");
+                        else if (c2_ilosc > c2_stan)
+                            IO.println(String.format("Nie można sprzedać %d sztuk, dostępne: %d.", c2_ilosc, c2_stan));
+                        else
+                            magazyn.put(c2_key, c2_stan - c2_ilosc);
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba.");
                     }
-                    magazyn.put(c2_key, c2_stan - c2_ilosc);
                     break;
                 case "3":
                     var c3_malyStan = new ArrayList<String>();
@@ -73,6 +84,23 @@ public class Program {
                     for (var e : magazyn.entrySet())
                         c5_wartosc += e.getValue() * ceny.getOrDefault(e.getKey(), 0.0);
                     IO.println(String.format("Wartość magazynu: %.2f", c5_wartosc));
+                    break;
+                case "6":
+                    var c6_key = IO.readln("Wpisz nazwę produktu: ");
+                    if (!ceny.containsKey(c6_key)) {
+                        IO.println("Nie ma takiego produktu w magazynie.");
+                        break;
+                    }
+                    IO.println(String.format("Aktualna cena %s: %.2f", c6_key, ceny.get(c6_key)));
+                    var c6_nowa = IO.readln("Nowa cena (Enter = bez zmian): ").strip();
+                    if (c6_nowa.isEmpty())
+                        break;
+                    try {
+                        ceny.put(c6_key, Double.parseDouble(c6_nowa));
+                        IO.println(String.format("Zmieniono cenę na %.2f", ceny.get(c6_key)));
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba.");
+                    }
                     break;
                 case "0":
                     return;

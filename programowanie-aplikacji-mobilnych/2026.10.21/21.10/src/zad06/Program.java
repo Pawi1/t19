@@ -29,8 +29,10 @@ public class Program {
             switch (inp)
             {
                 case "1":
-                    var case1inp = IO.readln("\nNazwa produktu: ");
-                    if( case1inp.isEmpty() || zakupy.contains(case1inp) )
+                    var case1inp = IO.readln("\nNazwa produktu: ").trim();
+                    if( case1inp.isEmpty() )
+                        IO.println("Nazwa nie może być pusta");
+                    else if( zakupy.contains(case1inp) )
                         IO.println("Produkt już istnieje");
                     else
                         zakupy.add(case1inp);
@@ -40,19 +42,24 @@ public class Program {
                     if(zakupy.remove(case2inp))
                         IO.println("Usuniete\n");
                     else {
-                        int index = Integer.parseInt(case2inp);
-                        if (index >= 0 && index < zakupy.size()) {
-                            zakupy.remove(index);
-                            IO.println("Usuniete\n");
+                        try {
+                            // numery na liście są od 1, w ArrayList indeksy od 0
+                            var numer = Integer.parseInt(case2inp);
+                            if (numer >= 1 && numer <= zakupy.size()) {
+                                zakupy.remove(numer - 1);
+                                IO.println("Usuniete\n");
+                            }
+                            else
+                                IO.println("Nie ma produktu o numerze " + numer + "\n");
+                        } catch (NumberFormatException e) {
+                            IO.println("Nie ma takiego produktu na liście\n");
                         }
-                        else
-                            IO.println("Cos poszlo nie tak\n");
                     }
                     break;
                 case "3":
                     IO.println();
                     for (int i = 0; i < zakupy.size(); i++) {
-                        IO.println(i+": "+zakupy.get(i));
+                        IO.println((i+1)+". "+zakupy.get(i));
                     }
                     IO.println();
                     break;

@@ -22,6 +22,21 @@ package zad24;
 /// (pakiet java.io).
 public class Program {
     void main() {
+        // przykład z treści zadania
+        IO.println(new NumerowanieLinii(
+                new WielkieLitery(
+                        new ZwyklyTekst("ala ma kota\nkot ma ale"))).pobierz());
+
+        IO.println("\nUsunPolskieZnaki:");
+        IO.println(new UsunPolskieZnaki(
+                new ZwyklyTekst("Zażółć gęślą jaźń, ćma")).pobierz());
+
+        IO.println("\nSzyfrCezara(3) i odszyfrowanie przez SzyfrCezara(-3):");
+        var zaszyfrowany = new SzyfrCezara(3, new ZwyklyTekst("ala ma kota"));
+        IO.println(zaszyfrowany.pobierz());
+        IO.println(new SzyfrCezara(-3, zaszyfrowany).pobierz());
+
+        IO.println("\nKolejność dekoratorów:");
         ZrodloTekstu t = new NumerowanieLinii(
                 new Odwroc(
                         new ZwyklyTekst("ala ma kota\nkot ma ale")));

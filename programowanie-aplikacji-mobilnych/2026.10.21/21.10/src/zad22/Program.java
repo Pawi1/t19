@@ -32,11 +32,34 @@ public class Program {
     void main() {
         Komputer pc = Dyrektor.zestawGamingowy();
         Komputer wlasny = new Komputer.Builder()
-                        .cpu("Ryzen 7")
+                        .procesor("Ryzen 7")
                         .ram(32)
                         .dysk(1000, TypDysku.SSD)
                         .build();
         IO.println(pc);
         IO.println(wlasny);
+        IO.println(Dyrektor.zestawBiurowy());
+        // zestawBiurowy i zestawSerwerowy nie podają zasilacza - jest dobierany automatycznie
+        IO.println(Dyrektor.zestawSerwerowy());
+
+        // GPU bez odpowiedniego zasilacza -> wyjatek
+        try {
+            new Komputer.Builder()
+                    .procesor("Ryzen 5")
+                    .ram(16)
+                    .kartaGraficzna("RTX 4060")
+                    .zasilacz(450)
+                    .dysk(512, TypDysku.SSD)
+                    .build();
+        } catch (IllegalArgumentException e) {
+            IO.println("Odrzucone: " + e.getMessage());
+        }
+
+        // RAM niebędący potęgą dwójki -> wyjatek
+        try {
+            new Komputer.Builder().procesor("i5").ram(12).build();
+        } catch (IllegalArgumentException e) {
+            IO.println("Odrzucone: " + e.getMessage());
+        }
     }
 }

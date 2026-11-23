@@ -3,10 +3,10 @@ package zad22;
 public class Komputer {
     private final String cpu;
     private final int ram;
-    private String gpu;
-    private Dysk dysk;
-    private int zasilacz;
-    private TypObudowy typObudowy;
+    private final String gpu;
+    private final Dysk dysk;
+    private final int zasilacz;
+    private final TypObudowy typObudowy;
     public Komputer(Builder b){
         cpu = b.cpu;
         ram = b.ram;
@@ -18,7 +18,7 @@ public class Komputer {
     private static boolean jestPotegaDwojki(int n) {
         return n > 0 && (n & (n - 1)) == 0;
     }
-    public String getCpu() {
+    public String getProcesor() {
         return cpu;
     }
 
@@ -26,7 +26,7 @@ public class Komputer {
         return ram;
     }
 
-    public String getGpu() {
+    public String getKartaGraficzna() {
         return gpu;
     }
 
@@ -52,9 +52,9 @@ public class Komputer {
         private int ram;
         private String gpu;
         private Dysk dysk;
-        private int zasilacz = 200;
+        private int zasilacz = 0;   // 0 = nie podano, dobierany automatycznie
         private TypObudowy typObudowy;
-        public Builder cpu(String cpu) {
+        public Builder procesor(String cpu) {
             this.cpu = cpu;
             return this;
         }
@@ -65,7 +65,7 @@ public class Komputer {
             this.ram = ram;
             return this;
         }
-        public Builder gpu(String gpu) {
+        public Builder kartaGraficzna(String gpu) {
             this.gpu = gpu;
             return this;
         }
@@ -85,9 +85,18 @@ public class Komputer {
         {
             if (cpu == null || ram == 0)
                 throw new IllegalArgumentException("cpu or ram must be set");
+            if (zasilacz == 0)
+                zasilacz = dobierzZasilacz();
             if (gpu != null && zasilacz < 650)
                 throw new IllegalArgumentException("if gpu, zasilacz must be >= 650");
             return new Komputer(this);
+        }
+        /// brak zasilacza -> dobierany automatycznie
+        private int dobierzZasilacz()
+        {
+            if (gpu != null)
+                return ram >= 64 ? 850 : 750;
+            return ram >= 64 ? 550 : 350;
         }
     }
 }

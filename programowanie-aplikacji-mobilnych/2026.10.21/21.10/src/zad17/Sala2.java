@@ -1,16 +1,9 @@
 package zad17;
 
+/// b) wersja z synchronized - sprawdzenie i zapis w JEDNYM kroku, brak kolizji
 public class Sala2 extends Sala {
     @Override
     synchronized boolean rezerwuj(int miejsce, String klient) {
-        if (miejsca.get(miejsce) != null)
-            return false;
-        try {
-            Thread.sleep(r.nextInt(6));
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        miejsca.put(miejsce, klient);
-        return true;
+        return super.rezerwuj(miejsce, klient);
     }
 }

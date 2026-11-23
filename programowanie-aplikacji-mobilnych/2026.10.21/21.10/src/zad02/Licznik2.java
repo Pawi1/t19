@@ -1,12 +1,10 @@
 package zad02;
 
-public class Licznik2 {
-    private int wartosc = 0;
+/// b) z metodą synchronized
+public class Licznik2 extends Licznik {
+    @Override
     public synchronized void zwieksz()
     {
-        wartosc ++;
-    }
-    public int getWartosc() {
-        return wartosc;
+        super.zwieksz();
     }
 }

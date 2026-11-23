@@ -1,5 +1,6 @@
 package zad02;
 
+/// a) bez synchronizacji
 public class Licznik {
     private int wartosc = 0;
     public void zwieksz()

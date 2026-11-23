@@ -2,6 +2,8 @@ package zad20;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Program {
     /// Wspólna ArrayList<Runnable> kolejka – 15 zadań.
@@ -12,17 +14,14 @@ public class Program {
     ///
     /// HashMap<String, Integer> – ile zadań wykonał każdy robotnik.
     ///
-    /// BONUS: to samo z Executors.newFixedThreadPool(3) wyglądałoby tak:
-    ///
-    ///   var pool = Executors.newFixedThreadPool(3);
-    ///   for (var zadanie : kolejka)
-    ///       pool.submit(zadanie);
-    ///   pool.shutdown();
-    ///   pool.awaitTermination(1, TimeUnit.MINUTES);
-    ///
-    /// Zamiast własnej kolejki i klasy Robotnik, cały podział pracy
-    /// między wątki robi executor – kilka linii zamiast dwóch klas.
+    /// BONUS: to samo z Executors.newFixedThreadPool(3) – porównaj ilość kodu.
     void main() throws InterruptedException {
+        wlasnaKolejka();
+        bonusExecutor();
+    }
+
+    private void wlasnaKolejka() throws InterruptedException {
+        IO.println("--- własna kolejka + klasa Robotnik ---");
         var kolejka = new ArrayList<Runnable>();
         for (var i = 1; i <= 15; i++)
             kolejka.add(new ProsteZadanie(i));
@@ -39,5 +38,23 @@ public class Program {
 
         IO.println("");
         wykonane.forEach((nazwa, ile) -> IO.print(String.format("%s: %d  ", nazwa, ile)));
+        IO.println("");
+    }
+
+    /// BONUS: executor sam dzieli pracę między 3 wątki - nie trzeba
+    /// ani własnej kolejki, ani klasy Robotnik, ani synchronized.
+    /// 4 linie zamiast osobnej klasy Robotnik (36 linii) i ręcznego
+    /// zarządzania ArrayList<Thread>.
+    private void bonusExecutor() throws InterruptedException {
+        IO.println("\n--- BONUS: Executors.newFixedThreadPool(3) ---");
+        var kolejka = new ArrayList<Runnable>();
+        for (var i = 1; i <= 15; i++)
+            kolejka.add(new ProsteZadanie(i));
+
+        var pool = Executors.newFixedThreadPool(3);
+        for (var zadanie : kolejka)
+            pool.submit(zadanie);
+        pool.shutdown();
+        pool.awaitTermination(1, TimeUnit.MINUTES);
     }
 }

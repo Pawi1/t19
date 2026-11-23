@@ -3,7 +3,7 @@ package zad22;
 public class Dyrektor {
     public static Komputer zestawBiurowy(){
         return new Komputer.Builder()
-                .cpu("Ryzen 3")
+                .procesor("Ryzen 3")
                 .ram(8)
                 .dysk(128,TypDysku.SSD)
                 .typObudowy(TypObudowy.BIUROWA)
@@ -11,9 +11,9 @@ public class Dyrektor {
     }
     public static Komputer zestawGamingowy(){
         return new Komputer.Builder()
-                .cpu("Ryzen 7")
+                .procesor("Ryzen 7")
                 .ram(16)
-                .gpu("GeForce RTX 3036")
+                .kartaGraficzna("GeForce RTX 3036")
                 .zasilacz(800)
                 .dysk(1024,TypDysku.NVME)
                 .typObudowy(TypObudowy.GAMINGOWA)
@@ -21,9 +21,8 @@ public class Dyrektor {
     }
     public static Komputer zestawSerwerowy(){
         return new Komputer.Builder()
-                .cpu("Threadripper")
+                .procesor("Threadripper")
                 .ram(256)
-                .zasilacz(800)
                 .dysk(16384,TypDysku.HDD) // powinna być lista bo to bezsensu
                 .typObudowy(TypObudowy.SERWEROWA)
                 .build();

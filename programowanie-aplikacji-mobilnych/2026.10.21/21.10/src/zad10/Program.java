@@ -21,9 +21,10 @@ public class Program {
                 case "1":
                     var c1_key = IO.readln("Podaj imie i nazwisko: ");
                     var c1_value = IO.readln("Podaj numer telefonu: ").strip().replaceAll("[- ]","");
-                    if(c1_value.length() != 9)
+                    if(!c1_value.matches("\\d{9}"))
                     {
-                        IO.println("Zła długość");
+                        IO.println("Numer musi mieć 9 cyfr");
+                        break;
                     }
                     if(kontakty.get(c1_key) != null)
                     {
@@ -38,7 +39,7 @@ public class Program {
                     var c2_key = IO.readln("Podaj kontakt po usunięcia (imie i nazwisko): ");
                     if(kontakty.remove(c2_key) == null)
                         IO.println("Nie znaleziono kontaktu");
-                    else if(kontakty.remove(c2_key).equals(c2_key))
+                    else
                         IO.println("Usunięto pomyślnie");
                     break;
                 case "3":
@@ -51,15 +52,16 @@ public class Program {
                     break;
                 case "4":
                     var c4_value = IO.readln("Podaj kontakt do znalezienia (nr. telefonu): ");
-                    // po entrySet
-//                    kontakty.entrySet().forEach(e -> {
-//                        if(e.getValue().equals(c4_value))
-//                            IO.println("Znaleziono imie i nazwisko: "+e.getKey());
-//                    });
-                    kontakty.forEach((key, value) -> {
-                        if (value.equals(c4_value))
-                            IO.println("Znaleziono imie i nazwisko: " + key);
-                    });
+                    // przejscie po entrySet()
+                    var c4_znaleziono = false;
+                    for (var e : kontakty.entrySet()) {
+                        if (e.getValue().equals(c4_value)) {
+                            IO.println("Znaleziono imie i nazwisko: " + e.getKey());
+                            c4_znaleziono = true;
+                        }
+                    }
+                    if (!c4_znaleziono)
+                        IO.println("Nie znaleziono kontaktu o numerze " + c4_value);
                     break;
                 case "5":
                     var c5_key = IO.readln("Podaj imie i nazwisko kontaktu do zmiany: ");
@@ -69,9 +71,10 @@ public class Program {
                         break;
                     }
                     var c5_valueNew = IO.readln("Nowy numer telefonu: ").strip().replaceAll("[- ]","");
-                    if(c5_valueNew.length() != 9)
+                    if(!c5_valueNew.matches("\\d{9}"))
                     {
-                        IO.println("Zła długość");
+                        IO.println("Numer musi mieć 9 cyfr");
+                        break;
                     }
                     kontakty.put(c5_key,c5_valueNew);
                     IO.println(String.format("Zmieniono kontakt:\n\timie i nazwisko: %s\n\tnumer: %s",c5_key,c5_valueNew));

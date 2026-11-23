@@ -33,11 +33,22 @@ public class Program {
                 var calkowitaIlosc = 0;
                 while (pula.getBilety() > 0)
                 {
-                    var ilosc = r.nextInt(1,4);
-                    var wynik = pula.sprzedaz(ilosc);
-                    if(wynik)
-                        calkowitaIlosc += ilosc;
-                    IO.println(String.format("Kasa %d: %s %d (zostało %d)",numer, wynik?"sprzedano":"odrzucono",ilosc,pula.getBilety()));
+                    var ilosc = r.nextInt(1,5);
+                    // sprzedaż i odczyt stanu muszą być w jednym bloku,
+                    // inaczej komunikat pokazuje stan już zmieniony przez inną kasę
+                    synchronized (pula) {
+                        var wynik = pula.sprzedaz(ilosc);
+                        if(wynik)
+                            calkowitaIlosc += ilosc;
+                        IO.println(String.format("Kasa %d: %s %d (zostało %d)",numer, wynik?"sprzedano":"odrzucono",ilosc,pula.getBilety()));
+                    }
+                    try {
+                        // krótka przerwa między transakcjami, inaczej jedna kasa
+                        // od razu odbiera monitor i sprzedaje całą pulę
+                        Thread.sleep(r.nextInt(1,10));
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 sprzedane[numer-1] = calkowitaIlosc;
             }
@@ -56,6 +67,10 @@ public class Program {
         {
             th.join();
         }
-        IO.println(String.format("\nKasa 1: %d, Kasa 2: %d, Kasa 3: %d, Kasa 4: %d, RAZEM: %d",sprzedane[0],sprzedane[1],sprzedane[2],sprzedane[3], (sprzedane[0]+sprzedane[1]+sprzedane[2]+sprzedane[3])));
+        var razem = sprzedane[0]+sprzedane[1]+sprzedane[2]+sprzedane[3];
+        IO.println(String.format("\nKasa 1: %d, Kasa 2: %d, Kasa 3: %d, Kasa 4: %d, RAZEM: %d",sprzedane[0],sprzedane[1],sprzedane[2],sprzedane[3], razem));
+        IO.println(razem == 100
+                ? "Suma = 100 - OK"
+                : "BŁĄD: suma = " + razem + ", a powinno być 100 (zostało " + pula.getBilety() + ")");
     }
 }

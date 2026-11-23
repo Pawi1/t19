@@ -8,6 +8,6 @@ public class Espresso implements Napoj {
 
     @Override
     public double cena() {
-        return 8.0;
+        return 9.00;
     }
 }

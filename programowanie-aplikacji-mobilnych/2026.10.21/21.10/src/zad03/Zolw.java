@@ -11,16 +11,18 @@ public class Zolw implements Runnable {
 
     @Override
     public void run() {
+        var r = new Random();
         for (int i = 0; i < 20; i++) {
-            var r = new Random();
             IO.println(String.format("%s: krok %d/20",imie,i+1));
             try {
-                Thread.sleep(r.nextInt(50,300));
+                Thread.sleep(r.nextInt(50,301));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
-        synchronized (this) {
+        // monitorem musi być wspólna lista, a nie this - każdy żółw to inny obiekt,
+        // więc synchronized(this) niczego nie chroniłoby
+        synchronized (Program.wyniki) {
             Program.wyniki.add(imie);
         }
     }

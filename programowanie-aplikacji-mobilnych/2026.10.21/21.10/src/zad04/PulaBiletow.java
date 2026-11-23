@@ -10,7 +10,7 @@ public class PulaBiletow {
         return true;
     }
 
-    public int getBilety() {
+    public synchronized int getBilety() {
         return bilety;
     }
 }

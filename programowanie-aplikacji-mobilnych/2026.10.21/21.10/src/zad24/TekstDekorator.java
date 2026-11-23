@@ -7,7 +7,5 @@ public abstract class TekstDekorator implements ZrodloTekstu {
     }
 
     @Override
-    public String pobierz() {
-        return "";
-    }
+    public abstract String pobierz();
 }

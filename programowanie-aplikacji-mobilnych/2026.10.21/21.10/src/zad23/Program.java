@@ -9,7 +9,7 @@ import java.util.List;
 /// Dekoratory: Mleko, Syrop (smak w konstruktorze), BitaSmietana,
 /// PodwojneEspresso.
 ///
-///   Napoj n = new BitaSmietana(new Syrop("karmel", new Mleko(new Espresso())));
+///   Napoj n = new BitaSmietana(new Syrop("karmelowy", new Mleko(new Espresso())));
 ///   System.out.println(n.opis() + " = " + n.cena());
 ///   // Espresso, mleko, syrop karmelowy, bita śmietana = 14.50
 ///
@@ -24,20 +24,20 @@ import java.util.List;
 //      3 napoje mnożymy przez (reguła mnożenia) 4 dodatki które mogą wystąpić lub nie (wariacje z powtórzeniami)
 public class Program {
     void main() {
-        Napoj n = new BitaSmietana(new Syrop("karmel", new Mleko(new Espresso())));
-        IO.println(n.opis() + " = " + n.cena());
+        Napoj n = new BitaSmietana(new Syrop("karmelowy", new Mleko(new Espresso())));
+        IO.println(String.format("%s = %.2f", n.opis(), n.cena()));
 
         var menu = List.of(
                 new Espresso(),
                 new Mleko(new Mleko(new Americano())),
                 new PodwojneEspresso(new Mleko(new Espresso())),
-                new Syrop("malin", new Herbata()),
-                new BitaSmietana(new Syrop("karmel", new Mleko(new Espresso())))
+                new Syrop("malinowy", new Herbata()),
+                new BitaSmietana(new Syrop("karmelowy", new Mleko(new Espresso())))
         );
 
         IO.println("\nMenu:");
         for (Napoj x : menu) {
-            IO.println(x.opis() + " - " + x.cena()+" zł");
+            IO.println(String.format("%s - %.2f zł", x.opis(), x.cena()));
         }
     }
 }

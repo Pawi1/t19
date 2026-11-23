@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-final class Pizza {
+public final class Pizza {
     static final int MAX_DODATKOW = 6;
     private static final double CENA_DODATKU = 3.00;
     private static final double CENA_PODWOJNEGO_SERA = 4.00;
@@ -48,6 +48,29 @@ final class Pizza {
                 + dodatki.size() * CENA_DODATKU
                 + (czyPodwojnySer ? CENA_PODWOJNEGO_SERA : 0);
     }
+    public String paragon()
+    {
+        var sb = new StringBuilder();
+        sb.append("--------- PARAGON ---------\n");
+        sb.append(String.format("Pizza %s, ciasto %s%n", rozmiar, ciasto));
+        sb.append(String.format("  sos: %s%n", sos));
+        if (dodatki.isEmpty())
+            sb.append("  bez dodatków\n");
+        else
+            for (var d : dodatki)
+                sb.append(String.format("  + %s%n", d));
+        if (czyPodwojnySer)
+            sb.append("  + podwójny ser\n");
+        sb.append(String.format("RAZEM: %.2f zł%n", cena()));
+        sb.append("---------------------------");
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return paragon();
+    }
+
     public static class Builder
     {
         private final Rozmiar rozmiar;
@@ -71,7 +94,7 @@ final class Pizza {
             this.dodatki.add(dodatek);
             return this;
         }
-        public Builder pdwojnySer() {
+        public Builder podwojnySer() {
             this.czyPodwojnySer = true;
             return this;
         }

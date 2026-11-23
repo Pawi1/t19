@@ -13,6 +13,6 @@ public class BitaSmietana extends DodatekDekorator {
 
     @Override
     public double cena() {
-        return napoj.cena() + 0.5;
+        return napoj.cena() + 2.00;
     }
 }

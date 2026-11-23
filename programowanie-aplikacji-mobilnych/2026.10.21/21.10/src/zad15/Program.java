@@ -2,7 +2,7 @@ package zad15;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Program {
     /// Klasa Zadanie: tytul (String), priorytet (int 1–3), zrobione (boolean).
@@ -34,22 +34,28 @@ public class Program {
                         IO.println("Nie możesz podać pustego tytułu.");
                         break;
                     }
-                    var c1_priorytet = Integer.parseInt(IO.readln("Podaj priorytet (1-3): "));
-                    if (c1_priorytet < 1 || c1_priorytet > 3) {
-                        IO.println("Priorytet musi być w zakresie 1-3.");
-                        break;
+                    try {
+                        var c1_priorytet = Integer.parseInt(IO.readln("Podaj priorytet (1-3): "));
+                        if (c1_priorytet < 1 || c1_priorytet > 3)
+                            IO.println("Priorytet musi być w zakresie 1-3.");
+                        else
+                            zadania.add(new Zadanie(c1_tytul, c1_priorytet));
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba.");
                     }
-                    zadania.add(new Zadanie(c1_tytul, c1_priorytet));
                     break;
                 case "2":
                     for (var i = 0; i < zadania.size(); i++)
                         IO.println(String.format("%d: %s", i, zadania.get(i)));
-                    var c2_index = Integer.parseInt(IO.readln("Podaj numer zadania do oznaczenia jako zrobione: "));
-                    if (c2_index < 0 || c2_index >= zadania.size()) {
-                        IO.println("Nie ma takiego zadania.");
-                        break;
+                    try {
+                        var c2_index = Integer.parseInt(IO.readln("Podaj numer zadania do oznaczenia jako zrobione: "));
+                        if (c2_index < 0 || c2_index >= zadania.size())
+                            IO.println("Nie ma takiego zadania.");
+                        else
+                            zadania.get(c2_index).zrobione = true;
+                    } catch (NumberFormatException e) {
+                        IO.println("To nie jest liczba.");
                     }
-                    zadania.get(c2_index).zrobione = true;
                     break;
                 case "3":
                     zadania.removeIf(z -> z.zrobione);
@@ -61,7 +67,7 @@ public class Program {
                             .forEach(z -> IO.println(z.toString()));
                     break;
                 case "5":
-                    var c5_mapa = new HashMap<Integer, Integer>();
+                    var c5_mapa = new TreeMap<Integer, Integer>();
                     for (var z : zadania)
                         c5_mapa.put(z.priorytet, c5_mapa.getOrDefault(z.priorytet, 0) + 1);
                     c5_mapa.forEach((priorytet, ile) -> IO.println(String.format("Priorytet %d: %d zadań", priorytet, ile)));
