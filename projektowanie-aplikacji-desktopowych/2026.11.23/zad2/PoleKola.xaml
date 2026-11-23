@@ -1,0 +1,17 @@
+﻿<Window x:Class="zad2.PoleKola"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zad2"
+        mc:Ignorable="d"
+        Title="PoleKola" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="200 50 200 50" Orientation="Vertical">
+            <TextBlock Text="Promień r:" />
+            <TextBox x:Name="liczbaA" Margin="5"/>
+            <Button x:Name="obliczButton" Margin="20" Content="Oblicz pole kóła" Click="obliczButton_Click"/>
+            <TextBlock x:Name="wynik" FontSize="30" FontWeight="Bold" TextAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
