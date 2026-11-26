@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  width: 800px;
+  margin: 0 auto;
+  color: navy;
+}
+
+.Header h1 {
+  color: darkred;
+  font-style: italic;
+  text-align: center;
+}
+
+.Header h3 {
+  color: brown;
+}
+
+.Info {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.Info u, .Calc u {
+  color: blueviolet;
+}
+
+.definition, .equation, .result, .Graph p {
+  color: blue;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.Calc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Calc .col {
+  width: 48%;
+}
+
+.error {
+  color: blue;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.85em;
+}
+
+button {
+  background-color: darkgoldenrod;
+}
+
+.Footer {
+  text-align: center;
+  color: darkgreen;
+}
+
+.Graph .MafsView {
+  --mafs-bg: white;
+  --mafs-fg: black;
+  --mafs-line-color: #ddd;
+  --mafs-origin-color: black;
+  border: 1px solid #ccc;
+}
